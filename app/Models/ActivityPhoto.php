@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable(['activity_id', 'path', 'order'])]
-class activity_photos extends Model
+class ActivityPhoto extends Model
 {
     protected function casts(): array
     {
@@ -18,6 +18,6 @@ class activity_photos extends Model
 
     public function activity(): BelongsTo
     {
-        return $this->belongsTo(activities::class);
+        return $this->belongsTo(Activity::class);
     }
 }

@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
     'original_filename',
 ])]
 
-class rpps extends Model
+class Rpp extends Model
 {
     use SoftDeletes;
 

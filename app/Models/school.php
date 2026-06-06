@@ -38,46 +38,46 @@ class School extends Model
 
     public function news(): HasMany
     {
-        return $this->hasMany(news::class);
+        return $this->hasMany(News::class);
     }
 
     public function activities(): HasMany
     {
-        return $this->hasMany(activities::class);
+        return $this->hasMany(Activity::class);
     }
 
     public function achievements(): HasMany
     {
-        return $this->hasMany(achievements::class);
+        return $this->hasMany(Achievement::class);
     }
 
     public function galleries(): HasMany
     {
-        return $this->hasMany(galleries::class);
+        return $this->hasMany(Gallery::class);
     }
 
     public function registrations(): HasMany
     {
-        return $this->hasMany(registrations::class);
+        return $this->hasMany(Registration::class);
     }
 
     public function academicCalendars(): HasMany
     {
-        return $this->hasMany(academic_calendars::class);
+        return $this->hasMany(AcademicCalendar::class);
     }
 
     public function announcements(): HasMany
     {
-        return $this->hasMany(announcements::class);
+        return $this->hasMany(Announcement::class);
     }
 
     public function downloads(): HasMany
     {
-        return $this->hasMany(downloads::class);
+        return $this->hasMany(Download::class);
     }
 
     public function rpps(): HasMany
     {
-        return $this->hasMany(rpps::class);
+        return $this->hasMany(Rpp::class);
     }
 }

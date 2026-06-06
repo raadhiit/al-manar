@@ -5,29 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable([
     'school_id',
     'title',
-    'slug',
     'category',
-    'activity_date',
-    'description',
-    'thumbnail_path',
+    'file_path',
+    'original_filename',
+    'is_active',
 ])]
-class activities extends Model
-{
-    use SoftDeletes;
 
-    public function school()
+class Download extends Model
+{
+    protected function casts(): array
+    {
+        return [
+            'is_active' => 'boolean',
+        ];
+    }
+
+    public function school(): BelongsTo
     {
         return $this->belongsTo(School::class);
     }
 
-    public function photos()
+    public function scopeActive(Builder $query): Builder
     {
-        return $this->hasMany(activity_photos::class)->orderBy('order');
+        return $query->where('is_active', true);
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder
@@ -38,10 +43,5 @@ class activities extends Model
     public function scopeByCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
-    }
-
-    public function scopeLatestFirst(Builder $query): Builder
-    {
-        return $query->orderBy('activity_date', 'desc');
     }
 }

@@ -6,22 +6,25 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 #[Fillable([
     'school_id',
     'title',
+    'body',
     'category',
-    'file_path',
-    'original_filename',
-    'is_active',
+    'status',
+    'published_at',
 ])]
 
-class downloads extends Model
+class Announcement extends Model
 {
+    use SoftDeletes;
+
     protected function casts(): array
     {
         return [
-            'is_active' => 'boolean',
+            'published_at' => 'datetime',
         ];
     }
 
@@ -30,9 +33,11 @@ class downloads extends Model
         return $this->belongsTo(School::class);
     }
 
-    public function scopeActive(Builder $query): Builder
+    public function scopePublished(Builder $query): Builder
     {
-        return $query->where('is_active', true);
+        return $query->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now());
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder

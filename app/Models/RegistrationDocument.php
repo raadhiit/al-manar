@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable(['registration_id', 'type', 'path', 'original_filename'])]
 
-class registration_documents extends Model
+class RegistrationDocument extends Model
 {
     public function registration(): BelongsTo
     {
-        return $this->belongsTo(registrations::class);
+        return $this->belongsTo(Registration::class);
     }
 }

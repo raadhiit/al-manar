@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 #[Fillable(['school_id', 'title', 'type', 'cover_path', 'description'])]
-class galleries extends Model
+class Gallery extends Model
 {
     use SoftDeletes;
 
@@ -21,7 +21,7 @@ class galleries extends Model
 
     public function items(): HasMany
     {
-        return $this->hasMany(gallery_items::class)->orderBy('order');
+        return $this->hasMany(GalleryItem::class)->orderBy('order');
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder

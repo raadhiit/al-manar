@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
     'status',
     'published_at',
 ])]
-class news extends Model
+class News extends Model
 {
     use SoftDeletes;
 

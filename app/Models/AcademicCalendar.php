@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     'is_active',
 ])]
 
-class academic_calendars extends Model
+class AcademicCalendar extends Model
 {
     protected function casts(): array
     {

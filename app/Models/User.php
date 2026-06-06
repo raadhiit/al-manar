@@ -37,11 +37,11 @@ class User extends Authenticatable
 
     public function news(): HasMany
     {
-        return $this->hasMany(news::class);
+        return $this->hasMany(News::class);
     }
 
     public function rpps(): HasMany
     {
-        return $this->hasMany(rpps::class);
+        return $this->hasMany(Rpp::class);
     }
 }

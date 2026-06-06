@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
     'year',
     'photo_path',
 ])]
-class achievements extends Model
+class Achievement extends Model
 {
     use SoftDeletes;
 

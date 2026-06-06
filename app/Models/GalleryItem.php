@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 #[Fillable(['gallery_id', 'path', 'type', 'youtube_url', 'caption', 'order'])]
 
-class gallery_items extends Model
+class GalleryItem extends Model
 {
     protected function casts(): array
     {
@@ -19,6 +19,6 @@ class gallery_items extends Model
 
     public function gallery(): BelongsTo
     {
-        return $this->belongsTo(galleries::class);
+        return $this->belongsTo(Gallery::class);
     }
 }

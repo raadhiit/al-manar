@@ -5,39 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 #[Fillable([
     'school_id',
     'title',
-    'body',
+    'slug',
     'category',
-    'status',
-    'published_at',
+    'activity_date',
+    'description',
+    'thumbnail_path',
 ])]
-
-class announcements extends Model
+class Activity extends Model
 {
     use SoftDeletes;
 
-    protected function casts(): array
-    {
-        return [
-            'published_at' => 'datetime',
-        ];
-    }
-
-    public function school(): BelongsTo
+    public function school()
     {
         return $this->belongsTo(School::class);
     }
 
-    public function scopePublished(Builder $query): Builder
+    public function photos()
     {
-        return $query->where('status', 'published')
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now());
+        return $this->hasMany(ActivityPhoto::class)->orderBy('order');
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder
@@ -48,5 +38,10 @@ class announcements extends Model
     public function scopeByCategory(Builder $query, string $category): Builder
     {
         return $query->where('category', $category);
+    }
+
+    public function scopeLatestFirst(Builder $query): Builder
+    {
+        return $query->orderBy('activity_date', 'desc');
     }
 }

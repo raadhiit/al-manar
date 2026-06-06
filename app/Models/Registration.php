@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 ])]
 
 
-class registrations extends Model
+class Registration extends Model
 {
     use SoftDeletes;
 
@@ -49,7 +49,7 @@ class registrations extends Model
 
     public function documents(): HasMany
     {
-        return $this->hasMany(registration_documents::class);
+        return $this->hasMany(RegistrationDocument::class);
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder
