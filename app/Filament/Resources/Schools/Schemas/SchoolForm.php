@@ -79,6 +79,7 @@ class SchoolForm
                 FileUpload::make('logo_path')
                     ->label('Logo Sekolah')
                     ->image()
+                    ->disk('public')
                     ->directory('schools/logos')
                     ->imageEditor()
                     ->columnSpanFull(),
