@@ -12,8 +12,10 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use App\Models\User;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class RppResource extends Resource
 {
@@ -37,13 +39,13 @@ class RppResource extends Resource
         return RppsTable::configure($table);
     }
 
-    // Guru hanya melihat RPP milik sendiri; super_admin & operator lihat semua
     public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
+        $user = Auth::user();
 
-        if (auth()->user()?->hasRole('guru')) {
-            return $query->where('user_id', auth()->id());
+        if ($user instanceof User && $user->hasRole('guru')) {
+            return $query->where('user_id', $user->id);
         }
 
         return $query;

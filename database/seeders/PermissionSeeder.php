@@ -41,6 +41,10 @@ class PermissionSeeder extends Seeder
             'ViewAny:Download', 'View:Download', 'Create:Download', 'Update:Download',
             'Delete:Download', 'DeleteAny:Download',
 
+            // Galeri
+            'ViewAny:Gallery', 'View:Gallery', 'Create:Gallery', 'Update:Gallery',
+            'Delete:Gallery', 'DeleteAny:Gallery',
+
             // Sekolah (read-only)
             'ViewAny:School', 'View:School',
         ];

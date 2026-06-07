@@ -12,7 +12,11 @@ use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use App\Models\User;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+
 class AnnouncementResource extends Resource
 {
     protected static ?string $model = Announcement::class;
@@ -33,6 +37,18 @@ class AnnouncementResource extends Resource
     public static function table(Table $table): Table
     {
         return AnnouncementsTable::configure($table);
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+        $user = Auth::user();
+
+        if ($user instanceof User && $user->hasRole(['operator_sdit', 'operator_tkit'])) {
+            return $query->where('school_id', $user->school_id);
+        }
+
+        return $query;
     }
 
     public static function getRelations(): array

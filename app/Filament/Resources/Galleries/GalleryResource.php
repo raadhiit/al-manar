@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Activities;
+namespace App\Filament\Resources\Galleries;
 
-use App\Filament\Resources\Activities\Pages\CreateActivity;
-use App\Filament\Resources\Activities\Pages\EditActivity;
-use App\Filament\Resources\Activities\Pages\ListActivities;
-use App\Filament\Resources\Activities\Schemas\ActivityForm;
-use App\Filament\Resources\Activities\Tables\ActivitiesTable;
-use App\Models\Activity;
+use App\Filament\Resources\Galleries\Pages\CreateGallery;
+use App\Filament\Resources\Galleries\Pages\EditGallery;
+use App\Filament\Resources\Galleries\Pages\ListGalleries;
+use App\Filament\Resources\Galleries\Schemas\GalleryForm;
+use App\Filament\Resources\Galleries\Tables\GalleriesTable;
+use App\Models\Gallery;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,26 +17,26 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 
-class ActivityResource extends Resource
+class GalleryResource extends Resource
 {
-    protected static ?string $model = Activity::class;
+    protected static ?string $model = Gallery::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDays;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
-    protected static ?string $navigationLabel = 'Kegiatan';
+    protected static ?string $navigationLabel = 'Galeri';
 
-    protected static ?string $pluralModelLabel = 'Kegiatan';
+    protected static ?string $pluralModelLabel = 'Galeri';
 
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {
-        return ActivityForm::configure($schema);
+        return GalleryForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return ActivitiesTable::configure($table);
+        return GalleriesTable::configure($table);
     }
 
     public static function getEloquentQuery(): Builder
@@ -59,9 +59,9 @@ class ActivityResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => ListActivities::route('/'),
-            'create' => CreateActivity::route('/create'),
-            'edit'   => EditActivity::route('/{record}/edit'),
+            'index'  => ListGalleries::route('/'),
+            'create' => CreateGallery::route('/create'),
+            'edit'   => EditGallery::route('/{record}/edit'),
         ];
     }
 }
