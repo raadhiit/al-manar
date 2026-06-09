@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="AL MANAR emblem">
+  <rect x="0" y="0" width="64" height="64" rx="16" fill="#155742"></rect>
+  
+  <g fill="none" stroke="#D9AB3D" stroke-width="2.4" stroke-linejoin="round">
+    <rect x="13" y="13" width="38" height="38"></rect>
+    <path d="M32 7 L57 32 L32 57 L7 32 Z"></path>
+  </g>
+  
+  <polygon points="43.1,36.6 36.6,43.1 27.4,43.1 20.9,36.6 20.9,27.4 27.4,20.9 36.6,20.9 43.1,27.4" fill="#D9AB3D" fill-opacity="0.18"></polygon>
+  
+  <path d="M32 22 C27 22 27 28 27 34 L27 42 L37 42 L37 34 C37 28 37 22 32 22 Z" fill="#FBF8F1"></path>
+  <circle cx="32" cy="18.5" r="2.6" fill="#D9AB3D"></circle>
+</svg>
