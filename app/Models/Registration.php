@@ -10,23 +10,27 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 #[Fillable([
-    'school_id',
-    'registration_number',
-    'student_name',
-    'birth_date',
-    'birth_place',
-    'gender',
-    'religion',
-    'previous_school',
-    'father_name',
-    'mother_name',
-    'phone',
-    'email',
-    'address',
-    'parent_job',
-    'status',
-    'notes',
-    'submitted_at',
+    'school_id', 'registration_number',
+    // Data siswa
+    'student_name', 'nik', 'nisn', 'birth_date', 'birth_place', 'birth_certificate_no',
+    'gender', 'religion', 'citizenship',
+    // Sekolah asal
+    'previous_school', 'prev_school_type', 'prev_school_address', 'prev_school_npsn',
+    // Alamat
+    'address', 'address_street', 'address_rt', 'address_rw', 'address_kelurahan',
+    'address_kecamatan', 'address_kode_pos', 'living_arrangement', 'transport_mode',
+    // Detail siswa
+    'sibling_order', 'sibling_count', 'height', 'weight', 'distance_to_school', 'travel_time',
+    // Sosial ekonomi
+    'kks_number', 'kps_number', 'kip_recipient', 'kip_number', 'kip_name', 'kip_card_received',
+    // Data ayah
+    'father_name', 'father_birthplace', 'father_birthdate', 'father_education',
+    'father_job', 'father_income', 'father_phone',
+    // Data ibu
+    'mother_name', 'mother_birthplace', 'mother_birthdate', 'mother_education',
+    'mother_job', 'mother_income', 'mother_phone',
+    // Kontak & meta
+    'phone', 'email', 'parent_job', 'status', 'notes', 'submitted_at',
 ])]
 
 
@@ -37,8 +41,12 @@ class Registration extends Model
     protected function casts(): array
     {
         return [
-            'birth_date'   => 'date',
-            'submitted_at' => 'datetime',
+            'birth_date'        => 'date',
+            'father_birthdate'  => 'date',
+            'mother_birthdate'  => 'date',
+            'kip_recipient'     => 'boolean',
+            'kip_card_received' => 'boolean',
+            'submitted_at'      => 'datetime',
         ];
     }
 
