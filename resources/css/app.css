@@ -196,7 +196,7 @@ html, body { margin: 0; padding: 0; }
     --container-max:  1200px;
     --container-wide: 1320px;
     --gutter:         1.5rem;
-    --section-y:      clamp(3.5rem, 2rem + 6vw, 6rem);
+    --section-y:      clamp(2.5rem, 1rem + 4vw, 4rem);
     --navbar-h:       72px;
 
     /* Radii */
@@ -362,6 +362,21 @@ html, body { margin: 0; padding: 0; }
 
 .am-btn--onbrand { background: #FBF8F1; color: var(--green-800); }
 .am-btn--onbrand:hover:not([disabled]) { background: #fff; }
+
+.am-btn--glass { background: rgba(255,255,255,.15); color: #FBF8F1; border: 1px solid rgba(255,255,255,.35); backdrop-filter: blur(6px); }
+.am-btn--glass:hover:not([disabled]) { background: rgba(255,255,255,.28); border-color: rgba(255,255,255,.6); }
+
+/* Hover lift untuk semua btn */
+.am-btn--primary:hover:not([disabled]),
+.am-btn--glass:hover:not([disabled]) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+
+/* ── Hero slider transition ───────────────────────────────────────── */
+.hero-fade-enter { transition: opacity .65s ease-in-out; }
+.hero-fade-enter-start { opacity: 0; }
+.hero-fade-enter-end   { opacity: 1; }
+.hero-fade-leave { transition: opacity .65s ease-in-out; }
+.hero-fade-leave-start { opacity: 1; }
+.hero-fade-leave-end   { opacity: 0; }
 
 .am-btn--block { width: 100%; }
 

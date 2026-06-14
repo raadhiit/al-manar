@@ -85,6 +85,18 @@ class SchoolForm
                     ->imageEditor()
                     ->columnSpanFull(),
 
+                FileUpload::make('hero_photos')
+                    ->label('Foto Hero (Slider Beranda)')
+                    ->helperText('Upload 3–5 foto landscape. Ditampilkan sebagai slider di halaman beranda.')
+                    ->image()
+                    ->multiple()
+                    ->reorderable()
+                    ->disk('public')
+                    ->directory('schools/hero')
+                    ->imageEditor()
+                    ->maxFiles(8)
+                    ->columnSpanFull(),
+
                 Repeater::make('fasilitas')
                     ->label('Fasilitas Sekolah')
                     ->schema([

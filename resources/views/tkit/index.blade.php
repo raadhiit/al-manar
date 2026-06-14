@@ -114,6 +114,54 @@
         </section>
     @endif
 
+    {{-- ── Kegiatan Terbaru ──────────────────────────────────────────────── --}}
+    @if($latestActivities->isNotEmpty())
+        <section class="am-section" style="background:var(--cream-50);">
+            <div class="am-container">
+                <div class="am-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
+                    <x-section-header eyebrow="Aktivitas TKIT" title="Kegiatan Terbaru" />
+                    <a href="{{ route('tkit.kegiatan') }}" class="am-btn am-btn--outline am-btn--sm">
+                        Lihat Semua →
+                    </a>
+                </div>
+                <div class="am-grid-3">
+                    @foreach($latestActivities as $activity)
+                        <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
+                            <a href="{{ route('tkit.kegiatan') }}" style="text-decoration:none;display:block;">
+                                <div class="am-card" style="overflow:hidden;padding:0;">
+                                    <div style="aspect-ratio:16/9;overflow:hidden;background:var(--cream-100);">
+                                        @if($activity->thumbnail_path)
+                                            <img src="{{ Storage::url($activity->thumbnail_path) }}" alt="{{ $activity->title }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                        @else
+                                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div style="padding:16px 20px 20px;">
+                                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+                                            @if($activity->category)
+                                                <x-badge tone="green" variant="soft" size="sm">{{ $activity->category }}</x-badge>
+                                            @endif
+                                            @if($activity->activity_date)
+                                                <span style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);">
+                                                    {{ \Carbon\Carbon::parse($activity->activity_date)->translatedFormat('d M Y') }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--ink-800);margin:0;line-height:1.4;">
+                                            {{ $activity->title }}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
     {{-- ── Kontak Sekolah ─────────────────────────────────────────────── --}}
     @if($school->address || $school->phone || $school->email)
         <section class="am-section" style="background:var(--cream-100);">

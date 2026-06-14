@@ -16,13 +16,17 @@ class PublicController extends Controller
 {
     public function home(): View
     {
-        $sdit       = School::where('slug', 'sdit')->first();
-        $tkit       = School::where('slug', 'tk')->first();
-        $yayasan    = School::where('slug', 'yayasan')->first();
-        $latestNews = News::with('school')->published()->latest('published_at')->take(3)->get();
+        $sdit         = School::where('slug', 'sdit')->first();
+        $tkit         = School::where('slug', 'tk')->first();
+        $yayasan      = School::where('slug', 'yayasan')->first();
+        $latestNews   = News::with('school')->published()->latest('published_at')->take(3)->get();
         $achievements = Achievement::with('school')->latest()->take(4)->get();
+        $heroSlides   = collect(array_merge(
+            array_map(fn($p) => ['path' => $p, 'school' => 'SDIT'], $sdit?->hero_photos ?? []),
+            array_map(fn($p) => ['path' => $p, 'school' => 'TKIT'], $tkit?->hero_photos ?? []),
+        ))->shuffle()->take(6);
 
-        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements'));
+        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides'));
     }
 
     public function beritaIndex(): View
@@ -132,10 +136,11 @@ class PublicController extends Controller
 
     public function tkitIndex(): View
     {
-        $school     = School::where('slug', 'tk')->firstOrFail();
-        $latestNews = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
+        $school           = School::where('slug', 'tk')->firstOrFail();
+        $latestNews       = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
+        $latestActivities = Activity::forSchool($school->id)->latestFirst()->take(3)->get();
 
-        return view('tkit.index', compact('school', 'latestNews'));
+        return view('tkit.index', compact('school', 'latestNews', 'latestActivities'));
     }
 
     public function tkitKegiatan(): View

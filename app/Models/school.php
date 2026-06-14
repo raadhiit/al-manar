@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     'is_ppdb',
     'fasilitas',
     'eskul',
+    'hero_photos',
 ])]
 
 class School extends Model
@@ -30,8 +31,9 @@ class School extends Model
     {
         return [
             'is_ppdb'   => 'boolean',
-            'fasilitas' => 'array',
-            'eskul'     => 'array',
+            'fasilitas'   => 'array',
+            'eskul'       => 'array',
+            'hero_photos' => 'array',
         ];
     }
 
