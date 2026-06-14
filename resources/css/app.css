@@ -497,6 +497,38 @@ html, body { margin: 0; padding: 0; }
   border-color: var(--border-strong);
 }
 
+/* ── Fasilitas grid & card ───────────────────────────────────────────── */
+.am-fasilitas-grid             { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.am-fasilitas-card:hover       { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.am-fasilitas-card:hover .fasilitas-overlay { opacity: 1 !important; }
+@media (max-width: 960px) {
+  .am-fasilitas-grid           { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .am-fasilitas-grid           { grid-template-columns: 1fr; }
+}
+
+/* ── Prose on dark/brand background ─────────────────────────────────── */
+.am-prose-onbrand {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: rgba(251, 248, 241, 0.88);
+}
+.am-prose-onbrand p                { margin: 0 0 0.75em; }
+.am-prose-onbrand p:last-child     { margin-bottom: 0; }
+.am-prose-onbrand ul               { list-style: disc; padding-left: 1.5em; margin: 0 0 0.75em; }
+.am-prose-onbrand ul li            { margin-bottom: 0.35em; }
+.am-prose-onbrand ol               { list-style: none; padding: 0; margin: 0; counter-reset: misi-counter; display: flex; flex-direction: column; gap: 14px; }
+.am-prose-onbrand ol li            { counter-increment: misi-counter; display: flex; align-items: flex-start; gap: 16px; margin: 0; }
+.am-prose-onbrand ol li::before    { content: counter(misi-counter); flex-shrink: 0; width: 28px; height: 28px; background: var(--gold-500); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; margin-top: 2px; }
+.am-prose-onbrand ol li p          { margin: 0; }
+.am-prose-onbrand strong           { font-weight: 700; color: #FBF8F1; }
+.am-prose-onbrand em               { font-style: italic; }
+.am-prose-onbrand h2,
+.am-prose-onbrand h3,
+.am-prose-onbrand h4               { font-family: var(--font-display); font-weight: 700; color: var(--gold-200); margin: 1.25em 0 0.5em; }
+
 /* ── Responsive grid helpers ─────────────────────────────────────────── */
 .am-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .am-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }

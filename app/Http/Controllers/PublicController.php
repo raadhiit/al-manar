@@ -106,10 +106,11 @@ class PublicController extends Controller
 
     public function sditIndex(): View
     {
-        $school     = School::where('slug', 'sdit')->firstOrFail();
-        $latestNews = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
+        $school            = School::where('slug', 'sdit')->firstOrFail();
+        $latestNews        = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
+        $latestActivities  = Activity::forSchool($school->id)->latestFirst()->take(3)->get();
 
-        return view('sdit.index', compact('school', 'latestNews'));
+        return view('sdit.index', compact('school', 'latestNews', 'latestActivities'));
     }
 
     public function sditKegiatan(): View
@@ -179,20 +180,9 @@ class PublicController extends Controller
 
     public function portalPengumuman(): View
     {
-        $jenjang = request('jenjang') ?: null;
-        $query   = Announcement::with('school')->published()->latest('published_at');
+        $announcements = Announcement::with('school')->published()->latest('published_at')->get();
 
-        if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'tk' : $jenjang;
-            $schoolId = School::where('slug', $slug)->value('id');
-            if ($schoolId) {
-                $query->where('school_id', $schoolId);
-            }
-        }
-
-        $announcements = $query->paginate(10)->withQueryString();
-
-        return view('portal.pengumuman', compact('announcements', 'jenjang'));
+        return view('portal.pengumuman', compact('announcements'));
     }
 
     public function portalDownload(): View

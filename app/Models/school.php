@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
     'accreditation',
     'logo_path',
     'is_ppdb',
+    'fasilitas',
+    'eskul',
 ])]
 
 class School extends Model
@@ -27,7 +29,9 @@ class School extends Model
     protected function casts(): array
     {
         return [
-            'is_ppdb' => 'boolean',
+            'is_ppdb'   => 'boolean',
+            'fasilitas' => 'array',
+            'eskul'     => 'array',
         ];
     }
 

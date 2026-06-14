@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Schools\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -82,6 +83,47 @@ class SchoolForm
                     ->disk('public')
                     ->directory('schools/logos')
                     ->imageEditor()
+                    ->columnSpanFull(),
+
+                Repeater::make('fasilitas')
+                    ->label('Fasilitas Sekolah')
+                    ->schema([
+                        TextInput::make('nama')
+                            ->label('Nama Fasilitas')
+                            ->required()
+                            ->placeholder('Contoh: Lab Komputer')
+                            ->columnSpan(2),
+                        FileUpload::make('foto')
+                            ->label('Foto Fasilitas')
+                            ->image()
+                            ->disk('public')
+                            ->directory('schools/fasilitas')
+                            ->imageEditor()
+                            ->columnSpan(2),
+                        TextInput::make('icon')
+                            ->label('Emoji (opsional, muncul jika tidak ada foto)')
+                            ->placeholder('Contoh: 🖥️')
+                            ->columnSpan(2),
+                    ])
+                    ->columns(2)
+                    ->addActionLabel('Tambah Fasilitas')
+                    ->collapsible()
+                    ->columnSpanFull(),
+
+                Repeater::make('eskul')
+                    ->label('Ekstrakurikuler')
+                    ->schema([
+                        TextInput::make('nama')
+                            ->label('Nama Eskul')
+                            ->required()
+                            ->placeholder('Contoh: Pramuka'),
+                        TextInput::make('kategori')
+                            ->label('Kategori')
+                            ->placeholder('Contoh: Kepanduan, Olahraga, Seni, Akademik'),
+                    ])
+                    ->columns(2)
+                    ->addActionLabel('Tambah Eskul')
+                    ->collapsible()
                     ->columnSpanFull(),
             ]);
     }

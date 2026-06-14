@@ -59,7 +59,7 @@
 
     {{-- ── Deskripsi ─────────────────────────────────────────────────────── --}}
     @if($school->description)
-        <section class="am-section" style="background:var(--cream-50);">
+        <section class="am-section" style="background:var(--cream-50);padding-bottom:40px;">
             <div class="am-container" style="max-width:780px;">
                 <x-section-header eyebrow="Tentang Kami" title="Mengenal TKIT AL MANAR" style="margin-bottom:24px;" />
                 <div style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.8;color:var(--ink-700);">
@@ -71,37 +71,45 @@
 
     {{-- ── Visi & Misi ───────────────────────────────────────────────────── --}}
     @if($school->vision || $school->mission)
-        <section class="am-section" style="background:var(--surface-page);">
-            <div class="am-container">
-                <div class="am-grid-2" style="gap:28px;">
-                    @if($school->vision)
-                        <div class="am-reveal am-card" style="padding:32px;border-left:4px solid var(--green-600);">
-                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-                                <div style="width:36px;height:36px;background:var(--green-100);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-600)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                                </div>
-                                <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);color:var(--green-800);margin:0;">Visi</h2>
-                            </div>
-                            <div style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-700);">
-                                {!! $school->vision !!}
-                            </div>
-                        </div>
-                    @endif
+        <section style="background:var(--green-800);position:relative;overflow:hidden;padding:64px 0 72px;">
+            <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.2;" aria-hidden="true"></div>
+            <div class="am-container" style="position:relative;">
 
-                    @if($school->mission)
-                        <div class="am-reveal am-card" style="padding:32px;border-left:4px solid var(--gold-400);">
-                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-                                <div style="width:36px;height:36px;background:var(--cream-100);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                                </div>
-                                <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-xl);color:var(--green-800);margin:0;">Misi</h2>
-                            </div>
-                            <div style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-700);">
-                                {!! $school->mission !!}
-                            </div>
-                        </div>
-                    @endif
+                {{-- Header --}}
+                <div style="text-align:center;margin-bottom:52px;">
+                    <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);">Identitas Sekolah</span>
+                    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-3xl);color:#FBF8F1;margin:10px 0 0;">Visi &amp; Misi</h2>
                 </div>
+
+                @if($school->vision)
+                {{-- Visi — full-width quote block --}}
+                <div class="am-reveal" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-xl);padding:40px 48px;margin-bottom:32px;text-align:center;position:relative;">
+                    <svg style="position:absolute;top:20px;left:28px;opacity:.25;" width="40" height="32" viewBox="0 0 40 32" fill="var(--gold-300)"><path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 3.2C14.667 4.267 10.667 7.467 10 12H18V32H0zm22 0V19.2C22 8.533 28.4 2.133 41.2 0l2.4 3.2C36.667 4.267 32.667 7.467 32 12H40V32H22z"/></svg>
+                    <p style="font-family:var(--font-display);font-size:clamp(1.05rem,1rem + 1vw,1.35rem);font-weight:600;font-style:italic;color:#FBF8F1;line-height:1.65;margin:0;position:relative;">
+                        {{ strip_tags($school->vision) }}
+                    </p>
+                    <div style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;">
+                        <div style="height:2px;width:32px;background:var(--gold-400);border-radius:2px;"></div>
+                        <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);">Visi</span>
+                        <div style="height:2px;width:32px;background:var(--gold-400);border-radius:2px;"></div>
+                    </div>
+                </div>
+                @endif
+
+                @if($school->mission)
+                {{-- Misi — rendered HTML dari RichEditor --}}
+                <div class="am-reveal">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;justify-content:center;">
+                        <div style="height:1px;flex:1;background:rgba(255,255,255,.12);max-width:80px;"></div>
+                        <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);">Misi</span>
+                        <div style="height:1px;flex:1;background:rgba(255,255,255,.12);max-width:80px;"></div>
+                    </div>
+                    <div class="am-prose-onbrand" style="max-width:720px;margin:0 auto;">
+                        {!! $school->mission !!}
+                    </div>
+                </div>
+                @endif
+
             </div>
         </section>
     @endif

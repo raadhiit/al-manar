@@ -26,25 +26,49 @@
         </div>
     </section>
 
-    <section class="am-section" style="background:var(--cream-50);">
+    <section class="am-section" style="background:var(--cream-50);"
+        x-data="{
+            filter: 'semua',
+            get visible() {
+                return this.filter === 'semua'
+                    ? {{ $announcements->count() }}
+                    : document.querySelectorAll('[data-jenjang=\'' + this.filter + '\']').length;
+            }
+        }"
+    >
         <div class="am-container">
 
-            {{-- Filter jenjang --}}
-            @php $filters = ['' => 'Semua', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR']; @endphp
+            {{-- Filter Alpine --}}
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
-                @foreach($filters as $key => $label)
-                    @php $isActive = $key === '' ? is_null($jenjang) : $jenjang === $key; @endphp
-                    <a
-                        href="{{ $key ? route('portal.pengumuman', ['jenjang' => $key]) : route('portal.pengumuman') }}"
-                        class="am-btn am-btn--sm {{ $isActive ? 'am-btn--primary' : 'am-btn--outline' }}"
-                    >{{ $label }}</a>
+                @foreach(['semua' => 'Semua', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR'] as $key => $label)
+                    <button
+                        type="button"
+                        @click="filter = '{{ $key }}'"
+                        :class="filter === '{{ $key }}' ? 'am-btn--primary' : 'am-btn--outline'"
+                        class="am-btn am-btn--sm"
+                    >{{ $label }}</button>
                 @endforeach
             </div>
 
             @if($announcements->isNotEmpty())
                 <div style="display:flex;flex-direction:column;gap:18px;">
                     @foreach($announcements as $ann)
-                        <div class="am-reveal am-card" style="padding:28px 32px;">
+                        @php
+                            $level = $ann->school?->level; // 'sdit' | 'tkit' | null
+                            $dataJenjang = $level ?? 'semua';
+                        @endphp
+                        <div
+                            class="am-reveal am-card"
+                            data-jenjang="{{ $dataJenjang }}"
+                            x-show="filter === 'semua' || filter === '{{ $dataJenjang }}'"
+                            x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-1"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            style="padding:28px 32px;"
+                        >
                             {{-- Header --}}
                             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;">
                                 <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
@@ -77,14 +101,22 @@
                     @endforeach
                 </div>
 
-                <div style="margin-top:48px;">
-                    {{ $announcements->links() }}
+                {{-- Empty state saat filter aktif tidak ada hasilnya --}}
+                <div
+                    x-cloak
+                    x-show="filter !== 'semua' && document.querySelectorAll('[data-jenjang=\'' + filter + '\']:not([style*=\'display: none\'])').length === 0"
+                    style="text-align:center;padding:80px 20px;"
+                >
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5" style="display:block;margin:0 auto 16px;"><path d="M15 17H9M21 10H3M21 7H3M21 13H3M21 17H18M3 17h3"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                    <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--ink-400);margin:0;">
+                        Belum ada pengumuman untuk jenjang ini.
+                    </p>
                 </div>
             @else
                 <div style="text-align:center;padding:80px 20px;">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5" style="display:block;margin:0 auto 16px;"><path d="M15 17H9M21 10H3M21 7H3M21 13H3M21 17H18M3 17h3"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--ink-400);margin:0;">
-                        Belum ada pengumuman yang dipublikasikan@if($jenjang) untuk jenjang ini@endif.
+                        Belum ada pengumuman yang dipublikasikan.
                     </p>
                 </div>
             @endif

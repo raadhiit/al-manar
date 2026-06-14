@@ -3,16 +3,16 @@
 @php
 $navItems = [
     ['key' => 'home',     'label' => 'Beranda',         'href' => route('home')],
-    ['key' => 'berita',   'label' => 'Berita',          'href' => route('berita.index')],
-    ['key' => 'prestasi', 'label' => 'Prestasi',        'href' => route('prestasi.index')],
-    ['key' => 'galeri',   'label' => 'Galeri',          'href' => route('galeri.index')],
     ['key' => 'sekolah',  'label' => 'Sekolah',         'href' => '#', 'children' => [
         ['key' => 'sdit', 'label' => 'SDIT AL MANAR', 'desc' => 'Sekolah Dasar Islam Terpadu', 'href' => route('sdit.index')],
         ['key' => 'tkit', 'label' => 'TKIT AL MANAR', 'desc' => 'TK Islam Terpadu',            'href' => route('tkit.index')],
     ]],
+    ['key' => 'berita',   'label' => 'Berita',          'href' => route('berita.index')],
+    ['key' => 'prestasi', 'label' => 'Prestasi',        'href' => route('prestasi.index')],
+    ['key' => 'galeri',   'label' => 'Galeri',          'href' => route('galeri.index')],
     ['key' => 'portal',   'label' => 'Portal Akademik', 'href' => route('portal.kalender')],
     ['key' => 'kontak',   'label' => 'Kontak',          'href' => route('kontak')],
-];
+    ];
 
 $sekolahActive = in_array($active, ['sdit', 'tkit']);
 @endphp
