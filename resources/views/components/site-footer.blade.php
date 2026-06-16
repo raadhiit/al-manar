@@ -10,15 +10,15 @@
             </p>
             <div style="display:flex;gap:10px;">
                 {{-- Instagram --}}
-                <a href="#" aria-label="Instagram" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
+                <a href="https://www.instagram.com/sdit_almanar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
                 </a>
-                {{-- Facebook --}}
-                <a href="#" aria-label="Facebook" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                {{-- TikTok --}}
+                <a href="https://www.tiktok.com/@sditalmanar_?brid=YWdncwE1YLLaX_hABA0ouncE1ilF" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16.6 5.82c-.81-.71-1.34-1.69-1.49-2.78h-3.06v13.4c0 1.4-1.14 2.54-2.54 2.54a2.54 2.54 0 1 1 0-5.08c.24 0 .47.03.69.1V11c-.23-.03-.46-.05-.69-.05-3.11 0-5.63 2.52-5.63 5.63S6.4 22.21 9.51 22.21s5.63-2.52 5.63-5.63V9.01a7.6 7.6 0 0 0 4.43 1.42V7.37a4.85 4.85 0 0 1-2.97-1.55z"/></svg>
                 </a>
                 {{-- YouTube --}}
-                <a href="#" aria-label="YouTube" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
+                <a href="https://www.youtube.com/@sdialmanarkotabekasi2383/featured" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(217,171,61,0.4);display:inline-flex;align-items:center;justify-content:center;color:var(--gold-300);">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42C1 8.14 1 11.75 1 11.75s0 3.61.46 5.33a2.78 2.78 0 0 0 1.95 1.96C5.12 19.5 12 19.5 12 19.5s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.36 23 11.75 23 11.75s0-3.61-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
                 </a>
             </div>
@@ -31,7 +31,6 @@
                 ['label' => 'SDIT AL MANAR',      'href' => route('sdit.index')],
                 ['label' => 'TKIT AL MANAR',      'href' => route('tkit.index')],
                 ['label' => 'Visi & Misi',        'href' => route('sdit.index')],
-                ['label' => 'Struktur Organisasi','href' => route('sdit.index')],
             ]],
             ['title' => 'Informasi', 'links' => [
                 ['label' => 'Berita',           'href' => route('berita.index')],

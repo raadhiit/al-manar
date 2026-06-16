@@ -31,7 +31,7 @@
     <x-site-footer />
 
     {{-- WhatsApp floating button --}}
-    <a href="https://wa.me/6281219443996?text=Assalamu%27alaikum%2C%20saya%20ingin%20menanyakan%20informasi%20mengenai%20pendaftaran%20di%20Yayasan%20AL%20MANAR%20Kota%20Bekasi.%20Mohon%20bantuannya.%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp"
+    <a href="https://wa.me/6282260705227?text=Assalamu%27alaikum%2C%20saya%20ingin%20menanyakan%20informasi%20mengenai%20pendaftaran%20di%20Yayasan%20AL%20MANAR%20Kota%20Bekasi.%20Mohon%20bantuannya.%20Terima%20kasih%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" aria-label="Hubungi via WhatsApp"
        style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,0.45);display:flex;align-items:center;justify-content:center;transition:transform 140ms ease,box-shadow 140ms ease;text-decoration:none;"
        onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 24px rgba(37,211,102,0.6)'"
        onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(37,211,102,0.45)'">
