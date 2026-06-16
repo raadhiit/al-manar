@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -56,6 +57,10 @@ class PermissionSeeder extends Seeder
         Role::findByName('operator_sdit')->syncPermissions($operatorPermissions);
         Role::findByName('operator_tkit')->syncPermissions($operatorPermissions);
         Role::findByName('guru')->syncPermissions($guruPermissions);
+
+        // admin: semua permission kecuali manajemen Role (Filament Shield)
+        $adminPermissions = Permission::where('name', 'not like', '%:Role')->pluck('name');
+        Role::findByName('admin')->syncPermissions($adminPermissions);
 
         // super_admin: Shield handle via Gate bypass, tidak perlu assign manual
     }

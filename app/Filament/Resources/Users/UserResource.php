@@ -46,7 +46,7 @@ class UserResource extends Resource
     {
         /** @var User|null $user */
         $user = Auth::user();
-        return $user?->hasRole('super_admin') ?? false;
+        return $user?->hasRole(['super_admin', 'admin']) ?? false;
     }
 
 
