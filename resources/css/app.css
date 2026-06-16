@@ -378,6 +378,21 @@ html, body { margin: 0; padding: 0; }
 .hero-fade-leave-start { opacity: 1; }
 .hero-fade-leave-end   { opacity: 0; }
 
+/* ── PPDB popup modal transition ──────────────────────────────────── */
+.am-modal-backdrop-enter { transition: opacity .25s ease-out; }
+.am-modal-backdrop-enter-start { opacity: 0; }
+.am-modal-backdrop-enter-end   { opacity: 1; }
+.am-modal-backdrop-leave { transition: opacity .2s ease-in; }
+.am-modal-backdrop-leave-start { opacity: 1; }
+.am-modal-backdrop-leave-end   { opacity: 0; }
+
+.am-modal-card-enter { transition: opacity .3s ease-out, transform .3s ease-out; }
+.am-modal-card-enter-start { opacity: 0; transform: translate(-50%, calc(-50% + 16px)) scale(.97); }
+.am-modal-card-enter-end   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.am-modal-card-leave { transition: opacity .2s ease-in, transform .2s ease-in; }
+.am-modal-card-leave-start { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.am-modal-card-leave-end   { opacity: 0; transform: translate(-50%, calc(-50% + 16px)) scale(.97); }
+
 .am-btn--block { width: 100%; }
 
 /* ── Badge ───────────────────────────────────────────────────────────── */

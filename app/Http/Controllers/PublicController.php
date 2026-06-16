@@ -117,6 +117,11 @@ class PublicController extends Controller
         return view('sdit.index', compact('school', 'latestNews', 'latestActivities'));
     }
 
+    public function sditMdta(): View
+    {
+        return view('sdit.mdta');
+    }
+
     public function sditKegiatan(): View
     {
         $school     = School::where('slug', 'sdit')->firstOrFail();

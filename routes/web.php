@@ -14,6 +14,7 @@ Route::get('/kontak',   [PublicController::class, 'kontak'])->name('kontak');
 /* ── SDIT ──────────────────────────────────────────────────────────── */
 Route::prefix('sdit')->name('sdit.')->group(function () {
     Route::get('/',            [PublicController::class, 'sditIndex'])->name('index');
+    Route::get('/mdta',        [PublicController::class, 'sditMdta'])->name('mdta');
     Route::get('/kegiatan',    [PublicController::class, 'sditKegiatan'])->name('kegiatan');
     Route::get('/pendaftaran', [PublicController::class, 'sditPendaftaran'])->name('pendaftaran');
 });

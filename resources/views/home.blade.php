@@ -168,6 +168,31 @@
         </div>
     </section>
 
+    {{-- ── MDTA highlight ────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--cream-50);">
+        <div class="am-container">
+            <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;">
+                <div style="flex:1 1 320px;padding:36px 36px 36px 36px;">
+                    <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Program SDIT AL MANAR</x-badge>
+                    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 12px;">
+                        Madrasah Diniyah Takmiliyah Awaliyah (MDTA)
+                    </h2>
+                    <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-600);margin:0 0 22px;max-width:560px;">
+                        Pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT AL MANAR — berlangsung siang hari sebagai pelengkap pembelajaran formal, mengacu pada standar Kementerian Agama RI.
+                    </p>
+                    <a href="{{ route('sdit.mdta') }}" class="am-btn am-btn--secondary am-btn--md">
+                        Pelajari Program MDTA
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+                <div style="flex:1 1 280px;align-self:stretch;background:var(--green-700);position:relative;overflow:hidden;min-height:200px;display:flex;align-items:center;justify-content:center;">
+                    <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
+                    <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="var(--gold-300)" stroke-width="1.4" style="position:relative;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
         <section class="am-section" style="background:var(--cream-50);">
@@ -327,32 +352,90 @@
     @endif --}}
 
     {{-- ── PPDB CTA ────────────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--green-600);position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
-        <div class="am-container" style="position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;">
-            <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-300);">
-                <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
-                PPDB {{ date('Y') }}/{{ date('Y') + 1 }}
-                <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
-            </span>
+    @if($sdit?->is_ppdb || $tkit?->is_ppdb)
+    {{-- PPDB Popup Modal — muncul setiap kali halaman dimuat/reload --}}
+    <div
+        x-data="{ open: true }"
+        x-show="open"
+        x-cloak
+        @keydown.escape.window="open = false"
+        style="position:fixed;inset:0;z-index:1000;"
+    >
+        {{-- Backdrop --}}
+        <div
+            x-show="open"
+            x-transition:enter="am-modal-backdrop-enter"
+            x-transition:enter-start="am-modal-backdrop-enter-start"
+            x-transition:enter-end="am-modal-backdrop-enter-end"
+            x-transition:leave="am-modal-backdrop-leave"
+            x-transition:leave-start="am-modal-backdrop-leave-start"
+            x-transition:leave-end="am-modal-backdrop-leave-end"
+            @click="open = false"
+            style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,30,23,0.65);backdrop-filter:blur(2px);"
+        ></div>
 
-            <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-4xl);line-height:1.1;color:#FBF8F1;margin:0;max-width:640px;">
-                Daftarkan putra-putri Anda sekarang
-            </h2>
+        {{-- Modal Card --}}
+        <div
+            x-show="open"
+            x-transition:enter="am-modal-card-enter"
+            x-transition:enter-start="am-modal-card-enter-start"
+            x-transition:enter-end="am-modal-card-enter-end"
+            x-transition:leave="am-modal-card-leave"
+            x-transition:leave-start="am-modal-card-leave-start"
+            x-transition:leave-end="am-modal-card-leave-end"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="ppdb-modal-title"
+            style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:calc(100% - 40px);max-width:480px;background:var(--surface-card);border-radius:var(--radius-xl);box-shadow:var(--shadow-lg);overflow:hidden;"
+        >
+            {{-- Close button --}}
+            <button
+                type="button"
+                @click="open = false"
+                aria-label="Tutup"
+                style="position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:background 140ms ease;"
+                onmouseover="this.style.background='#fff'"
+                onmouseout="this.style.background='rgba(255,255,255,.9)'"
+            >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
 
-            <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.65;color:var(--gold-100);opacity:.9;margin:0;max-width:520px;">
-                Tempat terbatas. Proses pendaftaran online — mudah, cepat, dan tidak perlu datang ke sekolah dulu.
-            </p>
+            {{-- Header --}}
+            <div style="position:relative;background:var(--green-600);padding:36px 28px 28px;text-align:center;overflow:hidden;">
+                <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.25;" aria-hidden="true"></div>
+                <div style="position:relative;">
+                    <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-300);">
+                        <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
+                        PPDB {{ date('Y') }}/{{ date('Y') + 1 }} Telah Dibuka
+                        <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
+                    </span>
+                    <h2 id="ppdb-modal-title" style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);line-height:1.2;color:#FBF8F1;margin:14px 0 0;">
+                        Daftarkan Putra-Putri Anda Sekarang
+                    </h2>
+                </div>
+            </div>
 
-            <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-                <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg">
-                    Daftar SDIT AL MANAR
-                </a>
-                <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--onbrand am-btn--lg">
-                    Daftar TKIT AL MANAR
-                </a>
+            {{-- Body --}}
+            <div style="padding:24px 28px 28px;text-align:center;">
+                <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.65;color:var(--text-body);margin:0 0 22px;">
+                    Tempat terbatas. Proses pendaftaran online — mudah, cepat, dan tidak perlu datang ke sekolah dulu.
+                </p>
+
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                    @if($sdit?->is_ppdb)
+                    <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--lg am-btn--block">
+                        Daftar SDIT AL MANAR
+                    </a>
+                    @endif
+                    @if($tkit?->is_ppdb)
+                    <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg am-btn--block">
+                        Daftar TKIT AL MANAR
+                    </a>
+                    @endif
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    @endif
 
 </x-layouts.app>
