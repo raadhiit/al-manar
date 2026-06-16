@@ -105,7 +105,7 @@
                 <div style="text-align:center;padding:80px 20px;">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5" style="display:block;margin:0 auto 16px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--ink-400);margin:0;">
-                        Belum ada data prestasi@if($jenjang) untuk jenjang ini@endif.
+                        Belum ada data prestasi @if($jenjang) untuk jenjang ini @endif.
                     </p>
                 </div>
             @endif

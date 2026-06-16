@@ -160,6 +160,38 @@
         </div>
     </section>
 
+    {{-- ── Lokasi ───────────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--surface-card);">
+        <div class="am-container">
+            <div class="am-reveal" style="margin-bottom:28px;">
+                <x-section-header
+                    eyebrow="Lokasi Kami"
+                    title="SDIT & TKIT AL MANAR berada di satu lokasi"
+                    lead="Kunjungi langsung kampus kami di Bekasi Utara, Kota Bekasi."
+                />
+            </div>
+            <div class="am-reveal" style="border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-default);box-shadow:var(--shadow-sm);">
+                <div style="position:relative;width:100%;aspect-ratio:16/9;">
+                    <iframe
+                        src="https://www.google.com/maps?q=-6.2102725,107.0270297&hl=id&z=16&output=embed"
+                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Lokasi SDIT & TKIT AL MANAR Kota Bekasi"
+                    ></iframe>
+                </div>
+                <div style="padding:20px 24px;background:var(--cream-50);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+                    <span style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-600);">
+                        TK-SD Islam Terpadu AL MANAR &middot; Bekasi Utara, Kota Bekasi
+                    </span>
+                    <a href="https://maps.app.goo.gl/UfLustCrScSDQbp87" target="_blank" rel="noopener noreferrer" class="am-btn am-btn--outline am-btn--sm">
+                        Buka di Google Maps
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ── CTA PPDB ─────────────────────────────────────────────────────── --}}
     <section class="am-section" style="background:var(--cream-100);border-top:1px solid var(--border-subtle);">
         <div class="am-container" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">

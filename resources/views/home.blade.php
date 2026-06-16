@@ -44,7 +44,7 @@
         {{-- Text overlay --}}
         <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:580px;padding:80px 24px 100px;text-align:center;">
             <div style="max-width:760px;">
-                @if($sdit?->is_ppdb || $tkit?->is_ppdb)
+                @if($sdit?->is_ppdb)
                 <div style="margin-bottom:16px;">
                     <x-badge tone="gold" variant="solid" size="md" style="color:#fff;">PPDB {{ date('Y') }} Dibuka</x-badge>
                 </div>
@@ -352,7 +352,7 @@
     @endif --}}
 
     {{-- ── PPDB CTA ────────────────────────────────────────────────────────── --}}
-    @if($sdit?->is_ppdb || $tkit?->is_ppdb)
+    @if($sdit?->is_ppdb)
     {{-- PPDB Popup Modal — muncul setiap kali halaman dimuat/reload --}}
     <div
         x-data="{ open: true }"

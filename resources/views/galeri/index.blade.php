@@ -156,7 +156,7 @@
                 <div style="text-align:center;padding:80px 20px;">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5" style="display:block;margin:0 auto 16px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--ink-400);margin:0;">
-                        Belum ada album galeri@if($jenjang) untuk jenjang ini@endif.
+                        Belum ada album galeri @if($jenjang) untuk jenjang ini @endif.
                     </p>
                 </div>
             @endif
