@@ -54,6 +54,12 @@ class PermissionSeeder extends Seeder
             'ViewAny:Rpp', 'View:Rpp', 'Create:Rpp', 'Update:Rpp', 'Delete:Rpp',
         ];
 
+        // Create semua permissions dulu
+        $allPermissions = array_merge($operatorPermissions, $guruPermissions);
+        foreach ($allPermissions as $permission) {
+            Permission::firstOrCreate(['name' => $permission, 'guard_name' => 'web']);
+        }
+
         Role::findByName('operator_sdit')->syncPermissions($operatorPermissions);
         Role::findByName('operator_tkit')->syncPermissions($operatorPermissions);
         Role::findByName('guru')->syncPermissions($guruPermissions);
