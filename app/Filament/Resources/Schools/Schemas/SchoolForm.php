@@ -85,6 +85,15 @@ class SchoolForm
                     ->imageEditor()
                     ->columnSpanFull(),
 
+                FileUpload::make('thumbnail_path')
+                    ->label('Thumbnail Kartu Sekolah')
+                    ->helperText('Foto yang muncul di kartu sekolah pada halaman beranda (bukan slider hero).')
+                    ->image()
+                    ->disk('public')
+                    ->directory('schools/thumbnails')
+                    ->imageEditor()
+                    ->columnSpanFull(),
+
                 FileUpload::make('hero_photos')
                     ->label('Foto Hero (Slider Beranda)')
                     ->helperText('Upload 3–5 foto landscape. Ditampilkan sebagai slider di halaman beranda.')

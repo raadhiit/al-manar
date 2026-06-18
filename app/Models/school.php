@@ -21,6 +21,7 @@ use Spatie\Activitylog\Support\LogOptions;
     'mission',
     'accreditation',
     'logo_path',
+    'thumbnail_path',
     'is_ppdb',
     'fasilitas',
     'eskul',

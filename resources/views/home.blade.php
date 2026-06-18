@@ -146,7 +146,7 @@
                         description="Kurikulum nasional terintegrasi nilai Islam, program tahfizh, dan pembinaan karakter yang kuat."
                         ageRange="7–12 tahun"
                         accreditation="{{ $sdit?->accreditation ?? 'A' }}"
-                        :image="$sdit?->logo_path ? Storage::url($sdit->logo_path) : null"
+                        :image="$sdit?->thumbnail_path ? Storage::url($sdit->thumbnail_path) : ($sdit?->logo_path ? Storage::url($sdit->logo_path) : null)"
                         :points="['Target hafalan hingga 3 juz', 'Pembelajaran bilingual & literasi digital', 'Ekstrakurikuler lengkap & pramuka SIT']"
                         :href="route('sdit.index')"
                     />
@@ -159,7 +159,7 @@
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
                         ageRange="4–6 tahun"
                         accreditation="{{ $tkit?->accreditation ?? 'A' }}"
-                        :image="$tkit?->logo_path ? Storage::url($tkit->logo_path) : null"
+                        :image="$tkit?->thumbnail_path ? Storage::url($tkit->thumbnail_path) : ($tkit?->logo_path ? Storage::url($tkit->logo_path) : null)"
                         :points="['Sentra bermain edukatif', 'Pembiasaan sholat, doa & hadits', 'Rasio guru–murid ideal']"
                         :href="route('tkit.index')"
                     />
@@ -169,7 +169,7 @@
     </section>
 
     {{-- ── MDTA highlight ────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);">
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;">
                 <div style="flex:1 1 320px;padding:36px 36px 36px 36px;">
