@@ -42,6 +42,7 @@ class GalleryForm
                     ->disk('public')
                     ->directory('galleries/covers')
                     ->imageEditor()
+                    ->maxSize(5120)
                     ->columnSpanFull(),
 
                 Textarea::make('description')
@@ -68,6 +69,7 @@ class GalleryForm
                             ->image()
                             ->disk('public')
                             ->directory('galleries/items')
+                            ->maxSize(5120)
                             ->hidden(fn(Get $get) => $get('type') === 'video')
                             ->requiredUnless('type', 'video'),
 
