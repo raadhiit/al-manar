@@ -18,6 +18,7 @@ class GalleriesTable
             ->columns([
                 ImageColumn::make('cover_path')
                     ->label('Cover')
+                    ->disk('public')
                     ->square(),
 
                 TextColumn::make('title')

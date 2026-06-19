@@ -18,6 +18,7 @@ class ActivitiesTable
             ->columns([
                 ImageColumn::make('thumbnail_path')
                     ->label('Thumbnail')
+                    ->disk('public')
                     ->square(),
 
                 TextColumn::make('title')

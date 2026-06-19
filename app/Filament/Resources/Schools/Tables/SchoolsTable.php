@@ -19,6 +19,7 @@ class SchoolsTable
             ->columns([
                 ImageColumn::make('logo_path')
                     ->label('Logo')
+                    ->disk('public')
                     ->circular(),
 
                 TextColumn::make('name')
