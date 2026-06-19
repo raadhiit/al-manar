@@ -18,6 +18,7 @@ class AchievementsTable
             ->columns([
                 ImageColumn::make('photo_path')
                     ->label('Foto')
+                    ->disk('public')
                     ->square(),
 
                 TextColumn::make('title')
