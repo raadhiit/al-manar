@@ -18,9 +18,9 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->string('title');
             $table->string('student_name');
-            $table->enum('level', ['lokal', 'provinsi', 'nasional', 'internasional']);
+            $table->string('level', 50);
             $table->string('competition_name')->nullable();
-            $table->enum('rank', ['1', '2', '3', 'harapan', 'finalis'])->nullable();
+            $table->string('rank', 100)->nullable();
             $table->integer('year');
             $table->string('photo_path')->nullable();
             $table->timestamps();
