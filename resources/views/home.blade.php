@@ -126,7 +126,7 @@
     </section> --}}
 
     {{-- ── Schools split ─────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--surface-page);">
+    <section class="am-section" style="background:var(--surface-page);padding-bottom:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
@@ -168,49 +168,8 @@
         </div>
     </section>
 
-    {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
-    @if($sditPrincipal || $tkitPrincipal)
-    <section class="am-section" style="background:var(--cream-50);">
-        <div class="am-container">
-            <div class="am-reveal">
-                <x-section-header
-                    eyebrow="Sambutan"
-                    title="Kepala Sekolah AL MANAR"
-                    lead="Mengenal sosok pemimpin di balik proses belajar putra-putri Anda."
-                    style="margin-bottom:36px;"
-                />
-            </div>
-
-            <div class="am-grid-2">
-                @if($sditPrincipal)
-                    <div class="am-reveal">
-                        <x-teacher-card
-                            :name="$sditPrincipal->name"
-                            :position="$sditPrincipal->position"
-                            :photo="$sditPrincipal->photo_path ? Storage::url($sditPrincipal->photo_path) : null"
-                            :bio="$sditPrincipal->bio"
-                            :isPrincipal="true"
-                        />
-                    </div>
-                @endif
-                @if($tkitPrincipal)
-                    <div class="am-reveal" style="transition-delay:80ms;">
-                        <x-teacher-card
-                            :name="$tkitPrincipal->name"
-                            :position="$tkitPrincipal->position"
-                            :photo="$tkitPrincipal->photo_path ? Storage::url($tkitPrincipal->photo_path) : null"
-                            :bio="$tkitPrincipal->bio"
-                            :isPrincipal="true"
-                        />
-                    </div>
-                @endif
-            </div>
-        </div>
-    </section>
-    @endif
-
     {{-- ── MDTA highlight ────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;">
                 <div style="flex:1 1 320px;padding:36px 36px 36px 36px;">
@@ -233,6 +192,64 @@
             </div>
         </div>
     </section>
+
+    {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
+    @if($sditPrincipal || $tkitPrincipal)
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
+        <div class="am-container" style="display:flex;flex-direction:column;gap:20px;">
+            @if($sditPrincipal)
+                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap-reverse;align-items:center;">
+                    <div style="flex:1 1 320px;padding:32px 36px;">
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · SDIT AL MANAR</x-badge>
+                        <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
+                            {{ $sditPrincipal->name }}
+                        </h2>
+                        <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-500);display:block;margin-bottom:12px;">{{ $sditPrincipal->position }}</span>
+                        @if($sditPrincipal->bio)
+                            <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-600);margin:0;max-width:560px;">
+                                {{ $sditPrincipal->bio }}
+                            </p>
+                        @endif
+                    </div>
+                    <div style="flex:1 1 240px;align-self:stretch;min-height:240px;position:relative;overflow:hidden;background:var(--green-100);">
+                        @if($sditPrincipal->photo_path)
+                            <img src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+                        @else
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+            @if($tkitPrincipal)
+                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap-reverse;align-items:center;">
+                    <div style="flex:1 1 320px;padding:32px 36px;">
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB Raudhatul Jannah</x-badge>
+                        <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
+                            {{ $tkitPrincipal->name }}
+                        </h2>
+                        <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-500);display:block;margin-bottom:12px;">{{ $tkitPrincipal->position }}</span>
+                        @if($tkitPrincipal->bio)
+                            <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-600);margin:0;max-width:560px;">
+                                {{ $tkitPrincipal->bio }}
+                            </p>
+                        @endif
+                    </div>
+                    <div style="flex:1 1 240px;align-self:stretch;min-height:240px;position:relative;overflow:hidden;background:var(--gold-100);">
+                        @if($tkitPrincipal->photo_path)
+                            <img src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
+                        @else
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+        </div>
+    </section>
+    @endif
 
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
