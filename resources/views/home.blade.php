@@ -463,7 +463,8 @@
     @if($sdit?->is_ppdb)
     {{-- PPDB Popup Modal — muncul setiap kali halaman dimuat/reload --}}
     <div
-        x-data="{ open: true }"
+        x-data="{ open: false }"
+        x-init="setTimeout(() => open = true, 150)"
         x-show="open"
         x-cloak
         @keydown.escape.window="open = false"
