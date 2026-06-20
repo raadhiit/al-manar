@@ -9,6 +9,7 @@ use App\Filament\Resources\Achievements\Schemas\AchievementForm;
 use App\Filament\Resources\Achievements\Tables\AchievementsTable;
 use App\Models\Achievement;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,6 +23,8 @@ class AchievementResource extends Resource
     protected static ?string $model = Achievement::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTrophy;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Konten Publik';
 
     protected static ?string $navigationLabel = 'Prestasi';
 

@@ -9,6 +9,7 @@ use App\Filament\Resources\AcademicCalendars\Schemas\AcademicCalendarForm;
 use App\Filament\Resources\AcademicCalendars\Tables\AcademicCalendarsTable;
 use App\Models\AcademicCalendar;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,6 +23,8 @@ class AcademicCalendarResource extends Resource
     protected static ?string $model = AcademicCalendar::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendar;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Konten Publik';
 
     protected static ?string $navigationLabel = 'Kalender Pendidikan';
 

@@ -168,6 +168,47 @@
         </div>
     </section>
 
+    {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
+    @if($sditPrincipal || $tkitPrincipal)
+    <section class="am-section" style="background:var(--cream-50);">
+        <div class="am-container">
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Sambutan"
+                    title="Kepala Sekolah AL MANAR"
+                    lead="Mengenal sosok pemimpin di balik proses belajar putra-putri Anda."
+                    style="margin-bottom:36px;"
+                />
+            </div>
+
+            <div class="am-grid-2">
+                @if($sditPrincipal)
+                    <div class="am-reveal">
+                        <x-teacher-card
+                            :name="$sditPrincipal->name"
+                            :position="$sditPrincipal->position"
+                            :photo="$sditPrincipal->photo_path ? Storage::url($sditPrincipal->photo_path) : null"
+                            :bio="$sditPrincipal->bio"
+                            :isPrincipal="true"
+                        />
+                    </div>
+                @endif
+                @if($tkitPrincipal)
+                    <div class="am-reveal" style="transition-delay:80ms;">
+                        <x-teacher-card
+                            :name="$tkitPrincipal->name"
+                            :position="$tkitPrincipal->position"
+                            :photo="$tkitPrincipal->photo_path ? Storage::url($tkitPrincipal->photo_path) : null"
+                            :bio="$tkitPrincipal->bio"
+                            :isPrincipal="true"
+                        />
+                    </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
+
     {{-- ── MDTA highlight ────────────────────────────────────────────────── --}}
     <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container">
@@ -429,7 +470,7 @@
                     @endif
                     @if($tkit?->is_ppdb)
                     <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg am-btn--block">
-                        Daftar TKIT AL MANAR
+                        Daftar KB Raudhatul Jannah
                     </a>
                     @endif
                 </div>

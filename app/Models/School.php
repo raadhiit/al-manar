@@ -67,6 +67,11 @@ class School extends Model
         return $this->hasMany(Achievement::class);
     }
 
+    public function teachers(): HasMany
+    {
+        return $this->hasMany(Teacher::class);
+    }
+
     public function galleries(): HasMany
     {
         return $this->hasMany(Gallery::class);

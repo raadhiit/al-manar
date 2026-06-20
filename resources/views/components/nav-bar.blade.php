@@ -7,6 +7,7 @@ $navItems = [
         ['key' => 'sdit', 'label' => 'SDIT AL MANAR', 'desc' => 'Sekolah Dasar Islam Terpadu', 'href' => route('sdit.index')],
         ['key' => 'tkit', 'label' => 'KB Raudhatul Jannah', 'desc' => 'Kelompok Bermain',       'href' => route('tkit.index')],
         ['key' => 'mdta', 'label' => 'Program MDTA',  'desc' => 'Diniyah Takmiliyah Awaliyah',  'href' => route('sdit.mdta')],
+        ['key' => 'guru', 'label' => 'Tenaga Pendidik', 'desc' => 'Profil Guru & Kepala Sekolah', 'href' => route('guru.index')],
     ]],
     ['key' => 'berita',   'label' => 'Berita',          'href' => route('berita.index')],
     ['key' => 'prestasi', 'label' => 'Prestasi',        'href' => route('prestasi.index')],
@@ -15,7 +16,7 @@ $navItems = [
     ['key' => 'kontak',   'label' => 'Kontak',          'href' => route('kontak')],
     ];
 
-$sekolahActive = in_array($active, ['sdit', 'tkit']);
+$sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
 @endphp
 
 <header x-data="{ open: false }" style="position:sticky;top:0;z-index:50;">

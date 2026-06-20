@@ -9,6 +9,7 @@ Route::get('/berita',   [PublicController::class, 'beritaIndex'])->name('berita.
 Route::get('/berita/{slug}', [PublicController::class, 'beritaShow'])->name('berita.show');
 Route::get('/prestasi', [PublicController::class, 'prestasiIndex'])->name('prestasi.index');
 Route::get('/galeri',   [PublicController::class, 'galeriIndex'])->name('galeri.index');
+Route::get('/tenaga-pendidik', [PublicController::class, 'guruIndex'])->name('guru.index');
 Route::get('/kontak',   [PublicController::class, 'kontak'])->name('kontak');
 
 /* ── SDIT ──────────────────────────────────────────────────────────── */

@@ -9,6 +9,7 @@ use App\Filament\Resources\Rpps\Schemas\RppForm;
 use App\Filament\Resources\Rpps\Tables\RppsTable;
 use App\Models\Rpp;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,6 +23,8 @@ class RppResource extends Resource
     protected static ?string $model = Rpp::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Sekolah';
 
     protected static ?string $navigationLabel = 'RPP';
 

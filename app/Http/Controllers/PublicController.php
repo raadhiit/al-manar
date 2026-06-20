@@ -10,6 +10,7 @@ use App\Models\Download;
 use App\Models\Gallery;
 use App\Models\News;
 use App\Models\School;
+use App\Models\Teacher;
 use Illuminate\View\View;
 
 class PublicController extends Controller
@@ -25,8 +26,10 @@ class PublicController extends Controller
             array_map(fn($p) => ['path' => $p, 'school' => 'SDIT'], $sdit?->hero_photos ?? []),
             array_map(fn($p) => ['path' => $p, 'school' => 'TKIT'], $tkit?->hero_photos ?? []),
         ))->shuffle()->take(6);
+        $sditPrincipal = Teacher::forSchool($sdit?->id ?? 0)->principals()->active()->first();
+        $tkitPrincipal = Teacher::forSchool($tkit?->id ?? 0)->principals()->active()->first();
 
-        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides'));
+        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides', 'sditPrincipal', 'tkitPrincipal'));
     }
 
     public function beritaIndex(): View
@@ -96,6 +99,24 @@ class PublicController extends Controller
         $galleries = $query->paginate(9)->withQueryString();
 
         return view('galeri.index', compact('galleries', 'jenjang'));
+    }
+
+    public function guruIndex(): View
+    {
+        $jenjang = request('jenjang') ?: null;
+        $query   = Teacher::with('school')->active()->orderBy('display_order');
+
+        if ($jenjang) {
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-jannah' : $jenjang;
+            $schoolId = School::where('slug', $slug)->value('id');
+            if ($schoolId) {
+                $query->where('school_id', $schoolId);
+            }
+        }
+
+        $teachers = $query->paginate(12)->withQueryString();
+
+        return view('guru.index', compact('teachers', 'jenjang'));
     }
 
     public function kontak(): View
