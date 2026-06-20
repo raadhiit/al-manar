@@ -57,7 +57,7 @@
                 </h1>
 
                 <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.7;color:rgba(251,248,241,.85);margin:0 0 32px;max-width:580px;margin-left:auto;margin-right:auto;">
-                    Pendidikan Islam terpadu dari TK hingga sekolah dasar — memadukan kurikulum nasional, pembinaan akhlak, dan tahfizh Al-Qur'an.
+                    Pendidikan Islam terpadu dari Kelompok Bermain hingga sekolah dasar — memadukan kurikulum nasional, pembinaan akhlak, dan tahfizh Al-Qur'an.
                 </p>
 
                 <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
