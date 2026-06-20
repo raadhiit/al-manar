@@ -11,10 +11,10 @@
 ])
 
 @php
-$isTkit = $level === 'TKIT';
-$accent = $isTkit ? 'var(--gold-400)' : 'var(--green-600)';
-$btnVar = $isTkit ? 'secondary' : 'primary';
-$tone   = $isTkit ? 'tkit' : 'sdit';
+$isKB   = in_array($level, ['TKIT', 'KB']);
+$accent = $isKB ? 'var(--gold-400)' : 'var(--green-600)';
+$btnVar = $isKB ? 'secondary' : 'primary';
+$tone   = $isKB ? 'tkit' : 'sdit';
 @endphp
 
 <article style="display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
@@ -23,8 +23,8 @@ $tone   = $isTkit ? 'tkit' : 'sdit';
         @if($image)
             <img src="{{ $image }}" alt="{{ $name }}" style="width:100%;height:210px;object-fit:cover;display:block;">
         @else
-            <div style="width:100%;height:210px;background:{{ $isTkit ? 'var(--gold-100)' : 'var(--green-100)' }};display:flex;align-items:center;justify-content:center;">
-                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="{{ $isTkit ? 'var(--gold-500)' : 'var(--green-400)' }}" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div style="width:100%;height:210px;background:{{ $isKB ? 'var(--gold-100)' : 'var(--green-100)' }};display:flex;align-items:center;justify-content:center;">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="{{ $isKB ? 'var(--gold-500)' : 'var(--green-400)' }}" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
         @endif
         <span style="position:absolute;top:16px;left:16px;">
@@ -41,7 +41,7 @@ $tone   = $isTkit ? 'tkit' : 'sdit';
             <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);">
                 {{ $tagline }}
             </span>
-            <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--ink-900);margin:0;">
+            <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--ink-900);margin:0;text-wrap:balance;">
                 {{ $name }}
             </h3>
         </div>

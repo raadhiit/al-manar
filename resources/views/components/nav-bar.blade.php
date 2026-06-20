@@ -5,7 +5,7 @@ $navItems = [
     ['key' => 'home',     'label' => 'Beranda',         'href' => route('home')],
     ['key' => 'sekolah',  'label' => 'Sekolah',         'href' => '#', 'children' => [
         ['key' => 'sdit', 'label' => 'SDIT AL MANAR', 'desc' => 'Sekolah Dasar Islam Terpadu', 'href' => route('sdit.index')],
-        ['key' => 'tkit', 'label' => 'TKIT AL MANAR', 'desc' => 'TK Islam Terpadu',            'href' => route('tkit.index')],
+        ['key' => 'tkit', 'label' => 'KB Raudhatul Jannah', 'desc' => 'Kelompok Bermain',       'href' => route('tkit.index')],
         ['key' => 'mdta', 'label' => 'Program MDTA',  'desc' => 'Diniyah Takmiliyah Awaliyah',  'href' => route('sdit.mdta')],
     ]],
     ['key' => 'berita',   'label' => 'Berita',          'href' => route('berita.index')],

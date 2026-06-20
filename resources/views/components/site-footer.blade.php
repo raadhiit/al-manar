@@ -76,7 +76,7 @@
                 ></iframe>
             </div>
             <div style="flex:1 1 200px;min-width:0;">
-                <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:#FBF8F1;margin-bottom:3px;">Lokasi Kampus AL MANAR</div>
+                <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:#FBF8F1;margin-bottom:3px;">Lokasi AL MANAR</div>
                 <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--gold-100);opacity:.75;">Bekasi Utara, Kota Bekasi</div>
             </div>
             <span style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;color:var(--gold-300);flex-shrink:0;">
