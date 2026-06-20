@@ -7,11 +7,11 @@
 ])
 
 <article style="display:flex;flex-direction:column;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);height:100%;">
-    <div style="position:relative;">
+    <div class="am-teacher-photo" style="position:relative;aspect-ratio:3/4;max-height:320px;overflow:hidden;">
         @if($photo)
-            <img src="{{ $photo }}" alt="{{ $name }}" style="width:100%;height:240px;object-fit:cover;display:block;">
+            <img src="{{ $photo }}" alt="{{ $name }}" class="am-teacher-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
         @else
-            <div style="width:100%;height:240px;background:var(--green-100);display:flex;align-items:center;justify-content:center;">
+            <div style="width:100%;height:100%;background:var(--green-100);display:flex;align-items:center;justify-content:center;">
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
         @endif

@@ -655,6 +655,12 @@ html, body { margin: 0; padding: 0; }
   .am-principal-body { padding: 24px 22px !important; }
 }
 
+/* ── Teacher card (guru listing) ──────────────────────────────────────── */
+@media (max-width: 480px) {
+  .am-teacher-photo { aspect-ratio: 16 / 9; max-height: 200px; }
+  .am-teacher-img { object-position: center 25% !important; }
+}
+
 /* Alpine.js cloak — hide elements until Alpine initializes */
 [x-cloak] { display: none !important; }
 
