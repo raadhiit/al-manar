@@ -198,8 +198,17 @@
     <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container" style="display:flex;flex-direction:column;gap:20px;">
             @if($sditPrincipal)
-                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap-reverse;align-items:center;">
-                    <div style="flex:1 1 320px;padding:32px 36px;">
+                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
+                    <div class="am-principal-photo" style="overflow:hidden;background:var(--green-100);">
+                        @if($sditPrincipal->photo_path)
+                            <img src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                        @else
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
                         <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · SDIT AL MANAR</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $sditPrincipal->name }}
@@ -211,20 +220,45 @@
                             </p>
                         @endif
                     </div>
-                    <div style="flex:1 1 240px;align-self:stretch;min-height:240px;position:relative;overflow:hidden;background:var(--green-100);">
-                        @if($sditPrincipal->photo_path)
-                            <img src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-                        @else
-                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            </div>
-                        @endif
-                    </div>
+                    @if(!empty($sditPrincipal->education) || $sditPrincipal->leadership_vision)
+                        <div class="am-principal-extra" style="flex:1 1 280px;display:flex;flex-direction:column;">
+                            @if(!empty($sditPrincipal->education))
+                                <div style="flex:1;padding:24px 28px;{{ $sditPrincipal->leadership_vision ? 'border-bottom:1px solid var(--border-subtle);' : '' }}">
+                                    <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);display:block;margin-bottom:10px;">Riwayat Pendidikan</span>
+                                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;">
+                                        @foreach($sditPrincipal->education as $edu)
+                                            <li style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-700);">
+                                                <strong style="display:block;color:var(--ink-900);">{{ $edu['degree'] ?? '' }}</strong>
+                                                <span style="color:var(--ink-500);">{{ $edu['institution'] ?? '' }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if($sditPrincipal->leadership_vision)
+                                <div style="flex:1;padding:24px 28px;">
+                                    <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);display:block;margin-bottom:10px;">Visi Kepemimpinan</span>
+                                    <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.65;color:var(--ink-600);margin:0;">
+                                        {{ $sditPrincipal->leadership_vision }}
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
                 </div>
             @endif
             @if($tkitPrincipal)
-                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap-reverse;align-items:center;">
-                    <div style="flex:1 1 320px;padding:32px 36px;">
+                <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
+                    <div class="am-principal-photo" style="overflow:hidden;background:var(--gold-100);">
+                        @if($tkitPrincipal->photo_path)
+                            <img src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                        @else
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
                         <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB Raudhatul Jannah</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $tkitPrincipal->name }}
@@ -236,15 +270,31 @@
                             </p>
                         @endif
                     </div>
-                    <div style="flex:1 1 240px;align-self:stretch;min-height:240px;position:relative;overflow:hidden;background:var(--gold-100);">
-                        @if($tkitPrincipal->photo_path)
-                            <img src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">
-                        @else
-                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            </div>
-                        @endif
-                    </div>
+                    @if(!empty($tkitPrincipal->education) || $tkitPrincipal->leadership_vision)
+                        <div class="am-principal-extra" style="flex:1 1 280px;display:flex;flex-direction:column;">
+                            @if(!empty($tkitPrincipal->education))
+                                <div style="flex:1;padding:24px 28px;{{ $tkitPrincipal->leadership_vision ? 'border-bottom:1px solid var(--border-subtle);' : '' }}">
+                                    <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);display:block;margin-bottom:10px;">Riwayat Pendidikan</span>
+                                    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;">
+                                        @foreach($tkitPrincipal->education as $edu)
+                                            <li style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-700);">
+                                                <strong style="display:block;color:var(--ink-900);">{{ $edu['degree'] ?? '' }}</strong>
+                                                <span style="color:var(--ink-500);">{{ $edu['institution'] ?? '' }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            @if($tkitPrincipal->leadership_vision)
+                                <div style="flex:1;padding:24px 28px;">
+                                    <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);display:block;margin-bottom:10px;">Visi Kepemimpinan</span>
+                                    <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.65;color:var(--ink-600);margin:0;">
+                                        {{ $tkitPrincipal->leadership_vision }}
+                                    </p>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
                 </div>
             @endif
         </div>

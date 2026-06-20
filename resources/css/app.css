@@ -639,6 +639,22 @@ html, body { margin: 0; padding: 0; }
   .am-foot-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Principal (Kepala Sekolah) card ─────────────────────────────────── */
+.am-principal-photo {
+  flex: 0 0 260px;
+  aspect-ratio: 3 / 4;
+  max-height: 420px;
+}
+.am-principal-extra {
+  border-left: 1px solid var(--border-subtle);
+}
+@media (max-width: 768px) {
+  .am-principal-photo { flex-basis: 100%; aspect-ratio: 16 / 9; max-height: 220px; }
+  .am-principal-img { object-position: center 24% !important; }
+  .am-principal-extra { border-left: none; border-top: 1px solid var(--border-subtle); }
+  .am-principal-body { padding: 24px 22px !important; }
+}
+
 /* Alpine.js cloak — hide elements until Alpine initializes */
 [x-cloak] { display: none !important; }
 

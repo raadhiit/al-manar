@@ -16,6 +16,8 @@ use Spatie\Activitylog\Support\LogOptions;
     'position',
     'is_principal',
     'bio',
+    'education',
+    'leadership_vision',
     'photo_path',
     'display_order',
     'is_active',
@@ -35,6 +37,7 @@ class Teacher extends Model
             'is_principal'  => 'boolean',
             'is_active'     => 'boolean',
             'display_order' => 'integer',
+            'education'     => 'array',
         ];
     }
 
