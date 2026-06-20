@@ -1,7 +1,7 @@
 <x-layouts.app
     navActive="tkit"
-    title="Profil TKIT AL MANAR"
-    :description="Str::limit(strip_tags($school->description ?? 'TK Islam Terpadu AL MANAR Kota Bekasi.'), 160)"
+    title="Profil Kelompok Bermain - Raudhatul Jannah AL MANAR"
+    :description="Str::limit(strip_tags($school->description ?? 'Kelompok Bermain - Raudhatul Jannah AL MANAR Kota Bekasi.'), 160)"
 >
 
     {{-- ── Hero ─────────────────────────────────────────────────────────── --}}
@@ -30,7 +30,7 @@
                         {{ $school->name }}
                     </h1>
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--gold-200);margin:0;opacity:.9;">
-                        TK Islam Terpadu · Kota Bekasi
+                        Kelompok Bermain - Raudhatul Jannah · Kota Bekasi
                     </p>
                 </div>
             </div>

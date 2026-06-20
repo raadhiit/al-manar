@@ -1,4 +1,4 @@
-<x-layouts.app navActive="home" title="Beranda" description="Yayasan AL MANAR Kota Bekasi — Pendidikan Islam terpadu SDIT & TKIT yang membentuk generasi Qur'ani, berakhlak mulia, dan berprestasi.">
+<x-layouts.app navActive="home" title="Beranda" description="Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu SDIT & TKIT yang membentuk generasi Qur'ani, berakhlak mulia, dan berprestasi.">
 
     {{-- ── Hero Slider ─────────────────────────────────────────────────── --}}
     @php $slideCount = $heroSlides->count(); @endphp
@@ -50,7 +50,7 @@
                 </div>
                 @endif
 
-                <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);display:block;margin-bottom:14px;">Yayasan AL MANAR · Kota Bekasi</span>
+                <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);display:block;margin-bottom:14px;">Yayasan Al Muhajirin AL MANAR · Kota Bekasi</span>
 
                 <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;color:#FBF8F1;margin:0 0 20px;text-shadow:0 2px 12px rgba(0,0,0,.3);">
                     Menumbuhkan generasi <span style="color:var(--gold-400);">Qur'ani</span><br>yang berakhlak &amp; berprestasi
@@ -153,9 +153,9 @@
                 </div>
                 <div class="am-reveal" style="transition-delay:80ms;">
                     <x-school-card
-                        level="TKIT"
-                        name="TKIT AL MANAR"
-                        tagline="TK Islam Terpadu"
+                        level="Kelompok Bermain - Raudhatul Jannah"
+                        name="Kelompok Bermain - Raudhatul Jannah"
+                        tagline="Kelompok Bermain - Raudhatul Jannah"
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
                         ageRange="4–6 tahun"
                         accreditation="{{ $tkit?->accreditation ?? 'A' }}"

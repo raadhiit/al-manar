@@ -1,4 +1,4 @@
-<x-layouts.app navActive="kontak" title="Kontak" description="Hubungi Yayasan AL MANAR Kota Bekasi — SDIT dan TKIT AL MANAR.">
+<x-layouts.app navActive="kontak" title="Kontak" description="Hubungi Yayasan Al Muhajirin AL MANAR Kota Bekasi — SDIT dan TKIT AL MANAR.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">

@@ -314,6 +314,41 @@ html, body { margin: 0; padding: 0; }
   direction: rtl;
 }
 
+/* ── Topbar marquee ──────────────────────────────────────────────────── */
+.am-topbar-marquee {
+  overflow: hidden;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.am-topbar-marquee__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: am-marquee 16s linear infinite;
+}
+
+.am-topbar-marquee:hover .am-topbar-marquee__track {
+  animation-play-state: paused;
+}
+
+.am-topbar-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  padding-right: 56px;
+}
+
+@keyframes am-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .am-rule {
   height: 1px;
   background: var(--border-default);

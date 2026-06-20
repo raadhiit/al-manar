@@ -21,15 +21,27 @@ $sekolahActive = in_array($active, ['sdit', 'tkit']);
 <header x-data="{ open: false }" style="position:sticky;top:0;z-index:50;">
     {{-- Top bar --}}
     <div style="background:var(--green-800);color:var(--gold-200);font-size:var(--text-xs);font-family:var(--font-sans);">
-        <div class="am-container" style="padding-top:7px;padding-bottom:7px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
-            <span style="display:inline-flex;align-items:center;gap:8px;">
-                <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم</span>
-                <span style="opacity:.85;">Selamat datang di Yayasan AL MANAR Kota Bekasi</span>
-            </span>
-            <span style="display:inline-flex;gap:18px;align-items:center;opacity:.85;">
-                <span>(021) 8273-xxxx</span>
-                <span>ppdb@almanar.sch.id</span>
-            </span>
+        <div class="am-container" style="padding-top:7px;padding-bottom:7px;display:flex;align-items:center;">
+            <div class="am-topbar-marquee">
+                <div class="am-topbar-marquee__track">
+                    <span class="am-topbar-marquee__item">
+                        <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
+                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
+                        <span style="opacity:.5;">&middot;</span>
+                        <span style="opacity:.85;">082260705227</span>
+                        <span style="opacity:.5;">&middot;</span>
+                        <span style="opacity:.85;">ppdb@almanar.sch.id</span>
+                    </span>
+                    <span class="am-topbar-marquee__item" aria-hidden="true">
+                        <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
+                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
+                        <span style="opacity:.5;">&middot;</span>
+                        <span style="opacity:.85;">082260705227</span>
+                        <span style="opacity:.5;">&middot;</span>
+                        <span style="opacity:.85;">ppdb@almanar.sch.id</span>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 
