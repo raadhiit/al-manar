@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ $description ?? 'Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu untuk SDIT dan TKIT.' }}">
 
-    <title>{{ isset($title) ? $title . ' — AL MANAR' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}</title>
+    <title>{{ isset($title) ? $title . ' — Yayasan Al Muhajirin AL MANAR Kota Bekasi' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}</title>
 
-    <meta property="og:title" content="{{ isset($title) ? $title . ' — AL MANAR' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}">
+    <meta property="og:title" content="{{ isset($title) ? $title . ' — Yayasan Al Muhajirin AL MANAR Kota Bekasi' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}">
     <meta property="og:description" content="{{ $description ?? 'Pendidikan Islam terpadu — SDIT & TKIT Al Muhajirin AL MANAR Kota Bekasi.' }}">
     <meta property="og:type" content="website">
 

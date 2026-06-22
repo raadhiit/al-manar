@@ -154,7 +154,7 @@
                 <div class="am-reveal" style="transition-delay:80ms;">
                     <x-school-card
                         level="KB"
-                        name="KB Raudhatul Jannah"
+                        name="KB-RA"
                         tagline="Kelompok Bermain - Raudhatul Jannah"
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
                         ageRange="4–6 tahun"
