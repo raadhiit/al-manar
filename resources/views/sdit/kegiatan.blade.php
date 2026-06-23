@@ -32,7 +32,16 @@
                         <div class="am-reveal am-card" style="padding:0;overflow:hidden;transition-delay:{{ ($loop->index % 3) * 70 }}ms;">
                             {{-- Thumbnail --}}
                             <div style="height:220px;overflow:hidden;background:var(--green-100);position:relative;">
-                                @if($activity->thumbnail_path)
+                                @if($activity->youtube_id)
+                                    <iframe
+                                        src="https://www.youtube.com/embed/{{ $activity->youtube_id }}"
+                                        title="{{ $activity->title }}"
+                                        style="width:100%;height:100%;border:0;display:block;"
+                                        loading="lazy"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen
+                                    ></iframe>
+                                @elseif($activity->thumbnail_path)
                                     <img
                                         src="{{ Storage::url($activity->thumbnail_path) }}"
                                         alt="{{ $activity->title }}"
@@ -53,7 +62,7 @@
                                 @endif
 
                                 {{-- Photo count badge --}}
-                                @if($activity->photos->count() > 1)
+                                @if(! $activity->youtube_id && $activity->photos->count() > 1)
                                     <div style="position:absolute;top:12px;right:12px;">
                                         <span style="background:rgba(0,0,0,.55);border-radius:var(--radius-md);padding:4px 10px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;color:#fff;display:inline-flex;align-items:center;gap:5px;">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>

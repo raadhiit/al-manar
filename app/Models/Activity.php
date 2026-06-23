@@ -17,6 +17,7 @@ use Spatie\Activitylog\Support\LogOptions;
     'activity_date',
     'description',
     'thumbnail_path',
+    'yt_url',
 ])]
 class Activity extends Model
 {
@@ -35,6 +36,17 @@ class Activity extends Model
     public function photos()
     {
         return $this->hasMany(ActivityPhoto::class)->orderBy('order');
+    }
+
+    public function getYoutubeIdAttribute(): ?string
+    {
+        if (! $this->yt_url) {
+            return null;
+        }
+
+        preg_match('/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{11})/', $this->yt_url, $matches);
+
+        return $matches[1] ?? null;
     }
 
     public function scopeForSchool(Builder $query, int $schoolId): Builder

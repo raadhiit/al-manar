@@ -67,6 +67,12 @@ class ActivityForm
                     ->rows(4)
                     ->columnSpanFull(),
 
+                TextInput::make('yt_url')
+                    ->label('Link Video YouTube')
+                    ->url()
+                    ->helperText('Opsional. Tempel link video YouTube kegiatan ini, mis. https://www.youtube.com/watch?v=xxxxxxxxxxx')
+                    ->columnSpanFull(),
+
                 Repeater::make('photos')
                     ->label('Foto Kegiatan')
                     ->relationship()

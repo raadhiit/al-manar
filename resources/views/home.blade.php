@@ -193,6 +193,32 @@
         </div>
     </section>
 
+        {{-- ── Video Profil ──────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
+        <div class="am-container">
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Profil Sekolah"
+                    title="Mengenal AL MANAR lebih dekat"
+                    align="center"
+                    style="justify-content:center;margin-bottom:28px;"
+                />
+            </div>
+            <div class="am-reveal" style="max-width:840px;margin:0 auto;">
+                <div style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
+                    <iframe
+                        src="https://www.youtube.com/embed/eVmC6DThB94"
+                        title="Video Profil AL MANAR"
+                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
     @if($sditPrincipal || $tkitPrincipal)
     <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
