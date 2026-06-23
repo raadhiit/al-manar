@@ -601,6 +601,19 @@ html, body { margin: 0; padding: 0; }
 
 .am-program-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
 
+/* Eskul pill slider — always a horizontal scroller, on every breakpoint */
+.am-eskul-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 22px;
+  padding: 4px 4px 10px;
+}
+.am-eskul-track::-webkit-scrollbar { display: none; }
+.am-eskul-track > * { scroll-snap-align: start; }
+
 @media (max-width: 960px) {
   .am-burger { display: inline-flex; }
   .am-nav-desktop { display: none !important; }

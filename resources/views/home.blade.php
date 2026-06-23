@@ -556,12 +556,82 @@
     </section>
     @endif
 
-    {{-- ── Ekstrakurikuler (disabled) ─────────────────────────────────────── --}}
-    {{-- @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
-        <section class="am-section" style="background:var(--cream-50);">
-            ...
-        </section>
-    @endif --}}
+    {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
+    @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
+    <section class="am-section" style="background:var(--cream-50);">
+        <div class="am-container">
+            <div class="am-reveal" style="margin-bottom:32px;">
+                <x-section-header eyebrow="Ekstrakurikuler" title="Eskul AL MANAR" lead="Wadah minat & bakat siswa di luar jam pelajaran." />
+            </div>
+
+            <div x-data="{ tab: 'sdit' }">
+                {{-- Tab switcher --}}
+                @if(!empty($sdit?->eskul) && !empty($tkit?->eskul))
+                <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border-subtle);">
+                    <button type="button" @click="tab='sdit'"
+                        :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        SDIT AL MANAR
+                    </button>
+                    <button type="button" @click="tab='tkit'"
+                        :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        TKIT AL MANAR
+                    </button>
+                </div>
+                @endif
+
+                {{-- Pill slider SDIT --}}
+                @if(!empty($sdit?->eskul))
+                <div x-show="tab === 'sdit'" class="am-eskul-track">
+                    @foreach($sdit->eskul as $item)
+                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
+                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                @if($fotoUrl)
+                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                @else
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                                @endif
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:1px;">
+                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
+                                @if(!empty($item['kategori']))
+                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @endif
+
+                {{-- Pill slider TKIT --}}
+                @if(!empty($tkit?->eskul))
+                <div x-show="tab === 'tkit'" class="am-eskul-track">
+                    @foreach($tkit->eskul as $item)
+                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
+                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                @if($fotoUrl)
+                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                @else
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                                @endif
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:1px;">
+                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
+                                @if(!empty($item['kategori']))
+                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
 
     {{-- ── PPDB CTA ────────────────────────────────────────────────────────── --}}
     @if($sdit?->is_ppdb)

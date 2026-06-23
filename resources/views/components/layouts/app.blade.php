@@ -58,7 +58,7 @@
 
         // Mobile card sliders — auto-advance every 5s, pauses on manual swipe/drag
         (function () {
-            document.querySelectorAll('.am-mobile-slider').forEach((slider) => {
+            document.querySelectorAll('.am-mobile-slider, .am-eskul-track').forEach((slider) => {
                 let timer = null;
                 let resumeTimeout = null;
 

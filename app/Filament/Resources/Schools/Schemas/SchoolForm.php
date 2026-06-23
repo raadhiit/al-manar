@@ -137,10 +137,19 @@ class SchoolForm
                         TextInput::make('nama')
                             ->label('Nama Eskul')
                             ->required()
-                            ->placeholder('Contoh: Pramuka'),
+                            ->placeholder('Contoh: Pramuka')
+                            ->columnSpan(2),
+                        FileUpload::make('foto')
+                            ->label('Foto Eskul')
+                            ->image()
+                            ->disk('public')
+                            ->directory('schools/eskul')
+                            ->imageEditor()
+                            ->columnSpan(2),
                         TextInput::make('kategori')
                             ->label('Kategori')
-                            ->placeholder('Contoh: Kepanduan, Olahraga, Seni, Akademik'),
+                            ->placeholder('Contoh: Kepanduan, Olahraga, Seni, Akademik')
+                            ->columnSpan(2),
                     ])
                     ->columns(2)
                     ->addActionLabel('Tambah Eskul')
