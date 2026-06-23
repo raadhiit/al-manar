@@ -55,6 +55,44 @@
             }, { threshold: 0.12 });
             document.querySelectorAll('.am-reveal').forEach((el) => io.observe(el));
         })();
+
+        // Mobile card sliders — auto-advance every 5s, pauses on manual swipe/drag
+        (function () {
+            document.querySelectorAll('.am-mobile-slider').forEach((slider) => {
+                let timer = null;
+                let resumeTimeout = null;
+
+                const step = () => {
+                    const card = slider.children[0];
+                    if (!card) return 0;
+                    const gap = parseFloat(getComputedStyle(slider).gap) || 0;
+                    return card.getBoundingClientRect().width + gap;
+                };
+
+                const tick = () => {
+                    const maxScroll = slider.scrollWidth - slider.clientWidth;
+                    if (maxScroll <= 4) return;
+                    const next = slider.scrollLeft >= maxScroll - 4 ? 0 : slider.scrollLeft + step();
+                    slider.scrollTo({ left: next, behavior: 'smooth' });
+                };
+
+                const start = () => {
+                    clearInterval(timer);
+                    timer = setInterval(tick, 5000);
+                };
+
+                const pauseThenResume = () => {
+                    clearInterval(timer);
+                    clearTimeout(resumeTimeout);
+                    resumeTimeout = setTimeout(start, 6000);
+                };
+
+                slider.addEventListener('pointerdown', pauseThenResume);
+                slider.addEventListener('touchstart', pauseThenResume, { passive: true });
+
+                start();
+            });
+        })();
     </script>
 </body>
 </html>

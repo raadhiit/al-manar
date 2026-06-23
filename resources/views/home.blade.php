@@ -125,19 +125,19 @@
         </div>
     </section> --}}
 
-    {{-- ── Schools split ─────────────────────────────────────────────────── --}}
+    {{-- ── Schools & MDTA ────────────────────────────────────────────────── --}}
     <section class="am-section" style="background:var(--surface-page);padding-bottom:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
-                    eyebrow="Unit Pendidikan"
-                    title="Satu yayasan, dua jenjang terpadu"
-                    lead="Pendidikan Islam yang berkesinambungan — dari usia dini hingga sekolah dasar."
+                    eyebrow="Unit Pendidikan & Program"
+                    title="Satu yayasan, jenjang pendidikan terpadu"
+                    lead="Pendidikan Islam yang berkesinambungan — dari usia dini hingga sekolah dasar, dilengkapi pendalaman Al-Qur'an."
                     style="margin-bottom:36px;"
                 />
             </div>
 
-            <div class="am-grid-2">
+            <div class="am-grid-3 am-mobile-slider">
                 <div class="am-reveal">
                     <x-school-card
                         level="SDIT"
@@ -151,7 +151,39 @@
                         :href="route('sdit.index')"
                     />
                 </div>
+
                 <div class="am-reveal" style="transition-delay:80ms;">
+                    <article style="display:flex;flex-direction:column;height:100%;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);">
+                        <div style="position:relative;background:var(--green-700);min-height:210px;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                            <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-300)" stroke-width="1.4" style="position:relative;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            <span style="position:absolute;top:16px;left:16px;">
+                                <x-badge tone="gold" variant="solid" size="md">MDTA</x-badge>
+                            </span>
+                        </div>
+                        <div style="padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1;">
+                            <div style="display:flex;flex-direction:column;gap:4px;">
+                                <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);">
+                                    Program SDIT AL MANAR
+                                </span>
+                                <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--ink-900);margin:0;text-wrap:balance;">
+                                    Madrasah Diniyah Takmiliyah Awaliyah
+                                </h3>
+                            </div>
+                            <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.65;color:var(--ink-500);margin:0;flex:1;">
+                                Pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT AL MANAR — berlangsung siang hari sebagai pelengkap pembelajaran formal, mengacu pada standar Kementerian Agama RI.
+                            </p>
+                            <div style="margin-top:8px;padding-top:18px;border-top:1px solid var(--border-subtle);">
+                                <a href="{{ route('sdit.mdta') }}" class="am-btn am-btn--secondary am-btn--sm">
+                                    Pelajari Program MDTA
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="am-reveal" style="transition-delay:160ms;">
                     <x-school-card
                         level="KB"
                         name="KB-RA"
@@ -168,60 +200,79 @@
         </div>
     </section>
 
-    {{-- ── MDTA highlight ────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
+    {{-- ── Program SDIT ──────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 6);">
         <div class="am-container">
-            <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;">
-                <div style="flex:1 1 320px;padding:36px 36px 36px 36px;">
-                    <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Program SDIT AL MANAR</x-badge>
-                    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 12px;">
-                        Madrasah Diniyah Takmiliyah Awaliyah (MDTA)
-                    </h2>
-                    <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.75;color:var(--ink-600);margin:0 0 22px;max-width:560px;">
-                        Pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT AL MANAR — berlangsung siang hari sebagai pelengkap pembelajaran formal, mengacu pada standar Kementerian Agama RI.
-                    </p>
-                    <a href="{{ route('sdit.mdta') }}" class="am-btn am-btn--secondary am-btn--md">
-                        Pelajari Program MDTA
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </a>
-                </div>
-                <div style="flex:1 1 280px;align-self:stretch;background:var(--green-700);position:relative;overflow:hidden;min-height:200px;display:flex;align-items:center;justify-content:center;">
-                    <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
-                    <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="var(--gold-300)" stroke-width="1.4" style="position:relative;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Program Unggulan"
+                    title="Program SDIT AL MANAR"
+                    lead="Kegiatan rutin yang membentuk karakter, kemampuan bahasa, dan bakat siswa."
+                    align="center"
+                    style="justify-content:center;margin-bottom:36px;"
+                />
+            </div>
+
+            <div class="am-grid-4 am-program-grid">
+                @foreach([
+                    [
+                        'tone'  => 'green',
+                        'title' => 'MABIT',
+                        'desc'  => 'Malam Bina Iman dan Takwa',
+                        'icon'  => '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+                    ],
+                    [
+                        'tone'  => 'gold',
+                        'title' => 'Munaqosah',
+                        'desc'  => 'Ujian tahfizh & kelayakan hafalan',
+                        'icon'  => '<path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 13.5 6 21l6-3 6 3-2.5-7.5"/>',
+                    ],
+                    [
+                        'tone'  => 'green',
+                        'title' => 'Language Day',
+                        'desc'  => 'Pembiasaan bilingual & percakapan aktif',
+                        'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+                    ],
+                    [
+                        'tone'  => 'gold',
+                        'title' => 'Talent Day',
+                        'desc'  => 'Unjuk bakat akademik & non-akademik',
+                        'icon'  => '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M5 6H3v2a4 4 0 0 0 4 4M19 6h2v2a4 4 0 0 1-4 4"/>',
+                    ],
+                ] as $program)
+                    <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
+                        <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:30px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;height:100%;transition:box-shadow .2s,transform .2s;" class="am-program-card">
+                            <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ $program['tone'] === 'gold' ? 'var(--gold-100)' : 'var(--green-100)' }};">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ $program['tone'] === 'gold' ? 'var(--gold-600)' : 'var(--green-600)' }}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{!! $program['icon'] !!}</svg>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:6px;">
+                                <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--ink-900);margin:0;">
+                                    {{ $program['title'] }}
+                                </h3>
+                                <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.55;color:var(--ink-500);margin:0;">
+                                    {{ $program['desc'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
 
-        {{-- ── Video Profil ──────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
+        {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
+    @if($sditPrincipal || $tkitPrincipal)
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
-                    eyebrow="Profil Sekolah"
-                    title="Mengenal AL MANAR lebih dekat"
+                    eyebrow="Kepala Sekolah"
+                    title="Mengenal sosok di balik kepemimpinan AL MANAR"
                     align="center"
                     style="justify-content:center;margin-bottom:28px;"
                 />
             </div>
-            <div class="am-reveal" style="max-width:840px;margin:0 auto;">
-                <div style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
-                    <iframe
-                        src="https://www.youtube.com/embed/eVmC6DThB94"
-                        title="Video Profil AL MANAR"
-                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                    ></iframe>
-                </div>
-            </div>
         </div>
-    </section>
-
-    {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
-    @if($sditPrincipal || $tkitPrincipal)
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container" style="display:flex;flex-direction:column;gap:20px;">
             @if($sditPrincipal)
                 <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
@@ -327,6 +378,33 @@
     </section>
     @endif
 
+    {{-- ── Video Profil ──────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--cream-50);padding-top:3px;padding-bottom:3px;">
+        <div class="am-container">
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Profil Sekolah"
+                    title="Mengenal AL MANAR lebih dekat"
+                    align="center"
+                    style="justify-content:center;margin-bottom:28px;"
+                />
+            </div>
+            <div class="am-reveal" style="max-width:840px;margin:0 auto;">
+                <div style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
+                    <iframe
+                        src="https://www.youtube.com/embed/eVmC6DThB94"
+                        title="Video Profil AL MANAR"
+                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
         <section class="am-section" style="background:var(--cream-50);">
@@ -338,7 +416,7 @@
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </div>
-                <div class="am-grid-3">
+                <div class="am-grid-3 am-mobile-slider">
                     @foreach($latestNews as $news)
                         <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
                             <x-news-card
@@ -411,7 +489,7 @@
 
                 {{-- Grid SDIT --}}
                 @if(!empty($sdit?->fasilitas))
-                <div x-show="tab === 'sdit'" class="am-fasilitas-grid">
+                <div x-show="tab === 'sdit'" class="am-fasilitas-grid am-mobile-slider">
                     @foreach($sdit->fasilitas as $item)
                     @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
                     <div
@@ -443,7 +521,7 @@
 
                 {{-- Grid TKIT --}}
                 @if(!empty($tkit?->fasilitas))
-                <div x-show="tab === 'tkit'" class="am-fasilitas-grid">
+                <div x-show="tab === 'tkit'" class="am-fasilitas-grid am-mobile-slider">
                     @foreach($tkit->fasilitas as $item)
                     @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
                     <div

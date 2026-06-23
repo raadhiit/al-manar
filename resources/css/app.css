@@ -599,6 +599,8 @@ html, body { margin: 0; padding: 0; }
 .am-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .am-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
+.am-program-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
 @media (max-width: 960px) {
   .am-burger { display: inline-flex; }
   .am-nav-desktop { display: none !important; }
@@ -610,6 +612,28 @@ html, body { margin: 0; padding: 0; }
   .am-grid-2 { grid-template-columns: 1fr; }
   .am-grid-3 { grid-template-columns: 1fr; }
   .am-grid-4 { grid-template-columns: 1fr; }
+
+  /* Program Sekolah keeps a 2x2 grid on mobile instead of collapsing to 1 column */
+  .am-program-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px; }
+
+  /* Card grids opted into a horizontal slider on mobile, instead of stacking */
+  .am-mobile-slider {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: 8%;
+    padding-bottom: 4px;
+  }
+  .am-mobile-slider::-webkit-scrollbar { display: none; }
+  .am-mobile-slider > * {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+  }
 }
 
 /* ── Hero layout ─────────────────────────────────────────────────────── */
