@@ -404,6 +404,133 @@
         </div>
     </section>
 
+        {{-- ── Kegiatan ──────────────────────────────────────────────────────── --}}
+    @if($sditActivities->isNotEmpty() || $tkitActivities->isNotEmpty())
+    <section class="am-section" style="background:var(--surface-page);padding-top:calc(var(--section-y) / 3);padding-bottom:calc(var(--section-y) / 3);">
+        <div class="am-container">
+            <div class="am-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px;">
+                <x-section-header eyebrow="Dokumentasi" title="Momen Kegiatan AL MANAR" lead="Keseruan belajar, beribadah, dan berkarya — diabadikan langsung dari lapangan." />
+            </div>
+
+            <div x-data="{ tab: 'sdit' }">
+                {{-- Tab switcher --}}
+                @if($sditActivities->isNotEmpty() && $tkitActivities->isNotEmpty())
+                <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border-subtle);">
+                    <button type="button" @click="tab='sdit'"
+                        :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        SDIT AL MANAR
+                    </button>
+                    <button type="button" @click="tab='tkit'"
+                        :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        KB Raudhatul Jannah
+                    </button>
+                </div>
+                @endif
+
+                {{-- Grid SDIT --}}
+                @if($sditActivities->isNotEmpty())
+                <div x-show="tab === 'sdit'" class="am-kegiatan-grid">
+                    @foreach($sditActivities as $activity)
+                        @php
+                            $thumb = $activity->thumbnail_path
+                                ? Storage::url($activity->thumbnail_path)
+                                : ($activity->youtube_id
+                                    ? "https://img.youtube.com/vi/{$activity->youtube_id}/hqdefault.jpg"
+                                    : ($activity->photos->first()?->path ? Storage::url($activity->photos->first()->path) : null));
+                        @endphp
+                        <a href="{{ route('sdit.kegiatan') }}" class="am-reveal am-kegiatan-card" style="display:block;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);position:relative;background:var(--green-100);transition-delay:{{ $loop->index * 60 }}ms;">
+                            @if($thumb)
+                                <img src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                            @else
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                </div>
+                            @endif
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,30,20,.85) 0%, rgba(10,30,20,.15) 50%, rgba(10,30,20,0) 75%);"></div>
+
+                            {{-- Top badges --}}
+                            <div style="position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;">
+                                @if($activity->category)
+                                    <span style="background:rgba(217,171,61,.95);color:#1A2E20;font-family:var(--font-sans);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:var(--radius-md);">{{ $activity->category }}</span>
+                                @endif
+                                @if($activity->youtube_id)
+                                    <span style="background:rgba(0,0,0,.55);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                @endif
+                            </div>
+
+                            {{-- Bottom content --}}
+                            <div style="position:absolute;bottom:14px;left:16px;right:16px;">
+                                @if($activity->activity_date)
+                                    <span style="font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--gold-300);display:block;margin-bottom:4px;">{{ \Carbon\Carbon::parse($activity->activity_date)->translatedFormat('d M Y') }}</span>
+                                @endif
+                                <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:#FBF8F1;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.4);display:block;">{{ $activity->title }}</span>
+                                <span class="am-kegiatan-cta" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-family:var(--font-sans);font-size:12px;font-weight:600;color:#FBF8F1;">
+                                    Lihat Kegiatan
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </span>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+                @endif
+
+                {{-- Grid TKIT --}}
+                @if($tkitActivities->isNotEmpty())
+                <div x-show="tab === 'tkit'" class="am-kegiatan-grid">
+                    @foreach($tkitActivities as $activity)
+                        @php
+                            $thumb = $activity->thumbnail_path
+                                ? Storage::url($activity->thumbnail_path)
+                                : ($activity->youtube_id
+                                    ? "https://img.youtube.com/vi/{$activity->youtube_id}/hqdefault.jpg"
+                                    : ($activity->photos->first()?->path ? Storage::url($activity->photos->first()->path) : null));
+                        @endphp
+                        <a href="{{ route('tkit.kegiatan') }}" class="am-reveal am-kegiatan-card" style="display:block;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);position:relative;background:var(--gold-100);transition-delay:{{ $loop->index * 60 }}ms;">
+                            @if($thumb)
+                                <img src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                            @else
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                </div>
+                            @endif
+                            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(40,28,4,.85) 0%, rgba(40,28,4,.15) 50%, rgba(40,28,4,0) 75%);"></div>
+
+                            {{-- Top badges --}}
+                            <div style="position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;">
+                                @if($activity->category)
+                                    <span style="background:rgba(56,118,79,.95);color:#FBF8F1;font-family:var(--font-sans);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 10px;border-radius:var(--radius-md);">{{ $activity->category }}</span>
+                                @endif
+                                @if($activity->youtube_id)
+                                    <span style="background:rgba(0,0,0,.55);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                                    </span>
+                                @endif
+                            </div>
+
+                            {{-- Bottom content --}}
+                            <div style="position:absolute;bottom:14px;left:16px;right:16px;">
+                                @if($activity->activity_date)
+                                    <span style="font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--gold-200);display:block;margin-bottom:4px;">{{ \Carbon\Carbon::parse($activity->activity_date)->translatedFormat('d M Y') }}</span>
+                                @endif
+                                <span style="font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:#FBF8F1;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.4);display:block;">{{ $activity->title }}</span>
+                                <span class="am-kegiatan-cta" style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-family:var(--font-sans);font-size:12px;font-weight:600;color:#FBF8F1;">
+                                    Lihat Kegiatan
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </span>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
+
         {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
     @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
     <section class="am-section" style="background:var(--cream-50);padding-bottom:calc(var(--section-y) / 3);">
@@ -412,7 +539,34 @@
                 <x-section-header eyebrow="Ekstrakurikuler" title="Eskul AL MANAR" lead="Wadah minat & bakat siswa di luar jam pelajaran." />
             </div>
 
-            <div x-data="{ tab: 'sdit' }">
+            <div x-data="{ tab: 'sdit', modal: null }" @keydown.escape.window="modal = null">
+
+                {{-- Modal lightbox --}}
+                <template x-teleport="body">
+                    <div
+                        x-show="modal !== null"
+                        x-transition:enter="hero-fade-enter"
+                        x-transition:enter-start="hero-fade-enter-start"
+                        x-transition:enter-end="hero-fade-enter-end"
+                        x-transition:leave="hero-fade-leave"
+                        x-transition:leave-end="hero-fade-leave-end"
+                        @click.self="modal = null"
+                        style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:24px;"
+                        x-cloak
+                    >
+                        <div style="position:relative;max-width:560px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+                            <button @click="modal = null" style="position:absolute;top:-44px;right:0;background:none;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:var(--text-sm);opacity:.8;" onmouseenter="this.style.opacity=1" onmouseleave="this.style.opacity=.8">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                Tutup
+                            </button>
+                            <img :src="modal?.foto" :alt="modal?.nama" style="max-width:100%;max-height:80vh;object-fit:contain;border-radius:var(--radius-xl);display:block;">
+                            <div style="margin-top:16px;text-align:center;">
+                                <span style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:600;color:#FBF8F1;" x-text="modal?.nama"></span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
                 {{-- Tab switcher --}}
                 @if(!empty($sdit?->eskul) && !empty($tkit?->eskul))
                 <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border-subtle);">
@@ -435,7 +589,10 @@
                     @foreach($sdit->eskul as $item)
                         @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
                         <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
-                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                            <div
+                                @if($fotoUrl) @click="modal = { foto: '{{ $fotoUrl }}', nama: '{{ addslashes($item['nama']) }}' }" class="am-eskul-avatar" @endif
+                                style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;"
+                            >
                                 @if($fotoUrl)
                                     <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                                 @else
@@ -459,7 +616,10 @@
                     @foreach($tkit->eskul as $item)
                         @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
                         <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
-                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                            <div
+                                @if($fotoUrl) @click="modal = { foto: '{{ $fotoUrl }}', nama: '{{ addslashes($item['nama']) }}' }" class="am-eskul-avatar" @endif
+                                style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;"
+                            >
                                 @if($fotoUrl)
                                     <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                                 @else

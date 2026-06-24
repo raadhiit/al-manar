@@ -26,10 +26,12 @@ class PublicController extends Controller
             array_map(fn($p) => ['path' => $p, 'school' => 'SDIT'], $sdit?->hero_photos ?? []),
             array_map(fn($p) => ['path' => $p, 'school' => 'TKIT'], $tkit?->hero_photos ?? []),
         ))->shuffle()->take(6);
-        $sditPrincipal = Teacher::forSchool($sdit?->id ?? 0)->principals()->active()->first();
-        $tkitPrincipal = Teacher::forSchool($tkit?->id ?? 0)->principals()->active()->first();
+        $sditPrincipal     = Teacher::forSchool($sdit?->id ?? 0)->principals()->active()->first();
+        $tkitPrincipal     = Teacher::forSchool($tkit?->id ?? 0)->principals()->active()->first();
+        $sditActivities    = Activity::with('photos')->forSchool($sdit?->id ?? 0)->latestFirst()->take(4)->get();
+        $tkitActivities    = Activity::with('photos')->forSchool($tkit?->id ?? 0)->latestFirst()->take(4)->get();
 
-        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides', 'sditPrincipal', 'tkitPrincipal'));
+        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides', 'sditPrincipal', 'tkitPrincipal', 'sditActivities', 'tkitActivities'));
     }
 
     public function beritaIndex(): View

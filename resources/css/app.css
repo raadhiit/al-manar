@@ -574,6 +574,37 @@ html, body { margin: 0; padding: 0; }
   .am-fasilitas-grid           { grid-template-columns: 1fr; }
 }
 
+/* ── Kegiatan grid & card (featured-style) ──────────────────────────── */
+.am-kegiatan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 18px;
+}
+.am-kegiatan-grid > a:first-child { grid-column: span 2; grid-row: span 2; }
+.am-kegiatan-card             { transition: box-shadow .3s ease, transform .3s ease; }
+.am-kegiatan-card:hover       { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+.am-kegiatan-card:hover .am-kegiatan-img  { transform: scale(1.1); }
+.am-kegiatan-img              { transition: transform .5s ease; }
+.am-kegiatan-cta {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.am-kegiatan-card:hover .am-kegiatan-cta { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 960px) {
+  .am-kegiatan-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .am-kegiatan-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .am-kegiatan-grid > a:first-child { grid-column: span 1; grid-row: span 1; }
+}
+
+/* ── Eskul avatar (clickable for lightbox) ──────────────────────────── */
+.am-eskul-avatar             { transition: transform .25s ease, box-shadow .25s ease; cursor: pointer; }
+.am-eskul-avatar:hover       { transform: scale(1.06); box-shadow: var(--shadow-md); }
+
 /* ── Prose on dark/brand background ─────────────────────────────────── */
 .am-prose-onbrand {
   font-family: var(--font-sans);
