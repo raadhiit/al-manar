@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Mail\RegistrationStatusMail;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Activitylog\Models\Concerns\LogsActivity;
 use Spatie\Activitylog\Support\LogOptions;
 
@@ -43,6 +45,20 @@ class Registration extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable()->logOnlyDirty()->dontLogEmptyChanges();
+    }
+
+    protected static function booted(): void
+    {
+        static::updated(function (Registration $registration) {
+            $notifiableStatuses = ['diterima', 'ditolak', 'perlu_revisi'];
+
+            if ($registration->wasChanged('status')
+                && in_array($registration->status, $notifiableStatuses, true)
+                && $registration->email
+            ) {
+                Mail::to($registration->email)->queue(new RegistrationStatusMail($registration));
+            }
+        });
     }
 
     protected function casts(): array
