@@ -201,7 +201,7 @@
     </section>
 
     {{-- ── Program SDIT ──────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 6);">
+    <section class="am-section" style="background:var(--green-800);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 6);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
@@ -379,7 +379,7 @@
     @endif
 
     {{-- ── Video Profil ──────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--cream-50);padding-top:3px;padding-bottom:3px;">
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
@@ -531,7 +531,7 @@
     </section>
     @endif
 
-        {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
+    {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
     @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
     <section class="am-section" style="background:var(--cream-50);padding-bottom:calc(var(--section-y) / 3);">
         <div class="am-container">
@@ -640,7 +640,6 @@
         </div>
     </section>
     @endif
-
 
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
