@@ -471,8 +471,8 @@
         {{-- ── Step 4: Upload Dokumen ────────────────────────────────────── --}}
         @if($step === 4)
         {{-- Loading overlay saat submit --}}
-        <div wire:loading wire:target="submit"
-            style="position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+        <div wire:loading.flex wire:target="submit"
+            style="position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
             <div style="width:52px;height:52px;border:4px solid rgba(255,255,255,.25);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite;"></div>
             <p style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:#fff;margin:0;">Mengirim pendaftaran...</p>
             <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(255,255,255,.7);margin:0;">Mohon tunggu, sedang mengupload dokumen</p>
