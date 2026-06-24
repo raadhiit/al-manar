@@ -135,7 +135,7 @@ class PublicController extends Controller
     {
         $school            = School::where('slug', 'sdit')->firstOrFail();
         $latestNews        = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
-        $latestActivities  = Activity::forSchool($school->id)->latestFirst()->take(3)->get();
+        $latestActivities  = Activity::with('photos')->forSchool($school->id)->latestFirst()->take(3)->get();
 
         return view('sdit.index', compact('school', 'latestNews', 'latestActivities'));
     }
@@ -166,7 +166,7 @@ class PublicController extends Controller
     {
         $school           = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->firstOrFail();
         $latestNews       = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
-        $latestActivities = Activity::forSchool($school->id)->latestFirst()->take(3)->get();
+        $latestActivities = Activity::with('photos')->forSchool($school->id)->latestFirst()->take(3)->get();
 
         return view('tkit.index', compact('school', 'latestNews', 'latestActivities'));
     }

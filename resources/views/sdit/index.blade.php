@@ -156,16 +156,28 @@
                 </div>
                 <div class="am-grid-3">
                     @foreach($latestActivities as $activity)
+                        @php
+                            $thumb = $activity->thumbnail_path
+                                ? Storage::url($activity->thumbnail_path)
+                                : ($activity->youtube_id
+                                    ? "https://img.youtube.com/vi/{$activity->youtube_id}/hqdefault.jpg"
+                                    : ($activity->photos->first()?->path ? Storage::url($activity->photos->first()->path) : null));
+                        @endphp
                         <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
                             <a href="{{ route('sdit.kegiatan') }}" style="text-decoration:none;display:block;">
                                 <div class="am-card" style="overflow:hidden;padding:0;">
-                                    <div style="aspect-ratio:16/9;overflow:hidden;background:var(--cream-100);">
-                                        @if($activity->thumbnail_path)
-                                            <img src="{{ Storage::url($activity->thumbnail_path) }}" alt="{{ $activity->title }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                                    <div style="position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--cream-100);">
+                                        @if($thumb)
+                                            <img src="{{ $thumb }}" alt="{{ $activity->title }}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
                                         @else
                                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                                             </div>
+                                        @endif
+                                        @if($activity->youtube_id)
+                                            <span style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,.55);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+                                            </span>
                                         @endif
                                     </div>
                                     <div style="padding:16px 20px 20px;">
