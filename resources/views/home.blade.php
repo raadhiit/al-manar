@@ -404,10 +404,87 @@
         </div>
     </section>
 
+        {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
+    @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
+    <section class="am-section" style="background:var(--cream-50);padding-bottom:calc(var(--section-y) / 3);">
+        <div class="am-container">
+            <div class="am-reveal" style="margin-bottom:32px;">
+                <x-section-header eyebrow="Ekstrakurikuler" title="Eskul AL MANAR" lead="Wadah minat & bakat siswa di luar jam pelajaran." />
+            </div>
+
+            <div x-data="{ tab: 'sdit' }">
+                {{-- Tab switcher --}}
+                @if(!empty($sdit?->eskul) && !empty($tkit?->eskul))
+                <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border-subtle);">
+                    <button type="button" @click="tab='sdit'"
+                        :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        SDIT AL MANAR
+                    </button>
+                    <button type="button" @click="tab='tkit'"
+                        :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
+                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
+                        TKIT AL MANAR
+                    </button>
+                </div>
+                @endif
+
+                {{-- Pill slider SDIT --}}
+                @if(!empty($sdit?->eskul))
+                <div x-show="tab === 'sdit'" class="am-eskul-track">
+                    @foreach($sdit->eskul as $item)
+                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
+                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                @if($fotoUrl)
+                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                @else
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                                @endif
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:1px;">
+                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
+                                @if(!empty($item['kategori']))
+                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @endif
+
+                {{-- Pill slider TKIT --}}
+                @if(!empty($tkit?->eskul))
+                <div x-show="tab === 'tkit'" class="am-eskul-track">
+                    @foreach($tkit->eskul as $item)
+                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
+                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                @if($fotoUrl)
+                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                @else
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+                                @endif
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:1px;">
+                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
+                                @if(!empty($item['kategori']))
+                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
+                                @endif
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @endif
+            </div>
+        </div>
+    </section>
+    @endif
+
 
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
-        <section class="am-section" style="background:var(--cream-50);">
+        <section class="am-section" style="background:var(--cream-50);padding-bottom:calc(var(--section-y) / 3);">
             <div class="am-container">
                 <div class="am-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
                     <x-section-header eyebrow="Berita Terbaru" title="Kabar dari AL MANAR" />
@@ -495,25 +572,20 @@
                     <div
                         class="am-fasilitas-card"
                         @if($fotoUrl) @click="modal = { foto: '{{ $fotoUrl }}', nama: '{{ addslashes($item['nama']) }}' }" @endif
-                        style="min-width:0;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};transition:box-shadow .2s,transform .2s;"
+                        style="min-width:0;position:relative;aspect-ratio:1/1;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};background:var(--green-100);"
                     >
-                        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--cream-100);position:relative;">
-                            @if($fotoUrl)
-                                <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
-                                <div class="fasilitas-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;">
-                                    <div style="width:44px;height:44px;background:rgba(255,255,255,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink-800)" stroke-width="2"><path d="M15 3h6v6M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                    </div>
-                                </div>
-                            @else
-                                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                    <span style="font-size:2.5rem;">{{ $item['icon'] ?? '🏫' }}</span>
-                                </div>
-                            @endif
-                        </div>
-                        <div style="padding:14px 16px;">
-                            <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);">{{ $item['nama'] }}</span>
-                        </div>
+                        @if($fotoUrl)
+                            <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
+                        @else
+                            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                                <span style="font-size:2.8rem;">{{ $item['icon'] ?? '🏫' }}</span>
+                            </div>
+                        @endif
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,30,20,.82) 0%, rgba(10,30,20,.35) 38%, rgba(10,30,20,0) 65%);"></div>
+                        <span style="position:absolute;top:12px;left:12px;width:34px;height:34px;border-radius:50%;background:rgba(251,248,241,.92);display:flex;align-items:center;justify-content:center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2"><path d="M15 3h6v6M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                        </span>
+                        <span style="position:absolute;bottom:14px;left:16px;right:16px;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;color:#FBF8F1;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.4);">{{ $item['nama'] }}</span>
                     </div>
                     @endforeach
                 </div>
@@ -527,107 +599,25 @@
                     <div
                         class="am-fasilitas-card"
                         @if($fotoUrl) @click="modal = { foto: '{{ $fotoUrl }}', nama: '{{ addslashes($item['nama']) }}' }" @endif
-                        style="min-width:0;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};transition:box-shadow .2s,transform .2s;"
+                        style="min-width:0;position:relative;aspect-ratio:1/1;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};background:var(--gold-100);"
                     >
-                        <div style="aspect-ratio:4/3;overflow:hidden;background:var(--cream-100);position:relative;">
-                            @if($fotoUrl)
-                                <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
-                                <div class="fasilitas-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;">
-                                    <div style="width:44px;height:44px;background:rgba(255,255,255,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink-800)" stroke-width="2"><path d="M15 3h6v6M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                    </div>
-                                </div>
-                            @else
-                                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                                    <span style="font-size:2.5rem;">{{ $item['icon'] ?? '🏫' }}</span>
-                                </div>
-                            @endif
-                        </div>
-                        <div style="padding:14px 16px;">
-                            <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);">{{ $item['nama'] }}</span>
-                        </div>
+                        @if($fotoUrl)
+                            <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
+                        @else
+                            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                                <span style="font-size:2.8rem;">{{ $item['icon'] ?? '🏫' }}</span>
+                            </div>
+                        @endif
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(40,28,4,.82) 0%, rgba(40,28,4,.35) 38%, rgba(40,28,4,0) 65%);"></div>
+                        <span style="position:absolute;top:12px;left:12px;width:34px;height:34px;border-radius:50%;background:rgba(251,248,241,.92);display:flex;align-items:center;justify-content:center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-600)" stroke-width="2"><path d="M15 3h6v6M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                        </span>
+                        <span style="position:absolute;bottom:14px;left:16px;right:16px;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;color:#FBF8F1;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.4);">{{ $item['nama'] }}</span>
                     </div>
                     @endforeach
                 </div>
                 @endif
 
-            </div>
-        </div>
-    </section>
-    @endif
-
-    {{-- ── Ekstrakurikuler ────────────────────────────────────────────────── --}}
-    @if(!empty($sdit?->eskul) || !empty($tkit?->eskul))
-    <section class="am-section" style="background:var(--cream-50);">
-        <div class="am-container">
-            <div class="am-reveal" style="margin-bottom:32px;">
-                <x-section-header eyebrow="Ekstrakurikuler" title="Eskul AL MANAR" lead="Wadah minat & bakat siswa di luar jam pelajaran." />
-            </div>
-
-            <div x-data="{ tab: 'sdit' }">
-                {{-- Tab switcher --}}
-                @if(!empty($sdit?->eskul) && !empty($tkit?->eskul))
-                <div style="display:flex;gap:8px;margin-bottom:24px;border-bottom:2px solid var(--border-subtle);">
-                    <button type="button" @click="tab='sdit'"
-                        :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
-                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        SDIT AL MANAR
-                    </button>
-                    <button type="button" @click="tab='tkit'"
-                        :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
-                        style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        TKIT AL MANAR
-                    </button>
-                </div>
-                @endif
-
-                {{-- Pill slider SDIT --}}
-                @if(!empty($sdit?->eskul))
-                <div x-show="tab === 'sdit'" class="am-eskul-track">
-                    @foreach($sdit->eskul as $item)
-                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
-                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
-                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                @if($fotoUrl)
-                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
-                                @else
-                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-                                @endif
-                            </div>
-                            <div style="display:flex;flex-direction:column;gap:1px;">
-                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
-                                @if(!empty($item['kategori']))
-                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                @endif
-
-                {{-- Pill slider TKIT --}}
-                @if(!empty($tkit?->eskul))
-                <div x-show="tab === 'tkit'" class="am-eskul-track">
-                    @foreach($tkit->eskul as $item)
-                        @php $fotoUrl = !empty($item['foto']) ? Storage::url($item['foto']) : null; @endphp
-                        <div style="flex:0 0 auto;width:104px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
-                            <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                                @if($fotoUrl)
-                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
-                                @else
-                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-                                @endif
-                            </div>
-                            <div style="display:flex;flex-direction:column;gap:1px;">
-                                <span style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--ink-800);line-height:1.25;">{{ $item['nama'] }}</span>
-                                @if(!empty($item['kategori']))
-                                    <span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-400);">{{ $item['kategori'] }}</span>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                @endif
             </div>
         </div>
     </section>

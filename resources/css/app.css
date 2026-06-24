@@ -564,8 +564,9 @@ html, body { margin: 0; padding: 0; }
 
 /* ── Fasilitas grid & card ───────────────────────────────────────────── */
 .am-fasilitas-grid             { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.am-fasilitas-card:hover       { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.am-fasilitas-card:hover .fasilitas-overlay { opacity: 1 !important; }
+.am-fasilitas-card                          { transition: box-shadow .25s, transform .25s; }
+.am-fasilitas-card:hover                    { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.am-fasilitas-card:hover .am-fasilitas-img  { transform: scale(1.08); }
 @media (max-width: 960px) {
   .am-fasilitas-grid           { grid-template-columns: repeat(2, 1fr); }
 }
