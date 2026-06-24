@@ -14,6 +14,8 @@ use Spatie\Activitylog\Support\LogOptions;
     'school_id',
     'title',
     'body',
+    'attachment_path',
+    'attachment_filename',
     'category',
     'status',
     'published_at',

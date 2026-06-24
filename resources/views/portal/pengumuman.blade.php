@@ -97,6 +97,14 @@
                             <div style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.75;color:var(--ink-700);">
                                 {!! $ann->body !!}
                             </div>
+
+                            {{-- Lampiran --}}
+                            @if($ann->attachment_path)
+                                <a href="{{ Storage::url($ann->attachment_path) }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--green-700);text-decoration:none;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:8px 16px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    {{ $ann->attachment_filename ?? 'Unduh Lampiran' }}
+                                </a>
+                            @endif
                         </div>
                     @endforeach
                 </div>

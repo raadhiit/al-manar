@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Announcements\Schemas;
 
 use App\Models\School;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -40,6 +41,24 @@ class AnnouncementForm
                     ->label('Isi Pengumuman')
                     ->required()
                     ->toolbarButtons(['bold', 'italic', 'bulletList', 'orderedList', 'link'])
+                    ->columnSpanFull(),
+
+                FileUpload::make('attachment_path')
+                    ->label('Lampiran')
+                    ->helperText('Opsional. Dokumen pendukung pengumuman, misal surat resmi atau jadwal.')
+                    ->acceptedFileTypes([
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'application/vnd.ms-excel',
+                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                        'image/jpeg',
+                        'image/png',
+                    ])
+                    ->disk('public')
+                    ->directory('announcements')
+                    ->maxSize(10240)
+                    ->storeFileNamesIn('attachment_filename')
                     ->columnSpanFull(),
 
                 Select::make('status')
