@@ -201,13 +201,14 @@
     </section>
 
     {{-- ── Program SDIT ──────────────────────────────────────────────────── --}}
-    <section class="am-section" style="background:var(--green-800);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 6);">
+    <section class="am-section" style="background:var(--green-800);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
                     eyebrow="Program Unggulan"
                     title="Program SDIT AL MANAR"
                     lead="Kegiatan rutin yang membentuk karakter, kemampuan bahasa, dan bakat siswa."
+                    tone="onbrand"
                     align="center"
                     style="justify-content:center;margin-bottom:36px;"
                 />
@@ -262,7 +263,7 @@
 
         {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
     @if($sditPrincipal || $tkitPrincipal)
-    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);">
+    <section class="am-section" style="background:var(--surface-card);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container">
             <div class="am-reveal">
                 <x-section-header
@@ -406,7 +407,7 @@
 
     {{-- ── Kegiatan ─────────────────────────────────────────────────────── --}}
     @if($sditActivities->isNotEmpty() || $tkitActivities->isNotEmpty())
-    <section class="am-section" style="background:var(--surface-page);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 3);">
+    <section class="am-section" style="background:var(--surface-card);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 3);">
         <div class="am-container">
             <div class="am-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px;">
                 <x-section-header eyebrow="Dokumentasi" title="Momen Kegiatan AL MANAR" lead="Keseruan belajar, beribadah, dan berkarya — diabadikan langsung dari lapangan." />
@@ -643,7 +644,7 @@
 
     {{-- ── News preview ───────────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
-        <section class="am-section" style="background:var(--cream-50);padding-bottom:calc(var(--section-y) / 3);">
+        <section class="am-section" style="background:var(--surface-card);padding-bottom:calc(var(--section-y) / 3);">
             <div class="am-container">
                 <div class="am-reveal" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
                     <x-section-header eyebrow="Berita Terbaru" title="Kabar dari AL MANAR" />
@@ -673,7 +674,7 @@
 
     {{-- ── Fasilitas ──────────────────────────────────────────────────────── --}}
     @if(!empty($sdit?->fasilitas) || !empty($tkit?->fasilitas))
-    <section class="am-section" style="background:var(--surface-page);">
+    <section class="am-section" style="background:var(--green-50);">
         <div class="am-container">
             <div class="am-reveal" style="margin-bottom:36px;">
                 <x-section-header eyebrow="Sarana & Prasarana" title="Fasilitas Sekolah" />

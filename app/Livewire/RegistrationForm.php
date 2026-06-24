@@ -300,7 +300,7 @@ class RegistrationForm extends Component
             }
 
             if ($this->email) {
-                Mail::to($this->email)->send(new RegistrationMail($registration));
+                Mail::to($this->email)->queue(new RegistrationMail($registration));
             }
 
             $this->registrationNumber = $registration->registration_number;
