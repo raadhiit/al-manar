@@ -68,6 +68,8 @@ class PermissionSeeder extends Seeder
         $adminPermissions = Permission::where('name', 'not like', '%:Role')->pluck('name');
         Role::findByName('admin')->syncPermissions($adminPermissions);
 
-        // super_admin: Shield handle via Gate bypass, tidak perlu assign manual
+        // super_admin: define_via_gate di config/filament-shield.php false,
+        // jadi Gate::before tidak aktif — semua permission harus di-assign manual
+        Role::findByName('super_admin')->syncPermissions(Permission::all());
     }
 }
