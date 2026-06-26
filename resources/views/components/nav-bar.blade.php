@@ -52,7 +52,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" style="display:flex;text-decoration:none;">
-                <x-logo tone="dark" :size="42" subtitle="Yayasan · Kota Bekasi" />
+                <x-logo tone="dark" :size="42" subtitle="Yayasan · Al Muhajirin AL MANAR Kota Bekasi" />
             </a>
 
             {{-- Desktop nav --}}
