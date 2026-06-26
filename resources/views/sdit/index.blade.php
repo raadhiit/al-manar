@@ -115,6 +115,66 @@
         </section>
     @endif
 
+        {{-- ── Program SDIT ──────────────────────────────────────────────────── --}}
+    <section class="am-section" style="background:var(--cream-100);padding-top:calc(var(--section-y) / 6);padding-bottom:calc(var(--section-y) / 2);">
+        <div class="am-container">
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Program Unggulan"
+                    title="Program SDIT AL MANAR"
+                    lead="Kegiatan rutin yang membentuk karakter, kemampuan bahasa, dan bakat siswa."
+                    align="center"
+                    style="justify-content:center;margin-bottom:36px;"
+                />
+            </div>
+
+            <div class="am-grid-4 am-program-grid">
+                @foreach([
+                    [
+                        'tone'  => 'green',
+                        'title' => 'MABIT',
+                        'desc'  => 'Malam Bina Iman dan Takwa',
+                        'icon'  => '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+                    ],
+                    [
+                        'tone'  => 'gold',
+                        'title' => 'Munaqosah',
+                        'desc'  => 'Ujian tahfizh & kelayakan hafalan',
+                        'icon'  => '<path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.5 13.5 6 21l6-3 6 3-2.5-7.5"/>',
+                    ],
+                    [
+                        'tone'  => 'green',
+                        'title' => 'Language Day',
+                        'desc'  => 'Pembiasaan bilingual & percakapan aktif',
+                        'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+                    ],
+                    [
+                        'tone'  => 'gold',
+                        'title' => 'Talent Day',
+                        'desc'  => 'Unjuk bakat akademik & non-akademik',
+                        'icon'  => '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M5 6H3v2a4 4 0 0 0 4 4M19 6h2v2a4 4 0 0 1-4 4"/>',
+                    ],
+                ] as $program)
+                    <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
+                        <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:30px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;height:100%;transition:box-shadow .2s,transform .2s;" class="am-program-card">
+                            <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ $program['tone'] === 'gold' ? 'var(--gold-100)' : 'var(--green-100)' }};">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ $program['tone'] === 'gold' ? 'var(--gold-600)' : 'var(--green-600)' }}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{!! $program['icon'] !!}</svg>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:6px;">
+                                <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--ink-900);margin:0;">
+                                    {{ $program['title'] }}
+                                </h3>
+                                <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.55;color:var(--ink-500);margin:0;">
+                                    {{ $program['desc'] }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     {{-- ── Berita Terbaru ─────────────────────────────────────────────── --}}
     @if($latestNews->isNotEmpty())
         <section class="am-section" style="background:var(--surface-card);">

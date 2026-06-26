@@ -261,7 +261,7 @@
         </div>
     </section>
 
-        {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
+    {{-- ── Kepala Sekolah ────────────────────────────────────────────────── --}}
     @if($sditPrincipal || $tkitPrincipal)
     <section class="am-section" style="background:var(--surface-card);padding-top:calc(var(--section-y) / 2);">
         <div class="am-container">
