@@ -29,6 +29,7 @@
                 @endforeach
             </div>
 
+            <div x-data="{ lightbox: null }">
             @if($galleries->isNotEmpty())
                 <div style="display:flex;flex-direction:column;gap:4px;">
                     @foreach($galleries as $album)
@@ -128,7 +129,10 @@
                                                     @endif
                                                 </a>
                                             @elseif($item->path)
-                                                <div style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;background:var(--cream-200);">
+                                                <div
+                                                    @click="lightbox = { src: '{{ Storage::url($item->path) }}', caption: '{{ addslashes($item->caption ?? $album->title) }}' }"
+                                                    style="border-radius:var(--radius-md);overflow:hidden;aspect-ratio:4/3;background:var(--cream-200);cursor:pointer;"
+                                                >
                                                     <img
                                                         src="{{ Storage::url($item->path) }}"
                                                         alt="{{ $item->caption ?? $album->title }}"
@@ -160,6 +164,43 @@
                     </p>
                 </div>
             @endif
+
+            {{-- Lightbox modal --}}
+            <div x-show="lightbox" x-cloak @keydown.escape.window="lightbox = null" style="position:fixed;inset:0;z-index:999;">
+                {{-- Backdrop --}}
+                <div
+                    x-show="lightbox"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                    @click="lightbox = null"
+                    style="position:fixed;inset:0;background:rgba(0,0,0,.9);"
+                ></div>
+
+                {{-- Centered content --}}
+                <div
+                    x-show="lightbox"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);max-width:90vw;max-height:85vh;display:flex;flex-direction:column;align-items:center;gap:14px;"
+                >
+                    <button
+                        @click="lightbox = null"
+                        aria-label="Tutup"
+                        style="position:absolute;top:-44px;right:0;background:none;border:none;cursor:pointer;color:#fff;padding:8px;"
+                    >
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                    <img :src="lightbox?.src" :alt="lightbox?.caption" style="max-width:90vw;max-height:75vh;object-fit:contain;border-radius:var(--radius-md);display:block;">
+                    <p x-show="lightbox?.caption" x-text="lightbox?.caption" style="color:#fff;font-family:var(--font-sans);font-size:var(--text-sm);text-align:center;margin:0;"></p>
+                </div>
+            </div>
+
+            </div>
 
         </div>
     </section>
