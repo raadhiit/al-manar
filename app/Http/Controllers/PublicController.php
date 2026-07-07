@@ -18,7 +18,7 @@ class PublicController extends Controller
     public function home(): View
     {
         $sdit         = School::where('slug', 'sdit')->first();
-        $tkit         = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->first();
+        $tkit         = School::where('slug', 'kelompok-bermain-raudhatul-athfal')->first();
         $yayasan      = School::where('slug', 'yayasan')->first();
         $latestNews   = News::with('school')->published()->latest('published_at')->take(3)->get();
         $achievements = Achievement::with('school')->latest()->take(4)->get();
@@ -40,7 +40,7 @@ class PublicController extends Controller
         $query   = News::with('school')->published()->latest('published_at');
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'tk' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
@@ -73,7 +73,7 @@ class PublicController extends Controller
         $query   = Achievement::with('school')->latest();
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'tk' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
@@ -91,7 +91,7 @@ class PublicController extends Controller
         $query   = Gallery::with(['items', 'school'])->latest();
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'tk' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
@@ -109,7 +109,7 @@ class PublicController extends Controller
         $query   = Teacher::with('school')->active()->orderBy('display_order');
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-jannah' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
@@ -124,7 +124,7 @@ class PublicController extends Controller
     public function kontak(): View
     {
         $sdit = School::where('slug', 'sdit')->first();
-        $tkit = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->first();
+        $tkit = School::where('slug', 'kelompok-bermain-raudhatul-athfal')->first();
 
         return view('kontak', compact('sdit', 'tkit'));
     }
@@ -164,7 +164,7 @@ class PublicController extends Controller
 
     public function tkitIndex(): View
     {
-        $school           = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->firstOrFail();
+        $school           = School::where('slug', 'kelompok-bermain-raudhatul-athfal')->firstOrFail();
         $latestNews       = News::with('school')->forSchool($school->id)->published()->latest('published_at')->take(3)->get();
         $latestActivities = Activity::with('photos')->forSchool($school->id)->latestFirst()->take(3)->get();
 
@@ -173,7 +173,7 @@ class PublicController extends Controller
 
     public function tkitKegiatan(): View
     {
-        $school     = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->firstOrFail();
+        $school     = School::where('slug', 'kelompok-bermain-raudhatul-athfal')->firstOrFail();
         $activities = Activity::with('photos')->forSchool($school->id)->latestFirst()->paginate(9);
 
         return view('tkit.kegiatan', compact('school', 'activities'));
@@ -181,7 +181,7 @@ class PublicController extends Controller
 
     public function tkitPendaftaran(): View
     {
-        $school = School::where('slug', 'kelompok-bermain-raudhatul-jannah')->firstOrFail();
+        $school = School::where('slug', 'kelompok-bermain-raudhatul-athfal')->firstOrFail();
 
         return view('tkit.pendaftaran', compact('school'));
     }
@@ -194,7 +194,7 @@ class PublicController extends Controller
         $query   = AcademicCalendar::with('school')->active()->latest();
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-jannah' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
@@ -225,7 +225,7 @@ class PublicController extends Controller
         $query    = Download::with('school')->active()->latest();
 
         if ($jenjang) {
-            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-jannah' : $jenjang;
+            $slug     = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
             $schoolId = School::where('slug', $slug)->value('id');
             if ($schoolId) {
                 $query->where('school_id', $schoolId);
