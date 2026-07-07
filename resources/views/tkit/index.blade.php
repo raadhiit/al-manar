@@ -51,7 +51,7 @@
                 @endif
                 <div>
                     <div style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-300);margin-bottom:4px;">Jenjang</div>
-                    <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:#FBF8F1;">4–6 tahun (Kelompok A & B)</div>
+                    <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:#FBF8F1;">Kelompok A: 4 - 5 Tahun dan Kelompok B: 5 - 6 Tahun</div>
                 </div>
             </div>
         </div>
