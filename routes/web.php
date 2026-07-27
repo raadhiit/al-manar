@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guru\RppDownloadController;
+use App\Livewire\Guru\LoginForm;
+use App\Livewire\Guru\RppManager;
+use Illuminate\Support\Facades\Auth;
 
 /* ── Halaman Umum ──────────────────────────────────────────────────── */
 Route::get('/',         [PublicController::class, 'home'])->name('home');
@@ -33,4 +37,20 @@ Route::prefix('portal-akademik')->name('portal.')->group(function () {
     Route::get('/kurikulum',   [PublicController::class, 'portalKurikulum'])->name('kurikulum');
     Route::get('/pengumuman',  [PublicController::class, 'portalPengumuman'])->name('pengumuman');
     Route::get('/download',    [PublicController::class, 'portalDownload'])->name('download');
+});
+
+Route::prefix('guru-rpp')->name('guru-rpp.')->group(function() {
+    Route::get('/login', LoginForm::class)->middleware('guest')->name('login');
+    Route::post('/logout', function () {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect()->route('guru-rpp.login');
+    })->middleware('auth')->name('logout');
+
+    Route::middleware(['auth', 'role:guru'])->group(function () {
+        Route::get('/', RppManager::class)->name('index');
+        Route::get('/{rpp}/download', [RppDownloadController::class, 'download'])->name('download');
+    });
+
 });
