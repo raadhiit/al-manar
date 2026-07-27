@@ -54,8 +54,14 @@ class PermissionSeeder extends Seeder
             'ViewAny:Rpp', 'View:Rpp', 'Create:Rpp', 'Update:Rpp', 'Delete:Rpp',
         ];
 
+        $schoolManagementPermissions = [
+            'Create:School', 'Update:School', 'Delete:School', 'DeleteAny:School',
+            'Restore:School', 'RestoreAny:School', 'ForceDelete:School', 'ForceDeleteAny:School',
+            'Replicate:School', 'Reorder:School',
+        ];
+
         // Create semua permissions dulu
-        $allPermissions = array_merge($operatorPermissions, $guruPermissions);
+        $allPermissions = array_merge($operatorPermissions, $guruPermissions, $schoolManagementPermissions);
         foreach ($allPermissions as $permission) {
             Permission::firstOrCreate(['name' => $permission, 'guard_name' => 'web']);
         }

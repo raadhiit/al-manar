@@ -2,6 +2,30 @@
     navActive="berita"
     :title="$berita->title"
     :description="Str::limit(strip_tags($berita->body ?? ''), 160)"
+    type="article"
+    :image="$berita->thumbnail_path ? Storage::url($berita->thumbnail_path) : null"
+    :schema="[[
+        '@context' => 'https://schema.org',
+        '@type' => 'NewsArticle',
+        'headline' => $berita->title,
+        'description' => Str::limit(strip_tags($berita->body ?? ''), 160),
+        'image' => $berita->thumbnail_path ? url(Storage::url($berita->thumbnail_path)) : asset('img/almanar.jpg'),
+        'datePublished' => $berita->published_at?->toIso8601String(),
+        'dateModified' => $berita->updated_at?->toIso8601String(),
+        'author' => [
+            '@type' => 'Organization',
+            'name' => 'Yayasan Al Muhajirin AL MANAR Kota Bekasi',
+        ],
+        'publisher' => [
+            '@type' => 'Organization',
+            'name' => 'Yayasan Al Muhajirin AL MANAR Kota Bekasi',
+            'logo' => [
+                '@type' => 'ImageObject',
+                'url' => asset('favicon.svg'),
+            ],
+        ],
+        'mainEntityOfPage' => url()->current(),
+    ]]"
 >
 
     {{-- ── Hero/Breadcrumb ─────────────────────────────────────────────── --}}

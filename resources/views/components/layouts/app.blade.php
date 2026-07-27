@@ -1,20 +1,74 @@
 @props([
-    'title'       => null,
+    'title' => null,
     'description' => null,
-    'navActive'   => '',
+    'navActive' => '',
+    'canonical' => null,
+    'robots' => 'index,follow',
+    'image' => null,
+    'type' => 'website',
+    'schema' => [],
 ])
+@php
+    $siteName = 'Yayasan Al Muhajirin AL MANAR Kota Bekasi';
+    $pageTitle = isset($title) ? $title . ' — ' . $siteName : $siteName;
+    $pageDescription = $description ?? 'Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu untuk SDIT dan TKIT.';
+    $canonicalUrl = $canonical ?? url()->current();
+    $ogImage = $image ? url($image) : asset('img/almanar.jpg');
+    $baseSchema = [
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'EducationalOrganization',
+            'name' => $siteName,
+            'url' => url('/'),
+            'logo' => asset('favicon.svg'),
+            'image' => asset('img/almanar.jpg'),
+            'description' => 'Pendidikan Islam terpadu untuk SDIT dan TKIT AL MANAR Kota Bekasi.',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'addressLocality' => 'Bekasi',
+                'addressRegion' => 'Jawa Barat',
+                'addressCountry' => 'ID',
+            ],
+            'telephone' => '+62-822-6070-5227',
+            'sameAs' => [],
+        ],
+        [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => $siteName,
+            'url' => url('/'),
+            'inLanguage' => 'id-ID',
+        ],
+    ];
+    $schemas = array_merge($baseSchema, $schema);
+@endphp
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ $description ?? 'Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu untuk SDIT dan TKIT.' }}">
+    <title>{{ $pageTitle }}</title>
+    <meta name="description" content="{{ $pageDescription }}">
+    <meta name="robots" content="{{ $robots }}">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 
-    <title>{{ isset($title) ? $title . ' — Yayasan Al Muhajirin AL MANAR Kota Bekasi' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}</title>
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="{{ $siteName }}">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+    <meta property="og:type" content="{{ $type }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:image:alt" content="{{ $pageTitle }}">
 
-    <meta property="og:title" content="{{ isset($title) ? $title . ' — Yayasan Al Muhajirin AL MANAR Kota Bekasi' : 'Yayasan Al Muhajirin AL MANAR Kota Bekasi' }}">
-    <meta property="og:description" content="{{ $description ?? 'Pendidikan Islam terpadu — SDIT & TKIT Al Muhajirin AL MANAR Kota Bekasi.' }}">
-    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
+    <meta name="twitter:image" content="{{ $ogImage }}">
+
+    @foreach($schemas as $item)
+        <script type="application/ld+json">{!! json_encode($item, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+    @endforeach
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
