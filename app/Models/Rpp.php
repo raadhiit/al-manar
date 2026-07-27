@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\Models\Concerns\LogsActivity;
 use Spatie\Activitylog\Support\LogOptions;
 
@@ -60,5 +61,12 @@ class Rpp extends Model
     public function scopeBySemester(Builder $query, string $semester): Builder
     {
         return $query->where('semester', $semester);
+    }
+
+    public static function deleteById(int $id): ?bool
+    {
+        $rpp = static::findOrFail($id);
+        Storage::disk('public')->delete($rpp->file_path);
+        return $rpp->delete();
     }
 }

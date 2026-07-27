@@ -62,7 +62,7 @@ class PermissionSeeder extends Seeder
 
         Role::findByName('operator_sdit')->syncPermissions($operatorPermissions);
         Role::findByName('operator_tkit')->syncPermissions($operatorPermissions);
-        Role::findByName('guru')->syncPermissions($guruPermissions);
+        Role::findByName('guru')->syncPermissions([]);
 
         // admin: semua permission kecuali manajemen Role (Filament Shield)
         $adminPermissions = Permission::where('name', 'not like', '%:Role')->pluck('name');
