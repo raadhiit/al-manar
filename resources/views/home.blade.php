@@ -187,7 +187,7 @@
                     <x-school-card
                         level="KB"
                         name="KB-RA"
-                        tagline="Kelompok Bermain - Raudhatul Jannah"
+                        tagline="Kelompok Bermain - Raudhatul Athfal"
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
                         ageRange="4–6 tahun"
                         accreditation="{{ $tkit?->accreditation ?? 'A' }}"
@@ -337,7 +337,7 @@
                         @endif
                     </div>
                     <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
-                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB Raudhatul Jannah</x-badge>
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB Raudhatul Athfal</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $tkitPrincipal->name }}
                         </h2>
@@ -425,7 +425,7 @@
                     <button type="button" @click="tab='tkit'"
                         :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        KB Raudhatul Jannah
+                        KB Raudhatul Athfal
                     </button>
                 </div>
                 @endif
@@ -862,7 +862,7 @@
                     @endif
                     @if($tkit?->is_ppdb)
                     <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg am-btn--block">
-                        Daftar KB Raudhatul Jannah
+                        Daftar KB Raudhatul Athfal
                     </a>
                     @endif
                 </div>

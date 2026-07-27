@@ -17,7 +17,7 @@
 
             {{-- Filter jenjang --}}
             @php
-                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'KB Raudhatul Jannah'];
+                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'KB Raudhatul Athfal'];
             @endphp
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
                 @foreach($filters as $key => $label)
