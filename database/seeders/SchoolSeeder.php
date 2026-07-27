@@ -13,19 +13,19 @@ class SchoolSeeder extends Seeder
     public function run(): void
     {
         School::create([
-            'name'           => 'SDIT AL MANAR',
-            'slug'           => 'sdit',
-            'level'          => 'sdit',
+            'name' => 'SDIT AL MANAR',
+            'slug' => 'sdit',
+            'level' => 'sdit',
             'principal_name' => null,
-            'is_ppdb'        => true,
+            'is_ppdb' => true,
         ]);
 
         School::create([
-            'name'           => 'TKIT AL MANAR',
-            'slug'           => 'tk',
-            'level'          => 'tkit',
+            'name' => 'KB - Raudhatul Athfal',
+            'slug' => 'kelompok-bermain-raudhatul-athfal',
+            'level' => 'tkit',
             'principal_name' => null,
-            'is_ppdb'        => true,
+            'is_ppdb' => true,
         ]);
     }
 }

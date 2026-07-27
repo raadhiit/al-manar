@@ -29,7 +29,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                         <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
                         <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
                         <span style="opacity:.5;">&middot;</span>
-                        <span style="opacity:.85;">082260705227</span>
+                        <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">ppdb@almanar.sch.id</span>
                     </span>
@@ -37,7 +37,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                         <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
                         <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
                         <span style="opacity:.5;">&middot;</span>
-                        <span style="opacity:.85;">082260705227</span>
+                        <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">ppdb@almanar.sch.id</span>
                     </span>

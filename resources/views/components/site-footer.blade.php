@@ -29,8 +29,7 @@
         $cols = [
             ['title' => 'Sekolah', 'links' => [
                 ['label' => 'SDIT AL MANAR',      'href' => route('sdit.index')],
-                ['label' => 'TKIT AL MANAR',      'href' => route('tkit.index')],
-                ['label' => 'Visi & Misi',        'href' => route('sdit.index')],
+                ['label' => 'KB - RA',            'href' => route('tkit.index')],
             ]],
             ['title' => 'Informasi', 'links' => [
                 ['label' => 'Berita',           'href' => route('berita.index')],
@@ -40,7 +39,7 @@
             ]],
             ['title' => 'PPDB', 'links' => [
                 ['label' => 'Pendaftaran SDIT', 'href' => route('sdit.pendaftaran')],
-                ['label' => 'Pendaftaran TKIT', 'href' => route('tkit.pendaftaran')],
+                ['label' => 'Pendaftaran KB - RA', 'href' => route('tkit.pendaftaran')],
                 ['label' => 'Kontak',           'href' => route('kontak')],
             ]],
         ];
