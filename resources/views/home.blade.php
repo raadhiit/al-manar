@@ -46,7 +46,7 @@
             <div style="max-width:760px;">
                 @if($sdit?->is_ppdb)
                 <div style="margin-bottom:16px;">
-                    <x-badge tone="gold" variant="solid" size="md" style="color:#fff;">PPDB {{ date('Y') }} Dibuka</x-badge>
+                    <x-badge tone="gold" variant="solid" size="md" style="color:#fff;">PPDB {{ $sdit?->tahun_ajaran_label ?? date('Y') . '/' . (date('Y') + 1) }} Dibuka</x-badge>
                 </div>
                 @endif
 
@@ -839,7 +839,7 @@
                 <div style="position:relative;">
                     <span style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-300);">
                         <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
-                        PPDB {{ date('Y') }}/{{ date('Y') + 1 }} Telah Dibuka
+                        PPDB {{ $sdit?->tahun_ajaran_label ?? date('Y') . '/' . (date('Y') + 1) }} Telah Dibuka
                         <span style="width:18px;height:2px;background:var(--gold-400);border-radius:2px;"></span>
                     </span>
                     <h2 id="ppdb-modal-title" style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);line-height:1.2;color:#FBF8F1;margin:14px 0 0;">

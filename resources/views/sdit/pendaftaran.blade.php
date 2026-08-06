@@ -5,7 +5,7 @@
         <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
         <div class="am-container" style="position:relative;">
             <x-section-header
-                eyebrow="PPDB {{ date('Y') }}/{{ date('Y') + 1 }}"
+                eyebrow="PPDB {{ $school->tahun_ajaran_label }}"
                 title="Pendaftaran SDIT AL MANAR"
                 lead="Isi formulir di bawah ini untuk mendaftarkan putra-putri Anda. Proses mudah, cepat, dan bisa dari rumah."
                 tone="onbrand"
@@ -25,7 +25,7 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                     </div>
                     <div>
-                        <div style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--ink-900);">Informasi PPDB {{ date('Y') }}/{{ date('Y') + 1 }}</div>
+                        <div style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--ink-900);">Informasi PPDB {{ $school->tahun_ajaran_label }}</div>
                         <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin-top:2px;">Baca sebelum mengisi formulir pendaftaran</div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         </ol>
                         <div style="margin-top:14px;padding:12px 16px;background:var(--gold-50, var(--cream-100));border-left:3px solid var(--gold-500, var(--green-400));border-radius:0 6px 6px 0;">
                             <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-600);margin:0;line-height:1.65;">
-                                <strong>Usia minimal:</strong> 6 tahun per 1 Juli {{ date('Y') + 1 }} (kelahiran paling lambat 1 Juli {{ date('Y') - 5 }}), bagi yang telah bersekolah di TK — dibuktikan dengan surat keterangan/sertifikat.<br>
+                                <strong>Usia minimal:</strong> 6 tahun per 1 Juli {{ $school->tahunAjaranMulaiEffective() }} (kelahiran paling lambat 1 Juli {{ $school->tahunAjaranMulaiEffective() - 6 }}), bagi yang telah bersekolah di TK — dibuktikan dengan surat keterangan/sertifikat.<br>
                                 <strong>Siswa pindahan:</strong> persyaratan tambahan dapat ditanyakan langsung ke Tata Usaha (Administrasi).
                             </p>
                         </div>
@@ -81,7 +81,7 @@
                         {{-- Gelombang I --}}
                         <div style="margin-bottom:16px;">
                             <div style="display:inline-flex;align-items:center;gap:6px;background:var(--green-600);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:8px;">
-                                Gelombang I — Sept s/d Des 2025
+                                Gelombang I — {{ $school->gelombang_1_label ?? 'Jadwal segera diumumkan' }}
                             </div>
                             <div style="overflow-x:auto;">
                                 <table style="width:100%;border-collapse:collapse;font-family:var(--font-sans);font-size:var(--text-xs);">
@@ -129,7 +129,7 @@
                         {{-- Gelombang II --}}
                         <div style="margin-bottom:14px;">
                             <div style="display:inline-flex;align-items:center;gap:6px;background:var(--ink-700);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:8px;">
-                                Gelombang II — Jan s/d Apr 2026
+                                Gelombang II — {{ $school->gelombang_2_label ?? 'Jadwal segera diumumkan' }}
                             </div>
                             <div style="overflow-x:auto;">
                                 <table style="width:100%;border-collapse:collapse;font-family:var(--font-sans);font-size:var(--text-xs);">
@@ -203,7 +203,7 @@
                             </ul>
                             <p style="font-weight:700;color:var(--ink-800);margin:0 0 6px;">Setelah Pengumuman</p>
                             <ul style="margin:0 0 14px;padding-left:20px;">
-                                <li>Calon siswa <strong>diterima</strong>: infaq biaya sekolah dilunasi saat Daftar Ulang (Juli {{ date('Y') + 1 }})</li>
+                                <li>Calon siswa <strong>diterima</strong>: infaq biaya sekolah dilunasi saat Daftar Ulang (Juli {{ $school->tahunAjaranMulaiEffective() }})</li>
                                 <li>Calon siswa <strong>tidak diterima</strong>: uang muka dikembalikan penuh (kecuali biaya formulir)</li>
                             </ul>
                             <p style="font-weight:700;color:var(--ink-800);margin:0 0 6px;">Ketentuan Lain</p>

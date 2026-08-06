@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Schools\Schemas;
 
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -9,6 +10,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -49,6 +51,34 @@ class SchoolForm
                     ->label('Buka Pendaftaran (PPDB)')
                     ->helperText('Aktifkan untuk membuka form pendaftaran online.')
                     ->required(),
+
+                Section::make('Periode Gelombang PPDB')
+                    ->description('Tampil otomatis di halaman pendaftaran. Kosongkan jika unit ini tidak memakai sistem gelombang.')
+                    ->schema([
+                        TextInput::make('tahun_ajaran_mulai')
+                            ->label('Tahun Ajaran (tahun mulai)')
+                            ->helperText('Contoh: isi 2027 untuk PPDB tahun ajaran 2027/2028. Dipakai di judul halaman, jadwal daftar ulang, dan syarat usia — jangan hanya ubah tanggal gelombang tanpa mengubah ini juga.')
+                            ->numeric()
+                            ->minValue(2020)
+                            ->maxValue(2100)
+                            ->columnSpanFull(),
+                        DatePicker::make('gelombang_1_start')
+                            ->label('Gelombang I — Mulai')
+                            ->native(false),
+                        DatePicker::make('gelombang_1_end')
+                            ->label('Gelombang I — Selesai')
+                            ->native(false)
+                            ->afterOrEqual('gelombang_1_start'),
+                        DatePicker::make('gelombang_2_start')
+                            ->label('Gelombang II — Mulai')
+                            ->native(false),
+                        DatePicker::make('gelombang_2_end')
+                            ->label('Gelombang II — Selesai')
+                            ->native(false)
+                            ->afterOrEqual('gelombang_2_start'),
+                    ])
+                    ->columns(2)
+                    ->columnSpanFull(),
 
                 Textarea::make('description')
                     ->label('Deskripsi Singkat')

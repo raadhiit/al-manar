@@ -5,7 +5,7 @@
         <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
         <div class="am-container" style="position:relative;">
             <x-section-header
-                eyebrow="PPDB {{ date('Y') }}/{{ date('Y') + 1 }}"
+                eyebrow="PPDB {{ $school->tahun_ajaran_label }}"
                 title="Pendaftaran KB Raudhatul Athfal"
                 lead="Isi formulir di bawah ini untuk mendaftarkan putra-putri Anda. Proses mudah, cepat, dan bisa dari rumah."
                 tone="onbrand"
@@ -25,7 +25,7 @@
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green-700)" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                     </div>
                     <div>
-                        <div style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--ink-900);">Informasi PPDB {{ date('Y') }}/{{ date('Y') + 1 }}</div>
+                        <div style="font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--ink-900);">Informasi PPDB {{ $school->tahun_ajaran_label }}</div>
                         <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin-top:2px;">Baca sebelum mengisi formulir pendaftaran</div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </ol>
                         <div style="margin-top:14px;padding:12px 16px;background:var(--cream-100);border-left:3px solid var(--green-400);border-radius:0 6px 6px 0;">
                             <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-600);margin:0;line-height:1.65;">
-                                <strong>Usia:</strong> 4–6 tahun per 1 Juli {{ date('Y') + 1 }}.<br>
+                                <strong>Usia:</strong> 4–6 tahun per 1 Juli {{ $school->tahunAjaranMulaiEffective() }}.<br>
                                 Untuk informasi lebih lanjut, silakan hubungi Tata Usaha TKIT AL MANAR.
                             </p>
                         </div>
@@ -72,6 +72,20 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-400)" stroke-width="2.5" stroke-linecap="round" style="flex-shrink:0;transition:transform .2s;" :style="open === 2 ? 'transform:rotate(180deg)' : ''"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div x-show="open === 2" x-cloak style="padding:0 28px 20px;">
+                        @if($school->gelombang_1_label || $school->gelombang_2_label)
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+                            @if($school->gelombang_1_label)
+                            <div style="display:inline-flex;align-items:center;gap:6px;background:var(--green-600);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;">
+                                Gelombang I — {{ $school->gelombang_1_label }}
+                            </div>
+                            @endif
+                            @if($school->gelombang_2_label)
+                            <div style="display:inline-flex;align-items:center;gap:6px;background:var(--ink-700);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;">
+                                Gelombang II — {{ $school->gelombang_2_label }}
+                            </div>
+                            @endif
+                        </div>
+                        @endif
                         <div style="display:flex;gap:14px;align-items:flex-start;padding:16px;background:var(--info-50);border:1px solid #BDD5EE;border-radius:var(--radius-md);">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--info-500)" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                             <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--info-500);line-height:1.65;">
@@ -98,7 +112,7 @@
                     <div x-show="open === 3" x-cloak style="padding:0 28px 20px;">
                         <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-700);line-height:1.8;">
                             <ul style="margin:0 0 14px;padding-left:20px;">
-                                <li>Calon siswa <strong>diterima</strong>: infaq biaya sekolah dilunasi saat Daftar Ulang (Juli {{ date('Y') + 1 }})</li>
+                                <li>Calon siswa <strong>diterima</strong>: infaq biaya sekolah dilunasi saat Daftar Ulang (Juli {{ $school->tahunAjaranMulaiEffective() }})</li>
                                 <li>Calon siswa <strong>tidak diterima</strong>: uang muka dikembalikan penuh (kecuali biaya formulir)</li>
                                 <li>Setelah submit formulir online, tim kami akan menghubungi via <strong>WhatsApp</strong> dalam 1–3 hari kerja</li>
                             </ul>

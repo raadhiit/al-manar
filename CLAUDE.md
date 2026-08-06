@@ -3,7 +3,7 @@
 This project keeps FE skills and rules in two folders — always read from them, not just this file:
 
 - `.agents/` — frontend skill definitions (design taste, visual style, image-to-code, redesign rules, etc.)
-- `.claude/` — project rules, settings, and the graphify skill
+- `.claude/` — project rules, settings, the graphify skill, and ponytail skill
 
 Rules:
 - Before frontend/UI work, check `.agents/skills/` for a matching skill (e.g. design taste, minimalist UI, redesign guidance) and follow it.
