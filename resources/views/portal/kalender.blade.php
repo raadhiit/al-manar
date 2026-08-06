@@ -1,4 +1,4 @@
-<x-layouts.app navActive="portal" title="Kalender Pendidikan" description="Kalender akademik SDIT dan TKIT AL MANAR per tahun ajaran.">
+<x-layouts.app navActive="portal" title="Kalender Pendidikan" description="Kalender akademik SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar per tahun ajaran.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -13,7 +13,7 @@
             <x-section-header
                 eyebrow="Portal Akademik"
                 title="Kalender Pendidikan"
-                lead="Kalender akademik resmi per tahun ajaran untuk SDIT dan TKIT AL MANAR."
+                lead="Kalender akademik resmi per tahun ajaran untuk SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar."
                 tone="onbrand"
             />
             {{-- Sub-nav portal --}}
@@ -30,7 +30,7 @@
         <div class="am-container">
 
             {{-- Filter jenjang --}}
-            @php $filters = ['' => 'Semua', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR']; @endphp
+            @php $filters = ['' => 'Semua', 'sdit' => 'SDIT', 'tkit' => 'KB-RA']; @endphp
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
                 @foreach($filters as $key => $label)
                     @php $isActive = $key === '' ? is_null($jenjang) : $jenjang === $key; @endphp

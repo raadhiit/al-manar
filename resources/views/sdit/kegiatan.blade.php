@@ -1,7 +1,7 @@
 <x-layouts.app
     navActive="sdit"
-    title="Kegiatan SDIT AL MANAR"
-    description="Kegiatan dan dokumentasi siswa SDIT AL MANAR Kota Bekasi."
+    title="Kegiatan SDIT Al Manar"
+    description="Kegiatan dan dokumentasi siswa SDIT Al Manar Kota Bekasi."
 >
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
@@ -10,14 +10,14 @@
             <nav style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--gold-200);display:flex;align-items:center;gap:8px;margin-bottom:20px;opacity:.8;">
                 <a href="{{ route('home') }}" style="color:inherit;text-decoration:none;">Beranda</a>
                 <span>/</span>
-                <a href="{{ route('sdit.index') }}" style="color:inherit;text-decoration:none;">SDIT AL MANAR</a>
+                <a href="{{ route('sdit.index') }}" style="color:inherit;text-decoration:none;">SDIT Al Manar</a>
                 <span>/</span>
                 <span>Kegiatan</span>
             </nav>
             <x-section-header
-                eyebrow="SDIT AL MANAR"
+                eyebrow="SDIT Al Manar"
                 title="Kegiatan Siswa"
-                lead="Dokumentasi kegiatan belajar, ekstrakurikuler, dan momen berharga siswa SDIT AL MANAR."
+                lead="Dokumentasi kegiatan belajar, ekstrakurikuler, dan momen berharga siswa SDIT Al Manar."
                 tone="onbrand"
             />
         </div>

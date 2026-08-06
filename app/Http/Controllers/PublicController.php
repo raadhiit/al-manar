@@ -25,7 +25,7 @@ class PublicController extends Controller
         $achievements = Achievement::with('school')->latest()->take(4)->get();
         $heroSlides = collect(array_merge(
             array_map(fn ($p) => ['path' => $p, 'school' => 'SDIT'], $sdit?->hero_photos ?? []),
-            array_map(fn ($p) => ['path' => $p, 'school' => 'TKIT'], $tkit?->hero_photos ?? []),
+            array_map(fn ($p) => ['path' => $p, 'school' => 'KB-RA'], $tkit?->hero_photos ?? []),
         ))->shuffle()->take(6);
         $sditPrincipal = Teacher::forSchool($sdit?->id ?? 0)->principals()->active()->first();
         $tkitPrincipal = Teacher::forSchool($tkit?->id ?? 0)->principals()->active()->first();

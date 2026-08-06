@@ -1,7 +1,7 @@
 <x-layouts.app
     navActive="tkit"
-    title="Kegiatan TKIT AL MANAR"
-    description="Kegiatan dan dokumentasi siswa TKIT AL MANAR Kota Bekasi."
+    title="Kegiatan Kelompok Bermain Raudhatul Athfal Al Manar"
+    description="Kegiatan dan dokumentasi siswa Kelompok Bermain Raudhatul Athfal Al Manar Kota Bekasi."
 >
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
@@ -10,14 +10,14 @@
             <nav style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--gold-200);display:flex;align-items:center;gap:8px;margin-bottom:20px;opacity:.8;">
                 <a href="{{ route('home') }}" style="color:inherit;text-decoration:none;">Beranda</a>
                 <span>/</span>
-                <a href="{{ route('tkit.index') }}" style="color:inherit;text-decoration:none;">TKIT AL MANAR</a>
+                <a href="{{ route('tkit.index') }}" style="color:inherit;text-decoration:none;">Kelompok Bermain Raudhatul Athfal Al Manar</a>
                 <span>/</span>
                 <span>Kegiatan</span>
             </nav>
             <x-section-header
-                eyebrow="TKIT AL MANAR"
+                eyebrow="Kelompok Bermain Raudhatul Athfal Al Manar"
                 title="Kegiatan Siswa"
-                lead="Dokumentasi kegiatan sentra bermain, pembiasaan ibadah, dan momen berharga siswa TKIT AL MANAR."
+                lead="Dokumentasi kegiatan sentra bermain, pembiasaan ibadah, dan momen berharga siswa Kelompok Bermain Raudhatul Athfal Al Manar."
                 tone="onbrand"
             />
         </div>

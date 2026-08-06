@@ -1,4 +1,4 @@
-<x-layouts.app navActive="berita" title="Berita" description="Berita dan kabar terbaru dari Yayasan AL MANAR Kota Bekasi — SDIT dan TKIT AL MANAR.">
+<x-layouts.app navActive="berita" title="Berita" description="Berita dan kabar terbaru dari Yayasan Al Muhajirin Al Manar Kota Bekasi — SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -6,7 +6,7 @@
             <x-section-header
                 eyebrow="Informasi"
                 title="Berita & Kabar Terbaru"
-                lead="Ikuti perkembangan kegiatan dan prestasi Yayasan AL MANAR."
+                lead="Ikuti perkembangan kegiatan dan prestasi Yayasan Al Muhajirin Al Manar."
                 tone="onbrand"
             />
         </div>
@@ -17,7 +17,7 @@
 
             {{-- Filter jenjang --}}
             @php
-                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR'];
+                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT', 'tkit' => 'KB-RA'];
             @endphp
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
                 @foreach($filters as $key => $label)
@@ -34,7 +34,7 @@
                     @foreach($beritaList as $news)
                         <div class="am-reveal" style="transition-delay:{{ ($loop->index % 3) * 70 }}ms;">
                             <x-news-card
-                                :level="$news->school?->level === 'sdit' ? 'SDIT' : ($news->school?->level === 'tkit' ? 'TKIT' : 'Yayasan')"
+                                :level="$news->school?->level === 'sdit' ? 'SDIT' : ($news->school?->level === 'tkit' ? 'KB-RA' : 'Yayasan')"
                                 category="Berita"
                                 :date="$news->published_at?->translatedFormat('d M Y') ?? ''"
                                 :title="$news->title"

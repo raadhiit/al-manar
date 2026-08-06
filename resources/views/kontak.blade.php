@@ -1,4 +1,4 @@
-<x-layouts.app navActive="kontak" title="Kontak" description="Hubungi Yayasan Al Muhajirin AL MANAR Kota Bekasi — SDIT dan TKIT AL MANAR.">
+<x-layouts.app navActive="kontak" title="Kontak" description="Hubungi Yayasan Al Muhajirin Al Manar Kota Bekasi — SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -28,7 +28,7 @@
                         @endif
                         <div>
                             <div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--ink-900);">
-                                {{ $sdit?->name ?? 'SDIT AL MANAR' }}
+                                {{ $sdit?->name ?? 'SDIT Al Manar' }}
                             </div>
                             <x-badge tone="sdit" variant="soft" size="sm">SDIT</x-badge>
                         </div>
@@ -81,7 +81,7 @@
 
                     <div style="margin-top:24px;">
                         <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--sm">
-                            Daftar SDIT AL MANAR
+                            Daftar {{ $sdit?->name ?? 'SDIT Al Manar' }}
                         </a>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
                         @endif
                         <div>
                             <div style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--ink-900);">
-                                {{ $tkit?->name ?? 'TKIT AL MANAR' }}
+                                {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}
                             </div>
-                            <x-badge tone="tkit" variant="soft" size="sm">TKIT</x-badge>
+                            <x-badge tone="tkit" variant="soft" size="sm">KB-RA</x-badge>
                         </div>
                     </div>
 
@@ -151,7 +151,7 @@
 
                     <div style="margin-top:24px;">
                         <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--sm">
-                            Daftar TKIT AL MANAR
+                            Daftar KB-RA Al Manar
                         </a>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
             <div class="am-reveal" style="margin-bottom:28px;">
                 <x-section-header
                     eyebrow="Lokasi Kami"
-                    title="SDIT & TKIT AL MANAR berada di satu lokasi"
+                    title="SDIT & RA Al Manar berada di satu lokasi"
                     lead="Kunjungi langsung kampus kami di Bekasi Utara, Kota Bekasi."
                 />
             </div>
@@ -176,7 +176,7 @@
                         src="https://www.google.com/maps?q=-6.2102725,107.0270297&hl=id&z=16&output=embed"
                         style="position:absolute;inset:0;width:100%;height:100%;border:0;"
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        title="Lokasi SDIT & TKIT AL MANAR Kota Bekasi"
+                        title="Lokasi SDIT & RA Al Manar Kota Bekasi"
                     ></iframe>
                 </div>
                 <div style="padding:20px 24px;background:var(--cream-50);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">

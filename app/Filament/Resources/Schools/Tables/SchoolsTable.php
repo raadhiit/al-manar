@@ -30,9 +30,15 @@ class SchoolsTable
                 TextColumn::make('level')
                     ->label('Jenjang')
                     ->badge()
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        'sdit' => 'SDIT',
+                        'tkit' => 'KB-RA',
+                        default => $state,
+                    })
                     ->color(fn(string $state): string => match ($state) {
                         'sdit' => 'success',
                         'tkit' => 'info',
+                        default => 'gray',
                     }),
 
                 TextColumn::make('principal_name')
@@ -60,7 +66,7 @@ class SchoolsTable
                     ->label('Jenjang')
                     ->options([
                         'sdit' => 'SDIT',
-                        'tkit' => 'TKIT',
+                        'tkit' => 'KB-RA',
                     ]),
 
                 SelectFilter::make('is_ppdb')

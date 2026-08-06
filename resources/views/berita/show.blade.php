@@ -93,7 +93,7 @@
                     @foreach($related as $item)
                         <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
                             <x-news-card
-                                :level="$item->school?->level === 'sdit' ? 'SDIT' : ($item->school?->level === 'tkit' ? 'TKIT' : 'Yayasan')"
+                                :level="$item->school?->level === 'sdit' ? 'SDIT' : ($item->school?->level === 'tkit' ? 'KB-RA' : 'Yayasan')"
                                 category="Berita"
                                 :date="$item->published_at?->translatedFormat('d M Y') ?? ''"
                                 :title="$item->title"

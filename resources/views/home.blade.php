@@ -1,4 +1,4 @@
-<x-layouts.app navActive="home" title="Beranda" description="Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu SDIT & TKIT yang membentuk generasi Qur'ani, berakhlak mulia, dan berprestasi.">
+<x-layouts.app navActive="home" title="Beranda" description="Yayasan Al Muhajirin Al Manar Kota Bekasi — Pendidikan Islam terpadu SDIT & KB yang membentuk generasi Qur'ani, berakhlak mulia, dan berprestasi.">
 
     {{-- ── Hero Slider ─────────────────────────────────────────────────── --}}
     @php $slideCount = $heroSlides->count(); @endphp
@@ -28,7 +28,7 @@
         >
             <img
                 src="{{ Storage::url($slide['path']) }}"
-                alt="Foto {{ $slide['school'] }} AL MANAR"
+                alt="Foto {{ $slide['school'] }} Al Manar"
                 style="width:100%;height:100%;object-fit:cover;display:block;"
                 loading="{{ $loop->first ? 'eager' : 'lazy' }}"
             >
@@ -50,7 +50,7 @@
                 </div>
                 @endif
 
-                <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);display:block;margin-bottom:14px;">Yayasan Al Muhajirin AL MANAR · Kota Bekasi</span>
+                <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-300);display:block;margin-bottom:14px;">Yayasan Al Muhajirin Al Manar · Kota Bekasi</span>
 
                 <h1 style="font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;color:#FBF8F1;margin:0 0 20px;text-shadow:0 2px 12px rgba(0,0,0,.3);">
                     Menumbuhkan generasi <span style="color:var(--gold-400);">Qur'ani</span><br>yang berakhlak &amp; berprestasi
@@ -141,7 +141,7 @@
                 <div class="am-reveal">
                     <x-school-card
                         level="SDIT"
-                        name="SDIT AL MANAR"
+                        :name="$sdit?->name ?? 'SDIT Al Manar'"
                         tagline="Sekolah Dasar Islam Terpadu"
                         description="Kurikulum nasional terintegrasi nilai Islam, program tahfizh, dan pembinaan karakter yang kuat."
                         ageRange="7–12 tahun"
@@ -164,14 +164,14 @@
                         <div style="padding:26px 26px 28px;display:flex;flex-direction:column;gap:14px;flex:1;">
                             <div style="display:flex;flex-direction:column;gap:4px;">
                                 <span style="font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-400);">
-                                    Program SDIT AL MANAR
+                                    Program {{ $sdit?->name ?? 'SDIT Al Manar' }}
                                 </span>
                                 <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--ink-900);margin:0;text-wrap:balance;">
                                     Madrasah Diniyah Takmiliyah Awaliyah
                                 </h3>
                             </div>
                             <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.65;color:var(--ink-500);margin:0;flex:1;">
-                                Pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT AL MANAR — berlangsung siang hari sebagai pelengkap pembelajaran formal, mengacu pada standar Kementerian Agama RI.
+                                Pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri {{ $sdit?->name ?? 'SDIT Al Manar' }} — berlangsung siang hari sebagai pelengkap pembelajaran formal, mengacu pada standar Kementerian Agama RI.
                             </p>
                             <div style="margin-top:8px;padding-top:18px;border-top:1px solid var(--border-subtle);">
                                 <a href="{{ route('sdit.mdta') }}" class="am-btn am-btn--secondary am-btn--sm">
@@ -185,9 +185,9 @@
 
                 <div class="am-reveal" style="transition-delay:160ms;">
                     <x-school-card
-                        level="KB"
-                        name="KB-RA"
-                        tagline="Kelompok Bermain - Raudhatul Athfal"
+                        level="KB-RA"
+                        :name="$tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar'"
+                        tagline="Menerima Kelompok Bermain (KB) & RA"
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
                         ageRange="4–6 tahun"
                         accreditation="{{ $tkit?->accreditation ?? 'A' }}"
@@ -206,7 +206,7 @@
             <div class="am-reveal">
                 <x-section-header
                     eyebrow="Program Unggulan"
-                    title="Program SDIT AL MANAR"
+                    title="Program {{ $sdit?->name ?? 'SDIT Al Manar' }}"
                     lead="Kegiatan rutin yang membentuk karakter, kemampuan bahasa, dan bakat siswa."
                     tone="onbrand"
                     align="center"
@@ -287,7 +287,7 @@
                         @endif
                     </div>
                     <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
-                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · SDIT AL MANAR</x-badge>
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · {{ $sdit?->name ?? 'SDIT Al Manar' }}</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $sditPrincipal->name }}
                         </h2>
@@ -337,7 +337,7 @@
                         @endif
                     </div>
                     <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
-                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB Raudhatul Athfal</x-badge>
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB-RA Al Manar</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $tkitPrincipal->name }}
                         </h2>
@@ -420,12 +420,12 @@
                     <button type="button" @click="tab='sdit'"
                         :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        SDIT AL MANAR
+                        {{ $sdit?->name ?? 'SDIT Al Manar' }}
                     </button>
                     <button type="button" @click="tab='tkit'"
                         :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        KB Raudhatul Athfal
+                        {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}
                     </button>
                 </div>
                 @endif
@@ -574,12 +574,12 @@
                     <button type="button" @click="tab='sdit'"
                         :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        SDIT AL MANAR
+                        {{ $sdit?->name ?? 'SDIT Al Manar' }}
                     </button>
                     <button type="button" @click="tab='tkit'"
                         :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        TKIT AL MANAR
+                        {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}
                     </button>
                 </div>
                 @endif
@@ -657,7 +657,7 @@
                     @foreach($latestNews as $news)
                         <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
                             <x-news-card
-                                :level="$news->school?->level === 'sdit' ? 'SDIT' : ($news->school?->level === 'tkit' ? 'TKIT' : 'Yayasan')"
+                                :level="$news->school?->level === 'sdit' ? 'SDIT' : ($news->school?->level === 'tkit' ? 'KB-RA' : 'Yayasan')"
                                 category="Berita"
                                 :date="$news->published_at?->translatedFormat('d M Y') ?? ''"
                                 :title="$news->title"
@@ -714,12 +714,12 @@
                     <button type="button" @click="tab='sdit'"
                         :style="tab==='sdit' ? 'border-bottom:2px solid var(--green-600);margin-bottom:-2px;color:var(--green-700);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        SDIT AL MANAR
+                        {{ $sdit?->name ?? 'SDIT Al Manar' }}
                     </button>
                     <button type="button" @click="tab='tkit'"
                         :style="tab==='tkit' ? 'border-bottom:2px solid var(--gold-500);margin-bottom:-2px;color:var(--gold-600);font-weight:600;' : 'color:var(--ink-400);'"
                         style="font-family:var(--font-sans);font-size:var(--text-sm);padding:10px 20px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color .15s;">
-                        TKIT AL MANAR
+                        {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}
                     </button>
                 </div>
                 @endif
@@ -857,12 +857,12 @@
                 <div style="display:flex;flex-direction:column;gap:10px;">
                     @if($sdit?->is_ppdb)
                     <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--lg am-btn--block">
-                        Daftar SDIT AL MANAR
+                        Daftar {{ $sdit?->name ?? 'SDIT Al Manar' }}
                     </a>
                     @endif
                     @if($tkit?->is_ppdb)
                     <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg am-btn--block">
-                        Daftar KB Raudhatul Athfal
+                        Daftar KB-RA Al Manar
                     </a>
                     @endif
                 </div>

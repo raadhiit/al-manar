@@ -1,7 +1,7 @@
 <x-layouts.app
     navActive="sdit"
-    title="Profil SDIT AL MANAR"
-    :description="Str::limit(strip_tags($school->description ?? 'Sekolah Dasar Islam Terpadu AL MANAR Kota Bekasi.'), 160)"
+    :title="'Profil ' . ($school->name ?? 'SDIT Al Manar')"
+    :description="Str::limit(strip_tags($school->description ?? 'Sekolah Dasar Islam Terpadu Al Manar Kota Bekasi.'), 160)"
 >
 
     {{-- ── Hero ─────────────────────────────────────────────────────────── --}}
@@ -61,7 +61,7 @@
     @if($school->description)
         <section class="am-section" style="background:var(--cream-50);padding-bottom:40px;">
             <div class="am-container" style="max-width:780px;">
-                <x-section-header eyebrow="Tentang Kami" title="Mengenal SDIT AL MANAR" style="margin-bottom:24px;" />
+                <x-section-header eyebrow="Tentang Kami" title="Mengenal {{ $school->name ?? 'SDIT Al Manar' }}" style="margin-bottom:24px;" />
                 <div style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.8;color:var(--ink-700);">
                     {!! $school->description !!}
                 </div>
@@ -121,7 +121,7 @@
             <div class="am-reveal">
                 <x-section-header
                     eyebrow="Program Unggulan"
-                    title="Program SDIT AL MANAR"
+                    title="Program {{ $school->name ?? 'SDIT Al Manar' }}"
                     lead="Kegiatan rutin yang membentuk karakter, kemampuan bahasa, dan bakat siswa."
                     align="center"
                     style="justify-content:center;margin-bottom:36px;"
@@ -313,7 +313,7 @@
         <section class="am-section" style="background:var(--green-600);position:relative;overflow:hidden;">
             <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.3;" aria-hidden="true"></div>
             <div class="am-container" style="position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;">
-                <x-section-header eyebrow="PPDB Dibuka" title="Daftar ke SDIT AL MANAR" tone="onbrand" align="center" />
+                <x-section-header eyebrow="PPDB Dibuka" title="Daftar ke {{ $school->name ?? 'SDIT Al Manar' }}" tone="onbrand" align="center" />
                 <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--gold-100);margin:0;max-width:480px;line-height:1.65;">
                     Pendaftaran online — mudah, cepat, dan bisa dilakukan dari mana saja.
                 </p>

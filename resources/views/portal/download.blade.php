@@ -1,4 +1,4 @@
-<x-layouts.app navActive="portal" title="Download Area" description="Unduh silabus, modul, dan formulir dari Yayasan AL MANAR.">
+<x-layouts.app navActive="portal" title="Download Area" description="Unduh silabus, modul, dan formulir dari Yayasan Al Muhajirin Al Manar.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -32,7 +32,7 @@
             {{-- Filters --}}
             <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:36px;">
                 {{-- Jenjang --}}
-                @php $jenjangFilters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR']; @endphp
+                @php $jenjangFilters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT', 'tkit' => 'KB-RA']; @endphp
                 <div style="display:flex;gap:8px;flex-wrap:wrap;">
                     @foreach($jenjangFilters as $key => $label)
                         @php $isActive = $key === '' ? is_null($jenjang) : $jenjang === $key; @endphp
@@ -87,7 +87,7 @@
                                             :tone="$download->school->level === 'sdit' ? 'sdit' : 'tkit'"
                                             variant="soft"
                                             size="sm"
-                                        >{{ $download->school->level === 'sdit' ? 'SDIT' : 'TKIT' }}</x-badge>
+                                        >{{ $download->school->level === 'sdit' ? 'SDIT' : 'KB-RA' }}</x-badge>
                                     @endif
                                     @if($download->category)
                                         <x-badge tone="cream" variant="soft" size="sm">{{ $download->category }}</x-badge>

@@ -1,6 +1,6 @@
 @props([
     'level'         => 'SDIT',
-    'name'          => 'SDIT AL MANAR',
+    'name'          => 'SDIT Al Manar',
     'tagline'       => 'Sekolah Dasar Islam Terpadu',
     'description'   => null,
     'ageRange'      => '7–12 tahun',
@@ -11,7 +11,7 @@
 ])
 
 @php
-$isKB   = in_array($level, ['TKIT', 'KB']);
+$isKB   = in_array($level, ['TKIT', 'KB', 'KB-RA']);
 $accent = $isKB ? 'var(--gold-400)' : 'var(--green-600)';
 $btnVar = $isKB ? 'secondary' : 'primary';
 $tone   = $isKB ? 'tkit' : 'sdit';

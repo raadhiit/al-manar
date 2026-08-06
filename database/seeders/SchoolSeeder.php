@@ -13,7 +13,7 @@ class SchoolSeeder extends Seeder
     public function run(): void
     {
         School::create([
-            'name' => 'SDIT AL MANAR',
+            'name' => 'SDIT Al Manar',
             'slug' => 'sdit',
             'level' => 'sdit',
             'principal_name' => null,
@@ -26,7 +26,7 @@ class SchoolSeeder extends Seeder
         ]);
 
         School::create([
-            'name' => 'KB - Raudhatul Athfal',
+            'name' => 'Kelompok Bermain Raudhatul Athfal Al Manar',
             'slug' => 'kelompok-bermain-raudhatul-athfal',
             'level' => 'tkit',
             'principal_name' => null,

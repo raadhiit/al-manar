@@ -9,9 +9,9 @@
     'schema' => [],
 ])
 @php
-    $siteName = 'Yayasan Al Muhajirin AL MANAR Kota Bekasi';
+    $siteName = 'Yayasan Al Muhajirin Al Manar Kota Bekasi';
     $pageTitle = isset($title) ? $title . ' — ' . $siteName : $siteName;
-    $pageDescription = $description ?? 'Yayasan Al Muhajirin AL MANAR Kota Bekasi — Pendidikan Islam terpadu untuk SDIT dan TKIT.';
+    $pageDescription = $description ?? 'Yayasan Al Muhajirin Al Manar Kota Bekasi — Pendidikan Islam terpadu untuk SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar.';
     $canonicalUrl = $canonical ?? url()->current();
     $ogImage = $image ? url($image) : asset('img/almanar.jpg');
     $baseSchema = [
@@ -22,7 +22,7 @@
             'url' => url('/'),
             'logo' => asset('favicon.svg'),
             'image' => asset('img/almanar.jpg'),
-            'description' => 'Pendidikan Islam terpadu untuk SDIT dan TKIT AL MANAR Kota Bekasi.',
+            'description' => 'Pendidikan Islam terpadu untuk SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar Kota Bekasi.',
             'address' => [
                 '@type' => 'PostalAddress',
                 'addressLocality' => 'Bekasi',

@@ -1,4 +1,4 @@
-<x-layouts.app navActive="guru" title="Tenaga Pendidik" description="Profil guru dan kepala sekolah SDIT dan TKIT AL MANAR Kota Bekasi.">
+<x-layouts.app navActive="guru" title="Tenaga Pendidik" description="Profil guru dan kepala sekolah SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar Kota Bekasi.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -17,7 +17,7 @@
 
             {{-- Filter jenjang --}}
             @php
-                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'KB Raudhatul Athfal'];
+                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT', 'tkit' => 'KB-RA'];
             @endphp
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
                 @foreach($filters as $key => $label)

@@ -1,4 +1,4 @@
-<x-layouts.app navActive="sdit" title="Program MDTA" description="Profil Madrasah Diniyah Takmiliyah Awaliyah (MDTA) AL MANAR — pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT AL MANAR.">
+<x-layouts.app navActive="sdit" title="Program MDTA" description="Profil Madrasah Diniyah Takmiliyah Awaliyah (MDTA) AL MANAR — pendalaman Al-Qur'an, akidah, fikih, dan akhlak bagi santri SDIT Al Manar.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -6,14 +6,14 @@
             <nav style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--gold-200);display:flex;align-items:center;gap:8px;margin-bottom:20px;opacity:.8;">
                 <a href="{{ route('home') }}" style="color:inherit;text-decoration:none;">Beranda</a>
                 <span>/</span>
-                <a href="{{ route('sdit.index') }}" style="color:inherit;text-decoration:none;">SDIT AL MANAR</a>
+                <a href="{{ route('sdit.index') }}" style="color:inherit;text-decoration:none;">SDIT Al Manar</a>
                 <span>/</span>
                 <span>MDTA</span>
             </nav>
             <x-section-header
-                eyebrow="Program Diniyah SDIT AL MANAR"
+                eyebrow="Program Diniyah SDIT Al Manar"
                 title="Madrasah Diniyah Takmiliyah Awaliyah (MDTA)"
-                lead="Pendalaman pendidikan agama Islam sebagai pelengkap (takmili) pembelajaran formal di SDIT AL MANAR — berlangsung siang hari setelah KBM pagi."
+                lead="Pendalaman pendidikan agama Islam sebagai pelengkap (takmili) pembelajaran formal di SDIT Al Manar — berlangsung siang hari setelah KBM pagi."
                 tone="onbrand"
             />
         </div>
@@ -29,7 +29,7 @@
                         Pelengkap pendidikan agama di luar jam sekolah formal
                     </h2>
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.8;color:var(--ink-700);margin:0;">
-                        MDTA hadir sebagai lembaga pendidikan keagamaan Islam nonformal yang strategis di Bekasi Utara, Kota Bekasi. MDTA memberikan penguatan pendidikan agama Islam bagi anak-anak usia sekolah dasar (SD/MI) — biasanya berlangsung di siang hari — sebagai pelengkap dari pendidikan formal yang mereka terima di SDIT AL MANAR. Melalui MDTA, santri dibekali kemampuan dasar membaca Al-Qur'an, pemahaman akidah, ibadah praktis, serta pembiasaan akhlakul karimah sejak dini.
+                        MDTA hadir sebagai lembaga pendidikan keagamaan Islam nonformal yang strategis di Bekasi Utara, Kota Bekasi. MDTA memberikan penguatan pendidikan agama Islam bagi anak-anak usia sekolah dasar (SD/MI) — biasanya berlangsung di siang hari — sebagai pelengkap dari pendidikan formal yang mereka terima di SDIT Al Manar. Melalui MDTA, santri dibekali kemampuan dasar membaca Al-Qur'an, pemahaman akidah, ibadah praktis, serta pembiasaan akhlakul karimah sejak dini.
                     </p>
                 </div>
 
@@ -102,7 +102,7 @@
             <div class="am-grid-2" style="gap:20px;">
                 @foreach([
                     ['title' => 'Sumber Daya Manusia (Guru/Ustadz)', 'desc' => 'Terdiri dari alumni pondok pesantren dan sarjana pendidikan Islam yang berdedikasi tinggi mengajar secara part-time.'],
-                    ['title' => 'Sarana & Prasarana', 'desc' => 'Terintegrasi dengan fasilitas Masjid, gedung Yayasan, atau memanfaatkan ruang kelas SDIT AL MANAR pada siang hari.'],
+                    ['title' => 'Sarana & Prasarana', 'desc' => 'Terintegrasi dengan fasilitas Masjid, gedung Yayasan, atau memanfaatkan ruang kelas SDIT Al Manar pada siang hari.'],
                     ['title' => 'Waktu Belajar', 'desc' => 'Dilaksanakan pukul 13.00–15.20 WIB, setelah santri menyelesaikan KBM SD pada pagi hari.'],
                     ['title' => 'Koordinasi Lembaga', 'desc' => 'Berada di bawah binaan Seksi PD Pontren Kantor Kementerian Agama Kota Bekasi, didukung FKDT Kota Bekasi.'],
                 ] as $item)
@@ -142,10 +142,10 @@
         <div class="am-container" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
             <x-section-header eyebrow="Informasi Lebih Lanjut" title="Ingin tahu lebih jauh tentang program MDTA?" align="center" />
             <p style="font-family:var(--font-sans);font-size:var(--text-md);color:var(--ink-500);margin:0;max-width:480px;line-height:1.65;">
-                Program MDTA otomatis diikuti oleh seluruh santri SDIT AL MANAR sebagai bagian dari pembelajaran terpadu sehari-hari.
+                Program MDTA otomatis diikuti oleh seluruh santri SDIT Al Manar sebagai bagian dari pembelajaran terpadu sehari-hari.
             </p>
             <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-                <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--lg">Daftar SDIT AL MANAR</a>
+                <a href="{{ route('sdit.pendaftaran') }}" class="am-btn am-btn--primary am-btn--lg">Daftar SDIT Al Manar</a>
                 <a href="{{ route('kontak') }}" class="am-btn am-btn--outline am-btn--lg">Hubungi Kami</a>
             </div>
         </div>

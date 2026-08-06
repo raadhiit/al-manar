@@ -4,8 +4,8 @@
 $navItems = [
     ['key' => 'home',     'label' => 'Beranda',         'href' => route('home')],
     ['key' => 'sekolah',  'label' => 'Sekolah',         'href' => '#', 'children' => [
-        ['key' => 'sdit', 'label' => 'SDIT AL MANAR', 'desc' => 'Sekolah Dasar Islam Terpadu', 'href' => route('sdit.index')],
-        ['key' => 'tkit', 'label' => 'KB-RA', 'desc' => 'Kelompok Bermain',       'href' => route('tkit.index')],
+        ['key' => 'sdit', 'label' => 'SDIT Al Manar', 'desc' => 'Sekolah Dasar Islam Terpadu', 'href' => route('sdit.index')],
+        ['key' => 'tkit', 'label' => 'Kelompok Bermain Raudhatul Athfal Al Manar', 'desc' => 'Pendidikan Anak Usia Dini (PAUD)', 'href' => route('tkit.index')],
         ['key' => 'mdta', 'label' => 'Program MDTA',  'desc' => 'Diniyah Takmiliyah Awaliyah',  'href' => route('sdit.mdta')],
         ['key' => 'guru', 'label' => 'Tenaga Pendidik', 'desc' => 'Profil Guru & Kepala Sekolah', 'href' => route('guru.index')],
     ]],
@@ -27,7 +27,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                 <div class="am-topbar-marquee__track">
                     <span class="am-topbar-marquee__item">
                         <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
-                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
+                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin Al Manar Kota Bekasi</span>
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
@@ -35,7 +35,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                     </span>
                     <span class="am-topbar-marquee__item" aria-hidden="true">
                         <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
-                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin AL MANAR Kota Bekasi</span>
+                        <span style="opacity:.85;">Selamat datang di Yayasan Al Muhajirin Al Manar Kota Bekasi</span>
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
@@ -52,7 +52,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
 
             {{-- Logo --}}
             <a href="{{ route('home') }}" style="display:flex;text-decoration:none;">
-                <x-logo tone="dark" :size="42" subtitle="Yayasan · Al Muhajirin AL MANAR Kota Bekasi" />
+                <x-logo tone="dark" :size="42" subtitle="Yayasan · Al Muhajirin Al Manar Kota Bekasi" />
             </a>
 
             {{-- Desktop nav --}}

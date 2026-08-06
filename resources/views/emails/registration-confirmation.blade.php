@@ -94,7 +94,7 @@
     </div>
 
     <div class="footer">
-        <strong style="color:#2E3A33;">Yayasan AL MANAR Kota Bekasi</strong><br>
+        <strong style="color:#2E3A33;">Yayasan Al Muhajirin Al Manar Kota Bekasi</strong><br>
         {{ $registration->school?->address ?? 'Kota Bekasi' }}<br>
         <a href="https://almanarkotabks.sch.id">almanarkotabks.sch.id</a>
         &nbsp;·&nbsp;

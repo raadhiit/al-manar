@@ -1,4 +1,4 @@
-<x-layouts.app navActive="galeri" title="Galeri" description="Galeri foto dan video kegiatan SDIT dan TKIT AL MANAR Kota Bekasi.">
+<x-layouts.app navActive="galeri" title="Galeri" description="Galeri foto dan video kegiatan SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar Kota Bekasi.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -17,7 +17,7 @@
 
             {{-- Filter jenjang --}}
             @php
-                $filters = ['' => 'Semua', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR'];
+                $filters = ['' => 'Semua', 'sdit' => 'SDIT', 'tkit' => 'KB-RA'];
             @endphp
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
                 @foreach($filters as $key => $label)
@@ -63,7 +63,7 @@
                                                 :tone="$album->school->level === 'sdit' ? 'sdit' : 'tkit'"
                                                 variant="soft"
                                                 size="sm"
-                                            >{{ $album->school->level === 'sdit' ? 'SDIT' : 'TKIT' }}</x-badge>
+                                            >{{ $album->school->level === 'sdit' ? 'SDIT' : 'KB-RA' }}</x-badge>
                                         @endif
                                         @if($album->type)
                                             <x-badge tone="cream" variant="soft" size="sm">{{ Str::title($album->type) }}</x-badge>

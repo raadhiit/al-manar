@@ -56,7 +56,8 @@
                     @error('student_name')<p class="am-field-error">{{ $message }}</p>@enderror
                 </div>
 
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                @if($school !== 'tkit')
+                <div style="display:grid;grid-template-columns:{{ $school === 'tkit' ? '1fr' : '1fr 1fr' }};gap:16px;">
                     <div class="am-form-group">
                         <label class="am-label">NIK Siswa <span style="color:var(--ink-400);font-weight:400;">(opsional)</span></label>
                         <input wire:model="nik" type="text" class="am-input" placeholder="16 digit NIK" maxlength="16">
@@ -66,6 +67,7 @@
                         <input wire:model="nisn" type="text" class="am-input" placeholder="10 digit NISN" maxlength="10">
                     </div>
                 </div>
+                @endif
 
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
                     <div class="am-form-group">

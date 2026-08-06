@@ -1,4 +1,4 @@
-<x-layouts.app navActive="portal" title="Informasi Kurikulum" description="Informasi kurikulum SDIT dan TKIT AL MANAR — Kurikulum Merdeka dan Standar PAUD Nasional.">
+<x-layouts.app navActive="portal" title="Informasi Kurikulum" description="Informasi kurikulum SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar — Kurikulum Merdeka dan Standar PAUD Nasional.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -13,7 +13,7 @@
             <x-section-header
                 eyebrow="Portal Akademik"
                 title="Informasi Kurikulum"
-                lead="Pendekatan pembelajaran yang kami terapkan di SDIT dan TKIT AL MANAR."
+                lead="Pendekatan pembelajaran yang kami terapkan di SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar."
                 tone="onbrand"
             />
             {{-- Sub-nav portal --}}
@@ -46,7 +46,7 @@
                     </div>
 
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.8;color:var(--ink-700);margin:0 0 20px;">
-                        SDIT AL MANAR mengimplementasikan <strong>Kurikulum Merdeka</strong> sesuai kebijakan Kemendikbudristek. Kurikulum ini berfokus pada penguatan karakter, kompetensi esensial, dan pembelajaran yang relevan bagi peserta didik.
+                        SDIT Al Manar mengimplementasikan <strong>Kurikulum Merdeka</strong> sesuai kebijakan Kemendikbudristek. Kurikulum ini berfokus pada penguatan karakter, kompetensi esensial, dan pembelajaran yang relevan bagi peserta didik.
                     </p>
 
                     <div style="display:flex;flex-direction:column;gap:14px;">
@@ -76,7 +76,7 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <div>
-                            <x-badge tone="tkit" variant="soft" size="sm" style="margin-bottom:4px;">TKIT</x-badge>
+                            <x-badge tone="tkit" variant="soft" size="sm" style="margin-bottom:4px;">KB-RA</x-badge>
                             <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0;">
                                 Standar PAUD Nasional
                             </h2>
@@ -84,7 +84,7 @@
                     </div>
 
                     <p style="font-family:var(--font-sans);font-size:var(--text-md);line-height:1.8;color:var(--ink-700);margin:0 0 20px;">
-                        TKIT AL MANAR mengacu pada <strong>Standar PAUD Nasional</strong> (Permendikbud 137/2014) yang diintegrasikan dengan nilai-nilai Islam terpadu — membentuk fondasi karakter dan kecerdasan anak usia 4–6 tahun.
+                        Kelompok Bermain Raudhatul Athfal Al Manar mengacu pada <strong>Standar PAUD Nasional</strong> (Permendikbud 137/2014) yang diintegrasikan dengan nilai-nilai Islam terpadu — membentuk fondasi karakter dan kecerdasan anak usia 4–6 tahun.
                     </p>
 
                     <div style="display:flex;flex-direction:column;gap:14px;">

@@ -28,8 +28,8 @@
         @php
         $cols = [
             ['title' => 'Sekolah', 'links' => [
-                ['label' => 'SDIT AL MANAR',      'href' => route('sdit.index')],
-                ['label' => 'KB - RA',            'href' => route('tkit.index')],
+                ['label' => 'SDIT Al Manar',      'href' => route('sdit.index')],
+                ['label' => 'Kelompok Bermain Raudhatul Athfal Al Manar', 'href' => route('tkit.index')],
             ]],
             ['title' => 'Informasi', 'links' => [
                 ['label' => 'Berita',           'href' => route('berita.index')],
@@ -39,7 +39,7 @@
             ]],
             ['title' => 'PPDB', 'links' => [
                 ['label' => 'Pendaftaran SDIT', 'href' => route('sdit.pendaftaran')],
-                ['label' => 'Pendaftaran KB - RA', 'href' => route('tkit.pendaftaran')],
+                ['label' => 'Pendaftaran RA Raudhatul Athfal', 'href' => route('tkit.pendaftaran')],
                 ['label' => 'Kontak',           'href' => route('kontak')],
             ]],
         ];
@@ -71,11 +71,11 @@
                     src="https://www.google.com/maps?q=-6.2102725,107.0270297&hl=id&z=16&output=embed"
                     style="position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;filter:grayscale(.15) contrast(1.05);"
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    title="Lokasi Yayasan AL MANAR Kota Bekasi"
+                    title="Lokasi Yayasan Al Manar Kota Bekasi"
                 ></iframe>
             </div>
             <div style="flex:1 1 200px;min-width:0;">
-                <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:#FBF8F1;margin-bottom:3px;">Lokasi AL MANAR</div>
+                <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:#FBF8F1;margin-bottom:3px;">Lokasi Yayasan Al Manar</div>
                 <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--gold-100);opacity:.75;">Bekasi Utara, Kota Bekasi</div>
             </div>
             <span style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;color:var(--gold-300);flex-shrink:0;">
@@ -87,7 +87,7 @@
 
     {{-- Copyright strip --}}
     <div class="am-container" style="margin-top:40px;padding-top:20px;padding-bottom:20px;border-top:1px solid rgba(217,171,61,0.22);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:var(--text-xs);color:var(--gold-100);opacity:.7;">
-        <span>© {{ date('Y') }} Yayasan AL MANAR Kota Bekasi. Hak cipta dilindungi.</span>
+        <span>© {{ date('Y') }} Yayasan Al Muhajirin Al Manar Kota Bekasi. Hak cipta dilindungi.</span>
         <span style="display:inline-flex;gap:18px;">
             <a href="#" style="color:inherit;">Kebijakan Privasi</a>
             <a href="#" style="color:inherit;">Syarat &amp; Ketentuan</a>

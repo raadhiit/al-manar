@@ -1,4 +1,4 @@
-<x-layouts.app navActive="tkit" title="Pendaftaran KB Raudhatul Athfal" description="Formulir pendaftaran PPDB KB Raudhatul Athfal Kota Bekasi. Daftarkan putra-putri Anda secara online.">
+<x-layouts.app navActive="tkit" title="Pendaftaran RA" :description="'Formulir pendaftaran PPDB ' . ($school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar') . ' (menerima Kelompok Bermain & RA) Kota Bekasi. Daftarkan putra-putri Anda secara online.'">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);position:relative;overflow:hidden;padding:40px 0 36px;">
@@ -6,7 +6,7 @@
         <div class="am-container" style="position:relative;">
             <x-section-header
                 eyebrow="PPDB {{ $school->tahun_ajaran_label }}"
-                title="Pendaftaran KB Raudhatul Athfal"
+                title="Pendaftaran {{ $school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}"
                 lead="Isi formulir di bawah ini untuk mendaftarkan putra-putri Anda. Proses mudah, cepat, dan bisa dari rumah."
                 tone="onbrand"
             />
@@ -53,7 +53,7 @@
                         <div style="margin-top:14px;padding:12px 16px;background:var(--cream-100);border-left:3px solid var(--green-400);border-radius:0 6px 6px 0;">
                             <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-600);margin:0;line-height:1.65;">
                                 <strong>Usia:</strong> 4–6 tahun per 1 Juli {{ $school->tahunAjaranMulaiEffective() }}.<br>
-                                Untuk informasi lebih lanjut, silakan hubungi Tata Usaha TKIT AL MANAR.
+                                Untuk informasi lebih lanjut, silakan hubungi Tata Usaha {{ $school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}.
                             </p>
                         </div>
                     </div>
@@ -89,9 +89,9 @@
                         <div style="display:flex;gap:14px;align-items:flex-start;padding:16px;background:var(--info-50);border:1px solid #BDD5EE;border-radius:var(--radius-md);">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--info-500)" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                             <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--info-500);line-height:1.65;">
-                                Untuk informasi rincian biaya KB Raudhatul Athfal, silakan hubungi kami melalui
+                                Untuk informasi rincian biaya {{ $school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}, silakan hubungi kami melalui
                                 <strong>WhatsApp <a href="https://wa.me/6282260705227" target="_blank" style="color:var(--info-500);">0822-6070-5227</a></strong>
-                                atau datang langsung ke kantor Tata Usaha KB Raudhatul Athfal.
+                                atau datang langsung ke kantor Tata Usaha {{ $school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}.
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                                 <li>Setelah submit formulir online, tim kami akan menghubungi via <strong>WhatsApp</strong> dalam 1–3 hari kerja</li>
                             </ul>
                             <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin:0;">
-                                Untuk ketentuan lengkap, silakan hubungi Tata Usaha KB Raudhatul Athfal.
+                                Untuk ketentuan lengkap, silakan hubungi Tata Usaha {{ $school->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}.
                             </p>
                         </div>
                     </div>

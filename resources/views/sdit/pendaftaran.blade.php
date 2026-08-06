@@ -1,4 +1,4 @@
-<x-layouts.app navActive="sdit" title="Pendaftaran SDIT" description="Formulir pendaftaran PPDB SDIT AL MANAR Kota Bekasi. Daftarkan putra-putri Anda secara online.">
+<x-layouts.app navActive="sdit" title="Pendaftaran SDIT" :description="'Formulir pendaftaran PPDB ' . ($school->name ?? 'SDIT Al Manar') . ' Kota Bekasi. Daftarkan putra-putri Anda secara online.'">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);position:relative;overflow:hidden;padding:40px 0 36px;">
@@ -6,7 +6,7 @@
         <div class="am-container" style="position:relative;">
             <x-section-header
                 eyebrow="PPDB {{ $school->tahun_ajaran_label }}"
-                title="Pendaftaran SDIT AL MANAR"
+                title="Pendaftaran {{ $school->name ?? 'SDIT Al Manar' }}"
                 lead="Isi formulir di bawah ini untuk mendaftarkan putra-putri Anda. Proses mudah, cepat, dan bisa dari rumah."
                 tone="onbrand"
             />

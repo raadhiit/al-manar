@@ -1,4 +1,4 @@
-<x-layouts.app navActive="portal" title="Pengumuman Akademik" description="Pengumuman dan informasi akademik SDIT dan TKIT AL MANAR.">
+<x-layouts.app navActive="portal" title="Pengumuman Akademik" description="Pengumuman dan informasi akademik SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -40,7 +40,7 @@
 
             {{-- Filter Alpine --}}
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;">
-                @foreach(['semua' => 'Semua', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR'] as $key => $label)
+                @foreach(['semua' => 'Semua', 'sdit' => 'SDIT', 'tkit' => 'KB-RA'] as $key => $label)
                     <button
                         type="button"
                         @click="filter = '{{ $key }}'"
@@ -80,7 +80,7 @@
                                             :tone="$ann->school->level === 'sdit' ? 'sdit' : 'tkit'"
                                             variant="soft"
                                             size="sm"
-                                        >{{ $ann->school->level === 'sdit' ? 'SDIT' : 'TKIT' }}</x-badge>
+                                        >{{ $ann->school->level === 'sdit' ? 'SDIT' : 'KB-RA' }}</x-badge>
                                     @endif
                                 </div>
                                 <span style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);white-space:nowrap;">

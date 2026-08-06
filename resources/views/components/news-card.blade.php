@@ -10,7 +10,7 @@
 ])
 
 @php
-$levelTone = $level === 'TKIT' ? 'tkit' : ($level === 'SDIT' ? 'sdit' : 'cream');
+$levelTone = $level === 'KB-RA' ? 'tkit' : ($level === 'SDIT' ? 'sdit' : 'cream');
 @endphp
 
 <a href="{{ $href }}" class="am-card" style="display:flex;flex-direction:{{ $compact ? 'row' : 'column' }};gap:{{ $compact ? '16px' : '0' }};text-decoration:none;">

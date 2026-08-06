@@ -1,4 +1,4 @@
-<x-layouts.app navActive="prestasi" title="Prestasi" description="Prestasi siswa SDIT dan TKIT AL MANAR — juara lomba dan kompetisi dari tingkat kecamatan hingga nasional.">
+<x-layouts.app navActive="prestasi" title="Prestasi" description="Prestasi siswa SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar — juara lomba dan kompetisi dari tingkat kecamatan hingga nasional.">
 
     {{-- ── Page header ─────────────────────────────────────────────────── --}}
     <section style="background:var(--green-800);padding:40px 0 36px;">
@@ -17,7 +17,7 @@
 
             {{-- Filter jenjang --}}
             @php
-                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT AL MANAR', 'tkit' => 'TKIT AL MANAR'];
+                $filters = ['' => 'Semua Jenjang', 'sdit' => 'SDIT', 'tkit' => 'KB-RA'];
                 $levelLabels = [
                     'kecamatan'     => 'Kecamatan',
                     'kota'          => 'Kota/Kabupaten',
@@ -69,7 +69,7 @@
                                             :tone="$achievement->school->level === 'sdit' ? 'sdit' : 'tkit'"
                                             variant="soft"
                                             size="sm"
-                                        >{{ $achievement->school->level === 'sdit' ? 'SDIT' : 'TKIT' }}</x-badge>
+                                        >{{ $achievement->school->level === 'sdit' ? 'SDIT' : 'KB-RA' }}</x-badge>
                                     @endif
                                     @if($achievement->level)
                                         <x-badge tone="cream" variant="soft" size="sm">
