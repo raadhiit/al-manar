@@ -185,7 +185,7 @@
 
                 <div class="am-reveal" style="transition-delay:160ms;">
                     <x-school-card
-                        level="KB-RA"
+                        level="KB"
                         :name="$tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar'"
                         tagline="Menerima Kelompok Bermain (KB) & RA"
                         description="Belajar sambil bermain dengan pembiasaan ibadah, adab, dan stimulasi tumbuh kembang yang menyenangkan."
@@ -337,7 +337,7 @@
                         @endif
                     </div>
                     <div class="am-principal-body" style="flex:1 1 280px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
-                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · KB-RA Al Manar</x-badge>
+                        <x-badge tone="gold" variant="soft" size="sm" style="margin-bottom:14px;">Kepala Sekolah · {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }}</x-badge>
                         <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-2xl);color:var(--green-800);margin:0 0 6px;">
                             {{ $tkitPrincipal->name }}
                         </h2>
@@ -862,6 +862,7 @@
                     @endif
                     @if($tkit?->is_ppdb)
                     <a href="{{ route('tkit.pendaftaran') }}" class="am-btn am-btn--secondary am-btn--lg am-btn--block">
+                        {{-- Daftar {{ $tkit?->name ?? 'Kelompok Bermain Raudhatul Athfal Al Manar' }} --}}
                         Daftar KB-RA Al Manar
                     </a>
                     @endif
