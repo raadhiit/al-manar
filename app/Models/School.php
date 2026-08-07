@@ -25,8 +25,10 @@ use Spatie\Activitylog\Support\LogOptions;
     'is_ppdb',
     'gelombang_1_start',
     'gelombang_1_end',
+    'gelombang_1_status',
     'gelombang_2_start',
     'gelombang_2_end',
+    'gelombang_2_status',
     'tahun_ajaran_mulai',
     'biaya_updated_at',
     'fasilitas',
@@ -82,6 +84,55 @@ class School extends Model
         }
 
         return $start->locale('id')->isoFormat('MMM') . ' s/d ' . $end->locale('id')->isoFormat('MMM YYYY');
+    }
+
+    /**
+     * Status Gelombang I: ['label' => ..., 'color' => ...] atau null jika tanggal belum diisi
+     * dan admin belum meng-override statusnya secara manual.
+     */
+    public function getGelombang1StatusInfoAttribute(): ?array
+    {
+        return $this->resolveGelombangStatus($this->gelombang_1_status, $this->gelombang_1_start, $this->gelombang_1_end);
+    }
+
+    /**
+     * Status Gelombang II. Lihat {@see getGelombang1StatusInfoAttribute()}.
+     */
+    public function getGelombang2StatusInfoAttribute(): ?array
+    {
+        return $this->resolveGelombangStatus($this->gelombang_2_status, $this->gelombang_2_start, $this->gelombang_2_end);
+    }
+
+    /**
+     * "hampir_penuh" dan "ditutup" adalah override manual dari admin (soal kuota, tidak
+     * bisa dihitung dari tanggal). Selain itu, status dihitung otomatis dari
+     * gelombang_X_start/end supaya admin tidak perlu update manual tiap hari.
+     */
+    private function resolveGelombangStatus(?string $override, ?\Carbon\Carbon $start, ?\Carbon\Carbon $end): ?array
+    {
+        if ($override === 'hampir_penuh') {
+            return ['label' => 'Hampir Penuh', 'color' => 'var(--warning-500)'];
+        }
+
+        if ($override === 'ditutup') {
+            return ['label' => 'Ditutup', 'color' => 'var(--ink-400)'];
+        }
+
+        if (! $start || ! $end) {
+            return null;
+        }
+
+        $today = now()->startOfDay();
+
+        if ($today->lt($start)) {
+            return ['label' => 'Akan Dibuka', 'color' => 'var(--info-500)'];
+        }
+
+        if ($today->gt($end)) {
+            return ['label' => 'Ditutup', 'color' => 'var(--ink-400)'];
+        }
+
+        return ['label' => 'Dibuka', 'color' => 'var(--success-500)'];
     }
 
     /**

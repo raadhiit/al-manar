@@ -69,6 +69,16 @@ class SchoolForm
                             ->label('Gelombang I — Selesai')
                             ->native(false)
                             ->afterOrEqual('gelombang_1_start'),
+                        Select::make('gelombang_1_status')
+                            ->label('Gelombang I — Status')
+                            ->helperText('Otomatis = dihitung dari tanggal di atas (Akan Dibuka/Dibuka/Ditutup). Pilih manual untuk "Hampir Penuh" atau menutup lebih awal.')
+                            ->options([
+                                'hampir_penuh' => 'Hampir Penuh',
+                                'ditutup' => 'Ditutup (paksa, sebelum tanggal selesai)',
+                            ])
+                            ->native(false)
+                            ->placeholder('Otomatis dari tanggal')
+                            ->columnSpanFull(),
                         DatePicker::make('gelombang_2_start')
                             ->label('Gelombang II — Mulai')
                             ->native(false),
@@ -76,6 +86,16 @@ class SchoolForm
                             ->label('Gelombang II — Selesai')
                             ->native(false)
                             ->afterOrEqual('gelombang_2_start'),
+                        Select::make('gelombang_2_status')
+                            ->label('Gelombang II — Status')
+                            ->helperText('Otomatis = dihitung dari tanggal di atas (Akan Dibuka/Dibuka/Ditutup). Pilih manual untuk "Hampir Penuh" atau menutup lebih awal.')
+                            ->options([
+                                'hampir_penuh' => 'Hampir Penuh',
+                                'ditutup' => 'Ditutup (paksa, sebelum tanggal selesai)',
+                            ])
+                            ->native(false)
+                            ->placeholder('Otomatis dari tanggal')
+                            ->columnSpanFull(),
                     ])
                     ->columns(2)
                     ->columnSpanFull(),

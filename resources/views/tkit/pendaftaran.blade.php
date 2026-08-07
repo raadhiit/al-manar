@@ -16,6 +16,34 @@
     <section class="am-section" style="background:var(--cream-50);padding-top:40px;">
         <div class="am-container" style="max-width:720px;">
 
+            {{-- ── Status Gelombang PPDB — selalu terlihat, tidak disembunyikan di accordion ── --}}
+            @if($school->gelombang_1_label || $school->gelombang_2_label)
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+                @if($school->gelombang_1_label)
+                <div style="flex:1 1 220px;background:var(--surface-card);border:var(--border-card);border-left:4px solid var(--green-600);border-radius:var(--radius-lg);padding:14px 18px;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                    <div>
+                        <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-500);font-weight:600;">Gelombang I</div>
+                        <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-800);font-weight:700;">{{ $school->gelombang_1_label }}</div>
+                    </div>
+                    @if($school->gelombang_1_status_info)
+                    <span style="flex-shrink:0;background:{{ $school->gelombang_1_status_info['color'] }};color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;">{{ $school->gelombang_1_status_info['label'] }}</span>
+                    @endif
+                </div>
+                @endif
+                @if($school->gelombang_2_label)
+                <div style="flex:1 1 220px;background:var(--surface-card);border:var(--border-card);border-left:4px solid var(--ink-700);border-radius:var(--radius-lg);padding:14px 18px;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                    <div>
+                        <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-500);font-weight:600;">Gelombang II</div>
+                        <div style="font-family:var(--font-sans);font-size:var(--text-sm);color:var(--ink-800);font-weight:700;">{{ $school->gelombang_2_label }}</div>
+                    </div>
+                    @if($school->gelombang_2_status_info)
+                    <span style="flex-shrink:0;background:{{ $school->gelombang_2_status_info['color'] }};color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;">{{ $school->gelombang_2_status_info['label'] }}</span>
+                    @endif
+                </div>
+                @endif
+            </div>
+            @endif
+
             {{-- ── Info Accordion ──────────────────────────────────────── --}}
             <div x-data="{ open: null }" style="margin-bottom:28px;border:var(--border-card);border-radius:var(--radius-xl);background:var(--surface-card);overflow:hidden;box-shadow:var(--shadow-sm);">
 

@@ -315,8 +315,8 @@
     "semantic_hash": "10ae98e9335c6da179464247fe126825"
   },
   "app/Filament/Resources/Schools/Schemas/SchoolForm.php": {
-    "mtime": 1786071233.4880288,
-    "ast_hash": "a5bc4b9a1a7f1b1e2a0d2cb6b66a24af",
+    "mtime": 1786108469.3081734,
+    "ast_hash": "9bd8f9ece4cfe842635136d075eb38e2",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Schools/SchoolResource.php": {
@@ -495,8 +495,8 @@
     "semantic_hash": "5f60e3d6dcaa3bd3e54e97af67000809"
   },
   "app/Models/School.php": {
-    "mtime": 1786071223.0408416,
-    "ast_hash": "9eab5a7708c5ba236e078b5f802c51bf",
+    "mtime": 1786108426.2672665,
+    "ast_hash": "fb3eba9752bb87791f5ef93f11635d77",
     "semantic_hash": ""
   },
   "app/Models/Teacher.php": {
@@ -1150,8 +1150,8 @@
     "semantic_hash": ""
   },
   "resources/views/sdit/pendaftaran.blade.php": {
-    "mtime": 1786071288.1374824,
-    "ast_hash": "954db41a9bfe356007d88293ed406748",
+    "mtime": 1786109170.1814222,
+    "ast_hash": "5d33fd37df78a12eae9011e60f3073be",
     "semantic_hash": ""
   },
   "resources/views/tkit/index.blade.php": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "resources/views/tkit/pendaftaran.blade.php": {
-    "mtime": 1786008318.9774642,
-    "ast_hash": "950b8c8ff93cb54806dc2b71349a6f7a",
+    "mtime": 1786109227.2542331,
+    "ast_hash": "6bfb34e3f229f8c53cf1e9e192ee92d3",
     "semantic_hash": ""
   },
   "resources/views/welcome.blade.php": {
@@ -1397,6 +1397,11 @@
   "app/Http/Middleware/RedirectIfWww.php": {
     "mtime": 1786073617.9858215,
     "ast_hash": "fac9fc9a6d157735ebf1ba269e09f416",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_07_120000_add_gelombang_status_to_schools_table.php": {
+    "mtime": 1786108372.511101,
+    "ast_hash": "1a33fec023cb930ea3f0514af6315770",
     "semantic_hash": ""
   }
 }
