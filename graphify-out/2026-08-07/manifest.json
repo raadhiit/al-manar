@@ -590,9 +590,9 @@
     "semantic_hash": "e66bb13691f6184c762c196427d8e685"
   },
   "bootstrap/app.php": {
-    "mtime": 1786073628.1129308,
-    "ast_hash": "aefda88f9ae826e1b0fe7391914dd452",
-    "semantic_hash": ""
+    "mtime": 1782293381.8093753,
+    "ast_hash": "1af409508a89bf168e42816535a9503b",
+    "semantic_hash": "1af409508a89bf168e42816535a9503b"
   },
   "bootstrap/providers.php": {
     "mtime": 1782293381.8093753,
@@ -1025,8 +1025,8 @@
     "semantic_hash": "49f8ba0173a939b32846ae45df121adc"
   },
   "resources/views/components/layouts/app.blade.php": {
-    "mtime": 1786073643.5566552,
-    "ast_hash": "d2c443585e8c632fa69b4ce494760a04",
+    "mtime": 1786070109.8057985,
+    "ast_hash": "47836b78f815fe0226fd8b9f9dff63ab",
     "semantic_hash": ""
   },
   "resources/views/components/logo.blade.php": {
@@ -1392,11 +1392,6 @@
   "database/migrations/2026_08_07_095228_add_biaya_updated_at_to_schools_table.php": {
     "mtime": 1786071170.4600158,
     "ast_hash": "d2562ee23e7bffdbfb1593fec3dafd5e",
-    "semantic_hash": ""
-  },
-  "app/Http/Middleware/RedirectIfWww.php": {
-    "mtime": 1786073617.9858215,
-    "ast_hash": "fac9fc9a6d157735ebf1ba269e09f416",
     "semantic_hash": ""
   }
 }

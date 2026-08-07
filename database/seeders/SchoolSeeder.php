@@ -23,6 +23,7 @@ class SchoolSeeder extends Seeder
             'gelombang_2_start' => '2027-01-01',
             'gelombang_2_end' => '2027-04-30',
             'tahun_ajaran_mulai' => 2027,
+            'biaya_updated_at' => now(),
         ]);
 
         School::create([

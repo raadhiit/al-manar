@@ -12,7 +12,15 @@
     $siteName = 'Yayasan Al Muhajirin Al Manar Kota Bekasi';
     $pageTitle = isset($title) ? $title . ' — ' . $siteName : $siteName;
     $pageDescription = $description ?? 'Yayasan Al Muhajirin Al Manar Kota Bekasi — Pendidikan Islam terpadu untuk SDIT Al Manar dan Kelompok Bermain Raudhatul Athfal Al Manar.';
-    $canonicalUrl = $canonical ?? url()->current();
+    // Canonical host is non-www (see task #14) — RedirectIfWww middleware already
+    // sends www. traffic here via 301, but normalize again so the tag is correct
+    // even if something bypasses the middleware (e.g. cached response).
+    $currentUrl = url()->current();
+    $currentHost = parse_url($currentUrl, PHP_URL_HOST);
+    if ($currentHost && str_starts_with($currentHost, 'www.')) {
+        $currentUrl = str_replace('://' . $currentHost, '://' . substr($currentHost, 4), $currentUrl);
+    }
+    $canonicalUrl = $canonical ?? $currentUrl;
     $ogImage = $image ? url($image) : asset('img/almanar.jpg');
     $baseSchema = [
         [
@@ -29,7 +37,7 @@
                 'addressRegion' => 'Jawa Barat',
                 'addressCountry' => 'ID',
             ],
-            'telephone' => '+62-822-6070-5227',
+            'telephone' => '+62-21-88887704',
             'sameAs' => [],
         ],
         [

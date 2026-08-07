@@ -101,7 +101,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach([
-                                            ['Infaq Pendidikan (SPP)', '500.000', '500.000', '500.000', '500.000'],
+                                            ['Infaq Pendidikan (SPP) / bulan', '500.000', '500.000', '500.000', '500.000'],
                                             ['Infaq Bangunan', '6.500.000', '6.500.000', '7.500.000', '7.500.000'],
                                             ['Infaq Kegiatan (KBM)', '2.060.000', '2.060.000', '2.060.000', '2.060.000'],
                                             ['Seragam', '1.200.000', '1.350.000', '1.200.000', '1.350.000'],
@@ -149,7 +149,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach([
-                                            ['Infaq Pendidikan (SPP)', '500.000', '500.000', '500.000', '500.000'],
+                                            ['Infaq Pendidikan (SPP) / bulan', '500.000', '500.000', '500.000', '500.000'],
                                             ['Infaq Bangunan', '7.500.000', '7.500.000', '8.500.000', '8.500.000'],
                                             ['Infaq Kegiatan (KBM)', '2.060.000', '2.060.000', '2.060.000', '2.060.000'],
                                             ['Seragam', '1.200.000', '1.350.000', '1.200.000', '1.350.000'],
@@ -174,9 +174,13 @@
                             </div>
                         </div>
 
-                        <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin:0;line-height:1.65;">
+                        <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin:0 0 8px;line-height:1.65;">
                             * Anak dengan ukuran seragam &gt; XXXL dikenakan biaya tambahan <strong>Rp 200.000</strong>.<br>
-                            * Infaq Pendidikan sudah termasuk: seragam 5 stel, buku paket 1 tahun, raport, asuransi, kalender, dan biaya kegiatan siswa.
+                            * Seragam dibayar terpisah sesuai nominal pada tabel di atas (tidak termasuk dalam Infaq Pendidikan).<br>
+                            * Infaq Pendidikan sudah termasuk: buku paket 1 tahun, raport, asuransi, kalender, dan biaya kegiatan siswa.
+                        </p>
+                        <p style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-400);margin:0;line-height:1.65;">
+                            Terakhir diperbarui: {{ $school->biaya_updated_label ?? 'belum tercatat' }}
                         </p>
                     </div>
                 </div>

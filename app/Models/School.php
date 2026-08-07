@@ -28,6 +28,7 @@ use Spatie\Activitylog\Support\LogOptions;
     'gelombang_2_start',
     'gelombang_2_end',
     'tahun_ajaran_mulai',
+    'biaya_updated_at',
     'fasilitas',
     'eskul',
     'hero_photos',
@@ -51,6 +52,7 @@ class School extends Model
             'gelombang_2_start' => 'date',
             'gelombang_2_end'   => 'date',
             'tahun_ajaran_mulai' => 'integer',
+            'biaya_updated_at' => 'date',
             'fasilitas'   => 'array',
             'eskul'       => 'array',
             'hero_photos' => 'array',
@@ -103,6 +105,15 @@ class School extends Model
         $start = $this->tahunAjaranMulaiEffective();
 
         return $start . '/' . ($start + 1);
+    }
+
+    /**
+     * Label "terakhir diperbarui" untuk section biaya PPDB, mis. "7 Agustus 2026".
+     * Null jika admin belum pernah mengisinya.
+     */
+    public function getBiayaUpdatedLabelAttribute(): ?string
+    {
+        return $this->biaya_updated_at?->locale('id')->isoFormat('D MMMM YYYY');
     }
 
     public function users(): HasMany

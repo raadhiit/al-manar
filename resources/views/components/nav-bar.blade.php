@@ -31,7 +31,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
-                        <span style="opacity:.85;">ppdb@almanar.sch.id</span>
+                        <span style="opacity:.85;">ppdb@almanarkotabks.sch.id</span>
                     </span>
                     <span class="am-topbar-marquee__item" aria-hidden="true">
                         <span class="am-arabic" style="font-size:14px;color:var(--gold-300);">السلام عليكم ورحمة الله وبركاته</span>
@@ -39,7 +39,7 @@ $sekolahActive = in_array($active, ['sdit', 'tkit', 'guru']);
                         <span style="opacity:.5;">&middot;</span>
                         <span style="opacity:.85;">02188887704</span>
                         <span style="opacity:.5;">&middot;</span>
-                        <span style="opacity:.85;">ppdb@almanar.sch.id</span>
+                        <span style="opacity:.85;">ppdb@almanarkotabks.sch.id</span>
                     </span>
                 </div>
             </div>

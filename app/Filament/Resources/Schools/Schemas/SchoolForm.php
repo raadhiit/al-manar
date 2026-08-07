@@ -80,6 +80,11 @@ class SchoolForm
                     ->columns(2)
                     ->columnSpanFull(),
 
+                DatePicker::make('biaya_updated_at')
+                    ->label('Biaya PPDB Terakhir Diperbarui')
+                    ->helperText('Update tanggal ini setiap kali komponen/nominal biaya PPDB di halaman pendaftaran berubah, supaya calon orang tua tahu data masih berlaku.')
+                    ->native(false),
+
                 Textarea::make('description')
                     ->label('Deskripsi Singkat')
                     ->rows(3)
