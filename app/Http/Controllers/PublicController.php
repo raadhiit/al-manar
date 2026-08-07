@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AcademicCalendar;
 use App\Models\Achievement;
 use App\Models\Activity;
 use App\Models\Announcement;
@@ -191,20 +190,7 @@ class PublicController extends Controller
 
     public function portalKalender(): View
     {
-        $jenjang = request('jenjang') ?: null;
-        $query = AcademicCalendar::with('school')->active()->latest();
-
-        if ($jenjang) {
-            $slug = $jenjang === 'tkit' ? 'kelompok-bermain-raudhatul-athfal' : $jenjang;
-            $schoolId = School::where('slug', $slug)->value('id');
-            if ($schoolId) {
-                $query->where('school_id', $schoolId);
-            }
-        }
-
-        $calendars = $query->get();
-
-        return view('portal.kalender', compact('calendars', 'jenjang'));
+        return view('portal.kalender');
     }
 
     public function portalKurikulum(): View

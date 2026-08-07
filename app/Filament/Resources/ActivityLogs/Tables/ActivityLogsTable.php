@@ -51,7 +51,7 @@ class ActivityLogsTable
             'Achievement'      => 'Prestasi',
             'Gallery'          => 'Galeri',
             'Registration'     => 'Pendaftaran',
-            'AcademicCalendar' => 'Kalender Akademik',
+            'CalendarEvent'    => 'Kalender & Agenda',
             'Announcement'     => 'Pengumuman',
             'Download'         => 'Download',
             'Rpp'              => 'RPP',

@@ -202,9 +202,9 @@ class School extends Model
         return $this->hasMany(Registration::class);
     }
 
-    public function academicCalendars(): HasMany
+    public function calendarEvents(): HasMany
     {
-        return $this->hasMany(AcademicCalendar::class);
+        return $this->hasMany(CalendarEvent::class);
     }
 
     public function announcements(): HasMany

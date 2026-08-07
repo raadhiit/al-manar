@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\AcademicCalendars\Tables;
+namespace App\Filament\Resources\CalendarEvents\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,39 +10,35 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
-class AcademicCalendarsTable
+class CalendarEventsTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
+                TextColumn::make('date_range_label')
+                    ->label('Tanggal')
+                    ->sortable(query: fn ($query, string $direction) => $query->orderBy('event_date', $direction)),
+
                 TextColumn::make('title')
-                    ->label('Judul')
+                    ->label('Judul Agenda')
                     ->searchable()
                     ->sortable()
                     ->limit(50),
 
                 TextColumn::make('school.name')
                     ->label('Jenjang')
-                    ->sortable()
-                    ->badge(),
-
-                TextColumn::make('academic_year')
-                    ->label('Tahun Ajaran')
-                    ->searchable()
+                    ->badge()
+                    ->default('Semua Unit')
                     ->sortable(),
 
-                TextColumn::make('original_filename')
-                    ->label('Nama File')
-                    ->limit(30)
-                    ->toggleable(isToggledHiddenByDefault: true),
-
-                IconColumn::make('is_active')
-                    ->label('Aktif')
-                    ->boolean(),
+                IconColumn::make('attachment_path')
+                    ->label('Lampiran')
+                    ->boolean()
+                    ->getStateUsing(fn ($record) => filled($record->attachment_path)),
 
                 TextColumn::make('created_at')
-                    ->label('Diunggah')
+                    ->label('Dibuat')
                     ->dateTime('d M Y')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -60,6 +56,6 @@ class AcademicCalendarsTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort('academic_year', 'desc');
+            ->defaultSort('event_date', 'desc');
     }
 }

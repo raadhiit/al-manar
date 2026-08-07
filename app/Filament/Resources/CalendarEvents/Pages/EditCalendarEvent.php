@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\AcademicCalendars\Pages;
+namespace App\Filament\Resources\CalendarEvents\Pages;
 
-use App\Filament\Resources\AcademicCalendars\AcademicCalendarResource;
+use App\Filament\Resources\CalendarEvents\CalendarEventResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditAcademicCalendar extends EditRecord
+class EditCalendarEvent extends EditRecord
 {
-    protected static string $resource = AcademicCalendarResource::class;
+    protected static string $resource = CalendarEventResource::class;
 
     protected function getRedirectUrl(): string
     {
