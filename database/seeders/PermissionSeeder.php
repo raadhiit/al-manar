@@ -29,6 +29,10 @@ class PermissionSeeder extends Seeder
             // Pendaftaran (tidak bisa create/force-delete — datang dari form publik)
             'ViewAny:Registration', 'View:Registration', 'Update:Registration',
 
+            // Konsultasi PPDB (leads dari form ringan publik)
+            'ViewAny:Consultation', 'View:Consultation', 'Create:Consultation', 'Update:Consultation',
+            'Delete:Consultation', 'DeleteAny:Consultation',
+
             // Kalender & Agenda
             'ViewAny:CalendarEvent', 'View:CalendarEvent',
             'Create:CalendarEvent', 'Update:CalendarEvent',

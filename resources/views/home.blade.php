@@ -866,6 +866,9 @@
                         Daftar KB-RA Al Manar
                     </a>
                     @endif
+                    <a href="{{ route('konsultasi') }}" style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--green-700);text-decoration:underline;text-underline-offset:3px;margin-top:4px;">
+                        Belum siap daftar? Konsultasi dulu
+                    </a>
                 </div>
             </div>
         </div>

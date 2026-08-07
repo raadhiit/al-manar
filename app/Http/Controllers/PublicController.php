@@ -129,6 +129,11 @@ class PublicController extends Controller
         return view('kontak', compact('sdit', 'tkit'));
     }
 
+    public function konsultasi(): View
+    {
+        return view('konsultasi');
+    }
+
     /* ── SDIT ──────────────────────────────────────────────────────── */
 
     public function sditIndex(): View
@@ -238,6 +243,7 @@ class PublicController extends Controller
             route('galeri.index'),
             route('guru.index'),
             route('kontak'),
+            route('konsultasi'),
             route('sdit.index'),
             route('sdit.mdta'),
             route('sdit.kegiatan'),
