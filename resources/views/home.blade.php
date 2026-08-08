@@ -98,24 +98,28 @@
     @php
         $statTiles = collect([
             $sdit?->founded_year ? [
-                'value' => (string) (date('Y') - $sdit->founded_year),
-                'label' => 'Tahun Berdiri',
-                'sub' => 'Sejak ' . $sdit->founded_year,
+                'title' => (date('Y') - $sdit->founded_year) . ' Tahun Berdiri',
+                'desc' => 'Melayani pendidikan Islam terpadu sejak ' . $sdit->founded_year,
+                'tone' => 'green',
+                'icon' => '<path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/>',
             ] : null,
             $studentCount > 0 ? [
-                'value' => (string) $studentCount,
-                'label' => 'Siswa Aktif',
-                'sub' => 'SDIT & KB-RA',
+                'title' => $studentCount . ' Siswa Aktif',
+                'desc' => 'Tersebar di jenjang SDIT & KB-RA',
+                'tone' => 'gold',
+                'icon' => '<path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
             ] : null,
             $teacherCount > 0 ? [
-                'value' => (string) $teacherCount,
-                'label' => 'Tenaga Pendidik',
-                'sub' => 'Guru & staff aktif',
+                'title' => $teacherCount . ' Tenaga Pendidik',
+                'desc' => 'Guru dan staff yang aktif mengajar',
+                'tone' => 'green',
+                'icon' => '<path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/>',
             ] : null,
             $sdit?->avg_tahfizh_score ? [
-                'value' => $sdit->avg_tahfizh_score,
-                'label' => 'Target Tahfizh',
-                'sub' => 'Jenjang SDIT',
+                'title' => $sdit->avg_tahfizh_score . ' Target Tahfizh',
+                'desc' => 'Capaian hafalan Al-Qur\'an jenjang SDIT',
+                'tone' => 'gold',
+                'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
             ] : null,
         ])->filter()->values();
     @endphp
@@ -136,8 +140,18 @@
             <div class="am-grid-4">
                 @foreach($statTiles as $stat)
                     <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
-                        <div style="background:rgba(251,248,241,0.06);border:1px solid rgba(217,171,61,0.25);border-radius:var(--radius-lg);padding:24px 22px;">
-                            <x-stat :value="$stat['value']" :label="$stat['label']" :sublabel="$stat['sub']" tone="onbrand" />
+                        <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:30px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;height:100%;transition:box-shadow .2s,transform .2s;" class="am-program-card">
+                            <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ $stat['tone'] === 'gold' ? 'var(--gold-100)' : 'var(--green-100)' }};">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ $stat['tone'] === 'gold' ? 'var(--gold-600)' : 'var(--green-600)' }}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{!! $stat['icon'] !!}</svg>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:6px;">
+                                <h3 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);color:var(--ink-900);margin:0;">
+                                    {{ $stat['title'] }}
+                                </h3>
+                                <p style="font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.55;color:var(--ink-500);margin:0;">
+                                    {{ $stat['desc'] }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 @endforeach

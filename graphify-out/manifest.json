@@ -1055,8 +1055,8 @@
     "semantic_hash": ""
   },
   "resources/views/home.blade.php": {
-    "mtime": 1786185726.936579,
-    "ast_hash": "76111b0404c3885a1d8b3a7bbe1981c5",
+    "mtime": 1786188416.0000923,
+    "ast_hash": "5c72efc1295f997bbbf7e947a5c8cb75",
     "semantic_hash": ""
   },
   "resources/views/kontak.blade.php": {
