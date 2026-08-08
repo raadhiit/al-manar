@@ -785,9 +785,9 @@
     "semantic_hash": "14cde3f901b32e572e53b73ef667fea2"
   },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1782293381.8278053,
-    "ast_hash": "1faa4035d0c4617d29f4c247419c4e6c",
-    "semantic_hash": "1faa4035d0c4617d29f4c247419c4e6c"
+    "mtime": 1786185868.1822793,
+    "ast_hash": "f6beea3281a924f9ade776a246779dcf",
+    "semantic_hash": ""
   },
   "database/seeders/PermissionSeeder.php": {
     "mtime": 1786182172.622907,
