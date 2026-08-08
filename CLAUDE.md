@@ -6,7 +6,7 @@ This project keeps FE skills and rules in two folders — always read from them,
 - `.claude/` — project rules, settings, the graphify skill, and ponytail skill
 
 Rules:
-- Before frontend/UI work, check `.agents/skills/` for a matching skill (e.g. design taste, minimalist UI, redesign guidance) and follow it.
+- **Mandatory pre-flight, no exceptions**: before writing or editing a single line of code for ANY frontend/UI task (new page, new component, new form, new admin view, even a small tweak to an existing view) — first read `.agents/skills/` for a matching skill AND `.claude/PONYTAIL.md`. Do this at the start of the task, not only when the user explicitly reminds you. Skipping this step and getting a fine-looking result anyway is not compliance — the process was still skipped.
 - Check `.claude/CLAUDE.md` and `.claude/settings.json` for project-specific rules and config before making changes.
 - Treat both folders as living context — re-check them when starting a new task, since skills/rules may be added or updated over time.
 

@@ -52,6 +52,30 @@ class SchoolForm
                     ->helperText('Aktifkan untuk membuka form pendaftaran online.')
                     ->required(),
 
+                Section::make('Social Proof / Capaian')
+                    ->description('Ditampilkan di band statistik homepage. Kosongkan field yang belum ada datanya — band otomatis menyembunyikan angka yang kosong, tidak akan menampilkan data palsu.')
+                    ->schema([
+                        TextInput::make('founded_year')
+                            ->label('Tahun Berdiri')
+                            ->helperText('Isi di record SDIT — dipakai sebagai tahun berdiri institusi di homepage.')
+                            ->numeric()
+                            ->minValue(1900)
+                            ->maxValue((int) date('Y')),
+                        TextInput::make('student_count')
+                            ->label('Jumlah Siswa Aktif')
+                            ->numeric()
+                            ->minValue(0),
+                        TextInput::make('avg_tahfizh_score')
+                            ->label('Target/Capaian Tahfizh')
+                            ->placeholder('Contoh: 3 Juz'),
+                        TextInput::make('alumni_destinations')
+                            ->label('Tujuan Sekolah Lanjutan Alumni')
+                            ->helperText('Pisahkan dengan koma, mis: SMPIT Al Fatih, SMP Negeri 3 Bekasi')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2)
+                    ->columnSpanFull(),
+
                 Section::make('Periode Gelombang PPDB')
                     ->description('Tampil otomatis di halaman pendaftaran. Kosongkan jika unit ini tidak memakai sistem gelombang.')
                     ->schema([
@@ -69,6 +93,16 @@ class SchoolForm
                             ->label('Gelombang I — Selesai')
                             ->native(false)
                             ->afterOrEqual('gelombang_1_start'),
+                        Select::make('gelombang_1_status')
+                            ->label('Gelombang I — Status')
+                            ->helperText('Otomatis = dihitung dari tanggal di atas (Akan Dibuka/Dibuka/Ditutup). Pilih manual untuk "Hampir Penuh" atau menutup lebih awal.')
+                            ->options([
+                                'hampir_penuh' => 'Hampir Penuh',
+                                'ditutup' => 'Ditutup (paksa, sebelum tanggal selesai)',
+                            ])
+                            ->native(false)
+                            ->placeholder('Otomatis dari tanggal')
+                            ->columnSpanFull(),
                         DatePicker::make('gelombang_2_start')
                             ->label('Gelombang II — Mulai')
                             ->native(false),
@@ -76,6 +110,16 @@ class SchoolForm
                             ->label('Gelombang II — Selesai')
                             ->native(false)
                             ->afterOrEqual('gelombang_2_start'),
+                        Select::make('gelombang_2_status')
+                            ->label('Gelombang II — Status')
+                            ->helperText('Otomatis = dihitung dari tanggal di atas (Akan Dibuka/Dibuka/Ditutup). Pilih manual untuk "Hampir Penuh" atau menutup lebih awal.')
+                            ->options([
+                                'hampir_penuh' => 'Hampir Penuh',
+                                'ditutup' => 'Ditutup (paksa, sebelum tanggal selesai)',
+                            ])
+                            ->native(false)
+                            ->placeholder('Otomatis dari tanggal')
+                            ->columnSpanFull(),
                     ])
                     ->columns(2)
                     ->columnSpanFull(),

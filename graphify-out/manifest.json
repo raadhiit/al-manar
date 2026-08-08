@@ -14,36 +14,6 @@
     "ast_hash": "809a50ae2e55c36c05345d9bf67b934f",
     "semantic_hash": "809a50ae2e55c36c05345d9bf67b934f"
   },
-  "app/Filament/Resources/AcademicCalendars/AcademicCalendarResource.php": {
-    "mtime": 1782293381.7513013,
-    "ast_hash": "12e780d425d571bca4d430a3429eb464",
-    "semantic_hash": "12e780d425d571bca4d430a3429eb464"
-  },
-  "app/Filament/Resources/AcademicCalendars/Pages/CreateAcademicCalendar.php": {
-    "mtime": 1782293381.7513013,
-    "ast_hash": "27668c4f9559e7f97778b09a65303e1b",
-    "semantic_hash": "27668c4f9559e7f97778b09a65303e1b"
-  },
-  "app/Filament/Resources/AcademicCalendars/Pages/EditAcademicCalendar.php": {
-    "mtime": 1782293381.7523012,
-    "ast_hash": "56a35a12b714166d6dcc4ed53367ac28",
-    "semantic_hash": "56a35a12b714166d6dcc4ed53367ac28"
-  },
-  "app/Filament/Resources/AcademicCalendars/Pages/ListAcademicCalendars.php": {
-    "mtime": 1782293381.7523012,
-    "ast_hash": "c1e5da8220ed6ee6cdcef3f790459fa5",
-    "semantic_hash": "c1e5da8220ed6ee6cdcef3f790459fa5"
-  },
-  "app/Filament/Resources/AcademicCalendars/Schemas/AcademicCalendarForm.php": {
-    "mtime": 1782293381.7533028,
-    "ast_hash": "fef8cb3eedbb304dd1f6f7be03e54eae",
-    "semantic_hash": "fef8cb3eedbb304dd1f6f7be03e54eae"
-  },
-  "app/Filament/Resources/AcademicCalendars/Tables/AcademicCalendarsTable.php": {
-    "mtime": 1782293381.7543018,
-    "ast_hash": "6efb5a8480c57d37bbe83518ac13eecf",
-    "semantic_hash": "6efb5a8480c57d37bbe83518ac13eecf"
-  },
   "app/Filament/Resources/Achievements/AchievementResource.php": {
     "mtime": 1782293381.7543018,
     "ast_hash": "44d2f704b0194d90d1e8d2a8b4824ce8",
@@ -115,9 +85,9 @@
     "semantic_hash": "028c25f303c18bc2c6ad4953b7d8e65e"
   },
   "app/Filament/Resources/ActivityLogs/Tables/ActivityLogsTable.php": {
-    "mtime": 1782293381.7600174,
-    "ast_hash": "2a6a4de705db157f5c9b4575f5dab68b",
-    "semantic_hash": "2a6a4de705db157f5c9b4575f5dab68b"
+    "mtime": 1786121195.0972037,
+    "ast_hash": "d28820ae6ee4e9e14cf94cfb013aa26c",
+    "semantic_hash": ""
   },
   "app/Filament/Resources/Announcements/AnnouncementResource.php": {
     "mtime": 1782293381.7600174,
@@ -315,8 +285,8 @@
     "semantic_hash": "10ae98e9335c6da179464247fe126825"
   },
   "app/Filament/Resources/Schools/Schemas/SchoolForm.php": {
-    "mtime": 1786071233.4880288,
-    "ast_hash": "a5bc4b9a1a7f1b1e2a0d2cb6b66a24af",
+    "mtime": 1786182387.033884,
+    "ast_hash": "b988698a3adcbc8b19694fa4bdf80321",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Schools/SchoolResource.php": {
@@ -415,8 +385,8 @@
     "semantic_hash": "25a307335c0719bc9a91b3f7babd186d"
   },
   "app/Http/Controllers/PublicController.php": {
-    "mtime": 1786009077.0197163,
-    "ast_hash": "3373043a44f52cfd0d94d1d564080db6",
+    "mtime": 1786182200.2880402,
+    "ast_hash": "1d271112122d6659862cdcda3bae744d",
     "semantic_hash": ""
   },
   "app/Livewire/RegistrationForm.php": {
@@ -433,11 +403,6 @@
     "mtime": 1782354755.7946959,
     "ast_hash": "31950f95319b33e8205ed03e46be15a4",
     "semantic_hash": "31950f95319b33e8205ed03e46be15a4"
-  },
-  "app/Models/AcademicCalendar.php": {
-    "mtime": 1782293381.798963,
-    "ast_hash": "56d2a4460e894329acb29d781010d744",
-    "semantic_hash": "56d2a4460e894329acb29d781010d744"
   },
   "app/Models/Achievement.php": {
     "mtime": 1782293381.798963,
@@ -495,8 +460,8 @@
     "semantic_hash": "5f60e3d6dcaa3bd3e54e97af67000809"
   },
   "app/Models/School.php": {
-    "mtime": 1786071223.0408416,
-    "ast_hash": "9eab5a7708c5ba236e078b5f802c51bf",
+    "mtime": 1786182099.2305164,
+    "ast_hash": "5f3a8500a4e7929daab9dd76abcb7828",
     "semantic_hash": ""
   },
   "app/Models/Teacher.php": {
@@ -508,11 +473,6 @@
     "mtime": 1782293381.802418,
     "ast_hash": "8eb252edab3d887f53930bd010277c8b",
     "semantic_hash": "8eb252edab3d887f53930bd010277c8b"
-  },
-  "app/Policies/AcademicCalendarPolicy.php": {
-    "mtime": 1782293381.8034487,
-    "ast_hash": "b3f9ac5aa76e95829bcb37536dbd211e",
-    "semantic_hash": "b3f9ac5aa76e95829bcb37536dbd211e"
   },
   "app/Policies/AchievementPolicy.php": {
     "mtime": 1782293381.8034487,
@@ -825,14 +785,14 @@
     "semantic_hash": "14cde3f901b32e572e53b73ef667fea2"
   },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1782293381.8278053,
-    "ast_hash": "1faa4035d0c4617d29f4c247419c4e6c",
-    "semantic_hash": "1faa4035d0c4617d29f4c247419c4e6c"
+    "mtime": 1786185868.1822793,
+    "ast_hash": "f6beea3281a924f9ade776a246779dcf",
+    "semantic_hash": ""
   },
   "database/seeders/PermissionSeeder.php": {
-    "mtime": 1785147467.3938727,
-    "ast_hash": "fa47ecc141d0a4de7709ed0cf8887800",
-    "semantic_hash": "fa47ecc141d0a4de7709ed0cf8887800"
+    "mtime": 1786182172.622907,
+    "ast_hash": "a28f00022a3548ff0b84b1addbbf29e4",
+    "semantic_hash": ""
   },
   "database/seeders/RoleSeeder.php": {
     "mtime": 1782293381.8278053,
@@ -1095,8 +1055,8 @@
     "semantic_hash": ""
   },
   "resources/views/home.blade.php": {
-    "mtime": 1786011475.9718337,
-    "ast_hash": "2e3625b137430fa90cff674eaaf20675",
+    "mtime": 1786185726.936579,
+    "ast_hash": "76111b0404c3885a1d8b3a7bbe1981c5",
     "semantic_hash": ""
   },
   "resources/views/kontak.blade.php": {
@@ -1115,8 +1075,8 @@
     "semantic_hash": ""
   },
   "resources/views/portal/kalender.blade.php": {
-    "mtime": 1786008686.8912382,
-    "ast_hash": "86a7fb44df41dcd1b253f5804985c0e9",
+    "mtime": 1786123102.9069624,
+    "ast_hash": "759b916c973963619e88288d08c0b7ae",
     "semantic_hash": ""
   },
   "resources/views/portal/kurikulum.blade.php": {
@@ -1150,8 +1110,8 @@
     "semantic_hash": ""
   },
   "resources/views/sdit/pendaftaran.blade.php": {
-    "mtime": 1786071288.1374824,
-    "ast_hash": "954db41a9bfe356007d88293ed406748",
+    "mtime": 1786111029.04419,
+    "ast_hash": "d84759ce0937a5d480264259abed626a",
     "semantic_hash": ""
   },
   "resources/views/tkit/index.blade.php": {
@@ -1165,8 +1125,8 @@
     "semantic_hash": ""
   },
   "resources/views/tkit/pendaftaran.blade.php": {
-    "mtime": 1786008318.9774642,
-    "ast_hash": "950b8c8ff93cb54806dc2b71349a6f7a",
+    "mtime": 1786109227.2542331,
+    "ast_hash": "6bfb34e3f229f8c53cf1e9e192ee92d3",
     "semantic_hash": ""
   },
   "resources/views/welcome.blade.php": {
@@ -1180,9 +1140,9 @@
     "semantic_hash": "3c6ce2e6d16444282b24a9aa63885563"
   },
   "routes/web.php": {
-    "mtime": 1786009485.6665926,
-    "ast_hash": "352b3761d3982e0b02d7badeeb2d21f8",
-    "semantic_hash": "352b3761d3982e0b02d7badeeb2d21f8"
+    "mtime": 1786124320.7399578,
+    "ast_hash": "b8a6601d61cf58c99c6858fcfd839930",
+    "semantic_hash": ""
   },
   "tests/Feature/ExampleTest.php": {
     "mtime": 1782293381.88594,
@@ -1255,8 +1215,8 @@
     "semantic_hash": "9378bd03d56baaf78bd738ab3848f142"
   },
   "CLAUDE.md": {
-    "mtime": 1785989332.3452995,
-    "ast_hash": "4446b28d85e1e13757c8629f5a2a43ef",
+    "mtime": 1786181377.3305013,
+    "ast_hash": "9af2fbf46bad30d3ec3b0124e215527b",
     "semantic_hash": ""
   },
   "README.md": {
@@ -1397,6 +1357,201 @@
   "app/Http/Middleware/RedirectIfWww.php": {
     "mtime": 1786073617.9858215,
     "ast_hash": "fac9fc9a6d157735ebf1ba269e09f416",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_07_120000_add_gelombang_status_to_schools_table.php": {
+    "mtime": 1786108372.511101,
+    "ast_hash": "1a33fec023cb930ea3f0514af6315770",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/CalendarEventResource.php": {
+    "mtime": 1786120942.034512,
+    "ast_hash": "7012453d9d91d31dd5724390139aec0d",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/Pages/CreateCalendarEvent.php": {
+    "mtime": 1786120947.2624204,
+    "ast_hash": "5f7c0a61aeb43b78da8a0288e2ba00be",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/Pages/EditCalendarEvent.php": {
+    "mtime": 1786120951.742211,
+    "ast_hash": "5d0c43dbda8a99ca4cf84bd5df53953d",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/Pages/ListCalendarEvents.php": {
+    "mtime": 1786122726.839921,
+    "ast_hash": "939b4e3e95809877292124d6cc90d289",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/Schemas/CalendarEventForm.php": {
+    "mtime": 1786122743.9357958,
+    "ast_hash": "254d229cb2d4ecc7a3b9e60a14a321ee",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/CalendarEvents/Tables/CalendarEventsTable.php": {
+    "mtime": 1786122751.4339387,
+    "ast_hash": "9ad3daab88422c3ff684ec40b4493d9b",
+    "semantic_hash": ""
+  },
+  "app/Models/CalendarEvent.php": {
+    "mtime": 1786122719.9813793,
+    "ast_hash": "ae5d070705d9c0e2d208b99d28d21d34",
+    "semantic_hash": ""
+  },
+  "app/Policies/CalendarEventPolicy.php": {
+    "mtime": 1786120902.2145019,
+    "ast_hash": "0721642dacf5b33cf2e5d2711dd86f1d",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_07_130000_create_calendar_events_table.php": {
+    "mtime": 1786120875.0083528,
+    "ast_hash": "4e6f05584523833672a775ef6ac30bb1",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_07_130100_drop_academic_calendars_table.php": {
+    "mtime": 1786120883.146503,
+    "ast_hash": "2ee318ce0517b2814bbaaa05e91d5516",
+    "semantic_hash": ""
+  },
+  "resources/views/filament/resources/calendar-events/calendar-grid.blade.php": {
+    "mtime": 1786122761.8375852,
+    "ast_hash": "d83a9a3bd00515317d248d9f5212b7dd",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_090000_add_source_to_calendar_events_table.php": {
+    "mtime": 1786122131.3018262,
+    "ast_hash": "e83adc240487c1026540236f88a5795f",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_100000_add_event_end_date_to_calendar_events_table.php": {
+    "mtime": 1786122696.4668608,
+    "ast_hash": "1e1975fcf762068ae0450c6e5e5789c5",
+    "semantic_hash": ""
+  },
+  "app/Livewire/PublicCalendar.php": {
+    "mtime": 1786123021.4591467,
+    "ast_hash": "735d32689f98e4fdbe59f17b68830913",
+    "semantic_hash": ""
+  },
+  "resources/views/livewire/public-calendar.blade.php": {
+    "mtime": 1786123067.272559,
+    "ast_hash": "8f7f731bfa59f9793825fda8b2ce23d0",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/ConsultationResource.php": {
+    "mtime": 1786124407.1593373,
+    "ast_hash": "751c3646cfbac2601d3e0cbc17e5dd2f",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/Pages/CreateConsultation.php": {
+    "mtime": 1786124424.7821088,
+    "ast_hash": "2ccecc2b5784573e1bdfabbd3974a094",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/Pages/EditConsultation.php": {
+    "mtime": 1786124430.5095756,
+    "ast_hash": "90f70caa8eded999e99ca6ca517f53a9",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/Pages/ListConsultations.php": {
+    "mtime": 1786124419.530132,
+    "ast_hash": "9f220375c259e0a9f9da580e6db30455",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/Schemas/ConsultationForm.php": {
+    "mtime": 1786124386.6073282,
+    "ast_hash": "0d90e8cd75deea36e785e522b8af2966",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Consultations/Tables/ConsultationsTable.php": {
+    "mtime": 1786124397.998776,
+    "ast_hash": "5ef51f4c0b6024b6adf1836b51f33a58",
+    "semantic_hash": ""
+  },
+  "app/Livewire/ConsultationForm.php": {
+    "mtime": 1786124268.856294,
+    "ast_hash": "68f604b9c6e48f1b914c832ab5f83851",
+    "semantic_hash": ""
+  },
+  "app/Models/Consultation.php": {
+    "mtime": 1786124246.1656885,
+    "ast_hash": "9c56cddb10dd5e1c89938146621a1b67",
+    "semantic_hash": ""
+  },
+  "app/Policies/ConsultationPolicy.php": {
+    "mtime": 1786124439.5400999,
+    "ast_hash": "bced0d3ac9cdb1623ea17ef116528d0b",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_110000_create_consultations_table.php": {
+    "mtime": 1786124240.3170779,
+    "ast_hash": "8f05ab4d2aa0e295a4820dfb695fc82d",
+    "semantic_hash": ""
+  },
+  "resources/views/konsultasi.blade.php": {
+    "mtime": 1786124303.917023,
+    "ast_hash": "65d4cbf4fa7236844222689788f781af",
+    "semantic_hash": ""
+  },
+  "resources/views/livewire/consultation-form.blade.php": {
+    "mtime": 1786124290.7800548,
+    "ast_hash": "1decdfe0fe5c300212e06d77dea4b2e4",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/CreateTestimonial.php": {
+    "mtime": 1786182152.4468427,
+    "ast_hash": "750f49d264f85e0392f6cdbc05179bdb",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/EditTestimonial.php": {
+    "mtime": 1786182157.330856,
+    "ast_hash": "ae34b0095f6a9603a4cbd23818b382cf",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/ListTestimonials.php": {
+    "mtime": 1786182147.5115812,
+    "ast_hash": "f93350305026cbe432ec4a4d3e57dcf6",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Schemas/TestimonialForm.php": {
+    "mtime": 1786182124.6299725,
+    "ast_hash": "6c2d2984e02c9b6d35c5c8c35f52fa07",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Tables/TestimonialsTable.php": {
+    "mtime": 1786182132.829849,
+    "ast_hash": "e18f923c85aea8ec5d7a399ed5e10cff",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/TestimonialResource.php": {
+    "mtime": 1786182142.2460203,
+    "ast_hash": "2fd422d5be31c093aa77fa9580c28882",
+    "semantic_hash": ""
+  },
+  "app/Models/Testimonial.php": {
+    "mtime": 1786182074.5446556,
+    "ast_hash": "ab608479b2523185bb18c5f24f35bce3",
+    "semantic_hash": ""
+  },
+  "app/Policies/TestimonialPolicy.php": {
+    "mtime": 1786182166.0410106,
+    "ast_hash": "29898f3ce2c4ba261003f1c0d0239140",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_120000_add_social_proof_fields_to_schools_table.php": {
+    "mtime": 1786182408.3157403,
+    "ast_hash": "15b41c00a08b2aed78df3f576caf3703",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_120100_create_testimonials_table.php": {
+    "mtime": 1786182067.24561,
+    "ast_hash": "5ccd2a0ef039fd375e92cfeab20c0c64",
+    "semantic_hash": ""
+  },
+  "database/seeders/TestimonialSeeder.php": {
+    "mtime": 1786184467.638443,
+    "ast_hash": "b55b411236a7c618945e72a4a9b11335",
     "semantic_hash": ""
   }
 }

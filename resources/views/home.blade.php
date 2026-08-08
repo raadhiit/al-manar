@@ -95,7 +95,32 @@
     </div> --}}
 
     {{-- ── Achievements band ──────────────────────────────────────────────── --}}
-    {{-- <section class="am-section" style="background:var(--green-800);position:relative;overflow:hidden;">
+    @php
+        $statTiles = collect([
+            $sdit?->founded_year ? [
+                'value' => (string) (date('Y') - $sdit->founded_year),
+                'label' => 'Tahun Berdiri',
+                'sub' => 'Sejak ' . $sdit->founded_year,
+            ] : null,
+            $studentCount > 0 ? [
+                'value' => (string) $studentCount,
+                'label' => 'Siswa Aktif',
+                'sub' => 'SDIT & KB-RA',
+            ] : null,
+            $teacherCount > 0 ? [
+                'value' => (string) $teacherCount,
+                'label' => 'Tenaga Pendidik',
+                'sub' => 'Guru & staff aktif',
+            ] : null,
+            $sdit?->avg_tahfizh_score ? [
+                'value' => $sdit->avg_tahfizh_score,
+                'label' => 'Target Tahfizh',
+                'sub' => 'Jenjang SDIT',
+            ] : null,
+        ])->filter()->values();
+    @endphp
+    @if($statTiles->isNotEmpty())
+    <section class="am-section" style="background:var(--green-800);position:relative;overflow:hidden;">
         <div style="position:absolute;inset:0;background-image:var(--pattern-girih);opacity:.5;" aria-hidden="true"></div>
         <div class="am-container" style="position:relative;">
             <div class="am-reveal">
@@ -109,12 +134,7 @@
             </div>
 
             <div class="am-grid-4">
-                @foreach([
-                    ['value' => '32',    'label' => 'Prestasi diraih',    'sub' => '2 tahun terakhir'],
-                    ['value' => '95%',   'label' => 'Lulusan diterima',   'sub' => 'SMP/MTs favorit'],
-                    ['value' => '3 Juz', 'label' => 'Target tahfizh',     'sub' => 'Jenjang SDIT'],
-                    ['value' => '18',    'label' => 'Ekstrakurikuler',    'sub' => 'Akademik & non-akademik'],
-                ] as $stat)
+                @foreach($statTiles as $stat)
                     <div class="am-reveal" style="transition-delay:{{ $loop->index * 70 }}ms;">
                         <div style="background:rgba(251,248,241,0.06);border:1px solid rgba(217,171,61,0.25);border-radius:var(--radius-lg);padding:24px 22px;">
                             <x-stat :value="$stat['value']" :label="$stat['label']" :sublabel="$stat['sub']" tone="onbrand" />
@@ -122,8 +142,15 @@
                     </div>
                 @endforeach
             </div>
+
+            @if($sdit?->alumni_destinations)
+                <p style="text-align:center;font-family:var(--font-sans);font-size:var(--text-sm);color:var(--gold-200);margin:32px 0 0;">
+                    Alumni melanjutkan ke: {{ $sdit->alumni_destinations }}
+                </p>
+            @endif
         </div>
-    </section> --}}
+    </section>
+    @endif
 
     {{-- ── Schools & MDTA ────────────────────────────────────────────────── --}}
     <section class="am-section" style="background:var(--surface-page);padding-bottom:calc(var(--section-y) / 2);">
@@ -404,6 +431,76 @@
             </div>
         </div>
     </section>
+
+    {{-- ── Testimoni ────────────────────────────────────────────────────── --}}
+    @if($testimonials->isNotEmpty())
+    <section class="am-section" style="background:var(--cream-50);padding-top:calc(var(--section-y) / 2);padding-bottom:calc(var(--section-y) / 2);">
+        <div class="am-container">
+            <div class="am-reveal">
+                <x-section-header
+                    eyebrow="Kata Orang Tua"
+                    title="Dipercaya oleh orang tua di Bekasi Utara"
+                    align="center"
+                    style="justify-content:center;margin-bottom:36px;"
+                />
+            </div>
+            <div class="am-reveal" x-data="{ modalOpen: false, activeId: null }">
+                {{-- Marquee horizontal, auto-scroll murni CSS (@keyframes am-marquee, sama pola dengan topbar) --}}
+                <div class="am-testimonial-marquee">
+                    <div class="am-testimonial-marquee__track">
+                        @for($rep = 0; $rep < 2; $rep++)
+                            @foreach($testimonials as $testimonial)
+                                <div
+                                    @click="modalOpen = true; activeId = {{ $testimonial->id }}"
+                                    style="flex:0 0 300px;margin-right:20px;background:var(--surface-card);border:1px solid var(--sand-400);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);padding:28px 24px;text-align:center;cursor:pointer;"
+                                    @if($rep > 0) aria-hidden="true" @endif
+                                >
+                                    <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;background:var(--green-100);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
+                                        @if($testimonial->photo_path)
+                                            <img src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
+                                        @else
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                        @endif
+                                    </div>
+                                    <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:var(--ink-900);">{{ $testimonial->parent_name }}</div>
+                                    <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-500);margin-bottom:12px;">Orang Tua · {{ $testimonial->school?->name ?? 'Al Manar' }}</div>
+                                    <p style="text-align:left;font-family:var(--font-display);font-style:italic;font-size:var(--text-sm);color:var(--ink-700);line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                                        &ldquo;{{ $testimonial->quote }}&rdquo;
+                                    </p>
+                                    <div style="margin-top:12px;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;color:var(--green-600);">Baca selengkapnya</div>
+                                </div>
+                            @endforeach
+                        @endfor
+                    </div>
+                </div>
+
+                {{-- Modal isi lengkap, 1x per testimoni (tidak diduplikasi) --}}
+                @foreach($testimonials as $testimonial)
+                    <div x-show="modalOpen && activeId === {{ $testimonial->id }}" x-cloak style="position:fixed;inset:0;z-index:70;">
+                        <div style="position:absolute;inset:0;background:rgba(13,56,41,.55);" @click="modalOpen = false"></div>
+                        <div style="position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:20px;pointer-events:none;">
+                            <div style="pointer-events:auto;background:var(--surface-card);border-radius:var(--radius-xl);max-width:520px;width:100%;max-height:80vh;overflow-y:auto;padding:44px 40px;box-shadow:var(--shadow-lg,0 20px 40px rgba(0,0,0,.2));text-align:center;position:relative;">
+                                <button type="button" @click="modalOpen = false" aria-label="Tutup" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:var(--ink-400);font-size:var(--text-xl);line-height:1;">&times;</button>
+                                <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--green-100);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;">
+                                    @if($testimonial->photo_path)
+                                        <img src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
+                                    @else
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    @endif
+                                </div>
+                                <div style="font-family:var(--font-sans);font-weight:700;font-size:var(--text-sm);color:var(--ink-900);">{{ $testimonial->parent_name }}</div>
+                                <div style="font-family:var(--font-sans);font-size:var(--text-xs);color:var(--ink-500);margin-bottom:18px;">Orang Tua · {{ $testimonial->school?->name ?? 'Al Manar' }}</div>
+                                <p style="text-align:left;font-family:var(--font-display);font-style:italic;font-size:var(--text-md);color:var(--ink-800);line-height:1.7;margin:0;">
+                                    &ldquo;{{ $testimonial->quote }}&rdquo;
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
 
     {{-- ── Kegiatan ─────────────────────────────────────────────────────── --}}
     @if($sditActivities->isNotEmpty() || $tkitActivities->isNotEmpty())
@@ -866,6 +963,9 @@
                         Daftar KB-RA Al Manar
                     </a>
                     @endif
+                    <a href="{{ route('konsultasi') }}" style="font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--green-700);text-decoration:underline;text-underline-offset:3px;margin-top:4px;">
+                        Belum siap daftar? Konsultasi dulu
+                    </a>
                 </div>
             </div>
         </div>

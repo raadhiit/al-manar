@@ -11,6 +11,7 @@ Route::get('/prestasi', [PublicController::class, 'prestasiIndex'])->name('prest
 Route::get('/galeri', [PublicController::class, 'galeriIndex'])->name('galeri.index');
 Route::get('/tenaga-pendidik', [PublicController::class, 'guruIndex'])->name('guru.index');
 Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
+Route::get('/konsultasi-ppdb', [PublicController::class, 'konsultasi'])->name('konsultasi');
 
 /* ── SDIT ──────────────────────────────────────────────────────────── */
 Route::prefix('sdit')->name('sdit.')->group(function () {

@@ -29,10 +29,18 @@ class PermissionSeeder extends Seeder
             // Pendaftaran (tidak bisa create/force-delete — datang dari form publik)
             'ViewAny:Registration', 'View:Registration', 'Update:Registration',
 
-            // Kalender Pendidikan
-            'ViewAny:AcademicCalendar', 'View:AcademicCalendar',
-            'Create:AcademicCalendar', 'Update:AcademicCalendar',
-            'Delete:AcademicCalendar', 'DeleteAny:AcademicCalendar',
+            // Konsultasi PPDB (leads dari form ringan publik)
+            'ViewAny:Consultation', 'View:Consultation', 'Create:Consultation', 'Update:Consultation',
+            'Delete:Consultation', 'DeleteAny:Consultation',
+
+            // Testimoni (social proof homepage)
+            'ViewAny:Testimonial', 'View:Testimonial', 'Create:Testimonial', 'Update:Testimonial',
+            'Delete:Testimonial', 'DeleteAny:Testimonial',
+
+            // Kalender & Agenda
+            'ViewAny:CalendarEvent', 'View:CalendarEvent',
+            'Create:CalendarEvent', 'Update:CalendarEvent',
+            'Delete:CalendarEvent', 'DeleteAny:CalendarEvent',
 
             // Pengumuman
             'ViewAny:Announcement', 'View:Announcement', 'Create:Announcement', 'Update:Announcement',

@@ -86,6 +86,7 @@ html, body { margin: 0; padding: 0; }
     --cream-100: #F6F1E6;
     --cream-200: #EDE5D4;
     --cream-300: #E2D7C0;
+    --sand-200:  #D2C4A6;
     --sand-400:  #D2C4A6;
 
     /* Ink */
@@ -347,6 +348,21 @@ html, body { margin: 0; padding: 0; }
   to {
     transform: translateX(-50%);
   }
+}
+
+/* ── Testimonial marquee (sama pola dengan topbar, durasi lebih panjang) ── */
+.am-testimonial-marquee {
+  overflow: hidden;
+}
+
+.am-testimonial-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: am-marquee 45s linear infinite;
+}
+
+.am-testimonial-marquee:hover .am-testimonial-marquee__track {
+  animation-play-state: paused;
 }
 
 .am-rule {
