@@ -33,6 +33,10 @@ class PermissionSeeder extends Seeder
             'ViewAny:Consultation', 'View:Consultation', 'Create:Consultation', 'Update:Consultation',
             'Delete:Consultation', 'DeleteAny:Consultation',
 
+            // Testimoni (social proof homepage)
+            'ViewAny:Testimonial', 'View:Testimonial', 'Create:Testimonial', 'Update:Testimonial',
+            'Delete:Testimonial', 'DeleteAny:Testimonial',
+
             // Kalender & Agenda
             'ViewAny:CalendarEvent', 'View:CalendarEvent',
             'Create:CalendarEvent', 'Update:CalendarEvent',

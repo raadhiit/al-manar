@@ -20,6 +20,10 @@ use Spatie\Activitylog\Support\LogOptions;
     'vision',
     'mission',
     'accreditation',
+    'founded_year',
+    'student_count',
+    'avg_tahfizh_score',
+    'alumni_destinations',
     'logo_path',
     'thumbnail_path',
     'is_ppdb',
@@ -49,6 +53,8 @@ class School extends Model
     {
         return [
             'is_ppdb'   => 'boolean',
+            'founded_year' => 'integer',
+            'student_count' => 'integer',
             'gelombang_1_start' => 'date',
             'gelombang_1_end'   => 'date',
             'gelombang_2_start' => 'date',
@@ -205,6 +211,11 @@ class School extends Model
     public function calendarEvents(): HasMany
     {
         return $this->hasMany(CalendarEvent::class);
+    }
+
+    public function testimonials(): HasMany
+    {
+        return $this->hasMany(Testimonial::class);
     }
 
     public function announcements(): HasMany

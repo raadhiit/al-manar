@@ -10,6 +10,7 @@ use App\Models\Gallery;
 use App\Models\News;
 use App\Models\School;
 use App\Models\Teacher;
+use App\Models\Testimonial;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
@@ -30,8 +31,11 @@ class PublicController extends Controller
         $tkitPrincipal = Teacher::forSchool($tkit?->id ?? 0)->principals()->active()->first();
         $sditActivities = Activity::with('photos')->forSchool($sdit?->id ?? 0)->latestFirst()->take(4)->get();
         $tkitActivities = Activity::with('photos')->forSchool($tkit?->id ?? 0)->latestFirst()->take(4)->get();
+        $teacherCount = Teacher::active()->count();
+        $studentCount = ($sdit?->student_count ?? 0) + ($tkit?->student_count ?? 0);
+        $testimonials = Testimonial::with('school')->published()->orderBy('display_order')->get();
 
-        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides', 'sditPrincipal', 'tkitPrincipal', 'sditActivities', 'tkitActivities'));
+        return view('home', compact('sdit', 'tkit', 'yayasan', 'latestNews', 'achievements', 'heroSlides', 'sditPrincipal', 'tkitPrincipal', 'sditActivities', 'tkitActivities', 'teacherCount', 'studentCount', 'testimonials'));
     }
 
     public function beritaIndex(): View

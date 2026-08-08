@@ -285,8 +285,8 @@
     "semantic_hash": "10ae98e9335c6da179464247fe126825"
   },
   "app/Filament/Resources/Schools/Schemas/SchoolForm.php": {
-    "mtime": 1786108469.3081734,
-    "ast_hash": "9bd8f9ece4cfe842635136d075eb38e2",
+    "mtime": 1786182387.033884,
+    "ast_hash": "b988698a3adcbc8b19694fa4bdf80321",
     "semantic_hash": ""
   },
   "app/Filament/Resources/Schools/SchoolResource.php": {
@@ -385,8 +385,8 @@
     "semantic_hash": "25a307335c0719bc9a91b3f7babd186d"
   },
   "app/Http/Controllers/PublicController.php": {
-    "mtime": 1786124332.1097016,
-    "ast_hash": "a56c4d80bd11f8034fb8a1994bec5a98",
+    "mtime": 1786182200.2880402,
+    "ast_hash": "1d271112122d6659862cdcda3bae744d",
     "semantic_hash": ""
   },
   "app/Livewire/RegistrationForm.php": {
@@ -460,8 +460,8 @@
     "semantic_hash": "5f60e3d6dcaa3bd3e54e97af67000809"
   },
   "app/Models/School.php": {
-    "mtime": 1786120894.0089693,
-    "ast_hash": "38be82797279e94e9f4c6bdd1884accc",
+    "mtime": 1786182099.2305164,
+    "ast_hash": "5f3a8500a4e7929daab9dd76abcb7828",
     "semantic_hash": ""
   },
   "app/Models/Teacher.php": {
@@ -790,8 +790,8 @@
     "semantic_hash": "1faa4035d0c4617d29f4c247419c4e6c"
   },
   "database/seeders/PermissionSeeder.php": {
-    "mtime": 1786124447.8029103,
-    "ast_hash": "3de1cbb5ab881414d685ea1c4ab986ce",
+    "mtime": 1786182172.622907,
+    "ast_hash": "a28f00022a3548ff0b84b1addbbf29e4",
     "semantic_hash": ""
   },
   "database/seeders/RoleSeeder.php": {
@@ -1055,8 +1055,8 @@
     "semantic_hash": ""
   },
   "resources/views/home.blade.php": {
-    "mtime": 1786124359.7463171,
-    "ast_hash": "d46712cd28d3e8ace43db94abb48b34f",
+    "mtime": 1786185726.936579,
+    "ast_hash": "76111b0404c3885a1d8b3a7bbe1981c5",
     "semantic_hash": ""
   },
   "resources/views/kontak.blade.php": {
@@ -1215,8 +1215,8 @@
     "semantic_hash": "9378bd03d56baaf78bd738ab3848f142"
   },
   "CLAUDE.md": {
-    "mtime": 1785989332.3452995,
-    "ast_hash": "4446b28d85e1e13757c8629f5a2a43ef",
+    "mtime": 1786181377.3305013,
+    "ast_hash": "9af2fbf46bad30d3ec3b0124e215527b",
     "semantic_hash": ""
   },
   "README.md": {
@@ -1497,6 +1497,61 @@
   "resources/views/livewire/consultation-form.blade.php": {
     "mtime": 1786124290.7800548,
     "ast_hash": "1decdfe0fe5c300212e06d77dea4b2e4",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/CreateTestimonial.php": {
+    "mtime": 1786182152.4468427,
+    "ast_hash": "750f49d264f85e0392f6cdbc05179bdb",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/EditTestimonial.php": {
+    "mtime": 1786182157.330856,
+    "ast_hash": "ae34b0095f6a9603a4cbd23818b382cf",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Pages/ListTestimonials.php": {
+    "mtime": 1786182147.5115812,
+    "ast_hash": "f93350305026cbe432ec4a4d3e57dcf6",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Schemas/TestimonialForm.php": {
+    "mtime": 1786182124.6299725,
+    "ast_hash": "6c2d2984e02c9b6d35c5c8c35f52fa07",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/Tables/TestimonialsTable.php": {
+    "mtime": 1786182132.829849,
+    "ast_hash": "e18f923c85aea8ec5d7a399ed5e10cff",
+    "semantic_hash": ""
+  },
+  "app/Filament/Resources/Testimonials/TestimonialResource.php": {
+    "mtime": 1786182142.2460203,
+    "ast_hash": "2fd422d5be31c093aa77fa9580c28882",
+    "semantic_hash": ""
+  },
+  "app/Models/Testimonial.php": {
+    "mtime": 1786182074.5446556,
+    "ast_hash": "ab608479b2523185bb18c5f24f35bce3",
+    "semantic_hash": ""
+  },
+  "app/Policies/TestimonialPolicy.php": {
+    "mtime": 1786182166.0410106,
+    "ast_hash": "29898f3ce2c4ba261003f1c0d0239140",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_120000_add_social_proof_fields_to_schools_table.php": {
+    "mtime": 1786182408.3157403,
+    "ast_hash": "15b41c00a08b2aed78df3f576caf3703",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_08_08_120100_create_testimonials_table.php": {
+    "mtime": 1786182067.24561,
+    "ast_hash": "5ccd2a0ef039fd375e92cfeab20c0c64",
+    "semantic_hash": ""
+  },
+  "database/seeders/TestimonialSeeder.php": {
+    "mtime": 1786184467.638443,
+    "ast_hash": "b55b411236a7c618945e72a4a9b11335",
     "semantic_hash": ""
   }
 }
