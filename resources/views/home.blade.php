@@ -432,15 +432,37 @@
                 />
             </div>
             <div class="am-reveal" style="max-width:840px;margin:0 auto;">
-                <div style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);">
-                    <iframe
-                        src="https://www.youtube.com/embed/eVmC6DThB94"
-                        title="Video Profil AL MANAR"
-                        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                    ></iframe>
+                {{-- Facade: the YouTube player (~1 MB of JS/CSS) only loads on click, with autoplay so it's still one click. --}}
+                <div x-data="{ play: false }" style="position:relative;aspect-ratio:16/9;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);background:#000;">
+                    <button
+                        type="button"
+                        x-show="!play"
+                        @click="play = true"
+                        aria-label="Putar video profil AL MANAR"
+                        style="position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer;"
+                    >
+                        <img
+                            src="https://img.youtube.com/vi/eVmC6DThB94/hqdefault.jpg"
+                            alt=""
+                            width="480" height="360"
+                            loading="lazy" decoding="async"
+                            style="width:100%;height:100%;object-fit:cover;display:block;opacity:.85;"
+                        >
+                        <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                            <span style="background:rgba(0,0,0,.55);border-radius:50%;width:68px;height:68px;display:flex;align-items:center;justify-content:center;">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </span>
+                        </span>
+                    </button>
+                    <template x-if="play">
+                        <iframe
+                            src="https://www.youtube.com/embed/eVmC6DThB94?autoplay=1"
+                            title="Video Profil AL MANAR"
+                            style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                        ></iframe>
+                    </template>
                 </div>
             </div>
         </div>
