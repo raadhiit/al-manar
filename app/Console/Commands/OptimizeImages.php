@@ -16,6 +16,9 @@ class OptimizeImages extends Command
 
     public function handle(): int
     {
+        // Decoding big photos with GD needs far more RAM than the CLI default.
+        @ini_set('memory_limit', '1G');
+
         $public = Storage::disk('public');
         $backup = Storage::disk('local'); // storage/app/private or storage/app, per config
         $dry = $this->option('dry-run');
@@ -49,6 +52,11 @@ class OptimizeImages extends Command
 
             clearstatcache(true, $target);
             $after = filesize($target);
+
+            // Wider than the limit yet untouched means GD silently failed (usually memory).
+            if ($after === $before && (@getimagesize($target)[0] ?? 0) > 1920) {
+                $this->warn("Unchanged but wider than 1920px: {$file} (memory_limit? try -d memory_limit=2G)");
+            }
 
             if ($dry) {
                 unlink($target);
