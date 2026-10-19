@@ -21,7 +21,7 @@ $tone   = $isKB ? 'tkit' : 'sdit';
     {{-- Media --}}
     <div style="position:relative;">
         @if($image)
-            <img src="{{ $image }}" alt="{{ $name }}" style="width:100%;height:210px;object-fit:cover;display:block;">
+            <img decoding="async" src="{{ $image }}" alt="{{ $name }}" style="width:100%;height:210px;object-fit:cover;display:block;">
         @else
             <div style="width:100%;height:210px;background:{{ $isKB ? 'var(--gold-100)' : 'var(--green-100)' }};display:flex;align-items:center;justify-content:center;">
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="{{ $isKB ? 'var(--gold-500)' : 'var(--green-400)' }}" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>

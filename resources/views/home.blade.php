@@ -320,7 +320,7 @@
                 <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
                     <div class="am-principal-photo" style="overflow:hidden;background:var(--green-100);">
                         @if($sditPrincipal->photo_path)
-                            <img src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                            <img decoding="async" src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
                         @else
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -370,7 +370,7 @@
                 <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
                     <div class="am-principal-photo" style="overflow:hidden;background:var(--gold-100);">
                         @if($tkitPrincipal->photo_path)
-                            <img src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                            <img decoding="async" src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
                         @else
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -493,7 +493,7 @@
                                 >
                                     <div style="width:48px;height:48px;border-radius:50%;overflow:hidden;background:var(--green-100);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
                                         @if($testimonial->photo_path)
-                                            <img src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
+                                            <img decoding="async" src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
                                         @else
                                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                         @endif
@@ -519,7 +519,7 @@
                                 <button type="button" @click="modalOpen = false" aria-label="Tutup" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:var(--ink-400);font-size:var(--text-xl);line-height:1;">&times;</button>
                                 <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--green-100);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;">
                                     @if($testimonial->photo_path)
-                                        <img src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
+                                        <img decoding="async" src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
                                     @else
                                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                     @endif
@@ -576,7 +576,7 @@
                         @endphp
                         <a href="{{ route('sdit.kegiatan') }}" class="am-reveal am-kegiatan-card" style="display:block;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);position:relative;background:var(--green-100);transition-delay:{{ $loop->index * 60 }}ms;">
                             @if($thumb)
-                                <img src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                <img decoding="async" src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                             @else
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green-300)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -625,7 +625,7 @@
                         @endphp
                         <a href="{{ route('tkit.kegiatan') }}" class="am-reveal am-kegiatan-card" style="display:block;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);position:relative;background:var(--gold-100);transition-delay:{{ $loop->index * 60 }}ms;">
                             @if($thumb)
-                                <img src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                <img decoding="async" src="{{ $thumb }}" alt="{{ $activity->title }}" class="am-kegiatan-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                             @else
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
@@ -728,7 +728,7 @@
                                 style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--green-100);border:3px solid var(--green-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;"
                             >
                                 @if($fotoUrl)
-                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                    <img decoding="async" src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                                 @else
                                     <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
                                 @endif
@@ -755,7 +755,7 @@
                                 style="width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--gold-100);border:3px solid var(--gold-200);display:flex;align-items:center;justify-content:center;flex-shrink:0;"
                             >
                                 @if($fotoUrl)
-                                    <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+                                    <img decoding="async" src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
                                 @else
                                     <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
                                 @endif
@@ -868,7 +868,7 @@
                         style="min-width:0;position:relative;aspect-ratio:1/1;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};background:var(--green-100);"
                     >
                         @if($fotoUrl)
-                            <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
+                            <img decoding="async" src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
                         @else
                             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                                 <span style="font-size:2.8rem;">{{ $item['icon'] ?? '🏫' }}</span>
@@ -895,7 +895,7 @@
                         style="min-width:0;position:relative;aspect-ratio:1/1;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm);cursor:{{ $fotoUrl ? 'pointer' : 'default' }};background:var(--gold-100);"
                     >
                         @if($fotoUrl)
-                            <img src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
+                            <img decoding="async" src="{{ $fotoUrl }}" alt="{{ $item['nama'] }}" class="am-fasilitas-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;" loading="lazy">
                         @else
                             <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
                                 <span style="font-size:2.8rem;">{{ $item['icon'] ?? '🏫' }}</span>

@@ -17,7 +17,7 @@ $levelTone = $level === 'KB-RA' ? 'tkit' : ($level === 'SDIT' ? 'sdit' : 'cream'
     {{-- Image --}}
     <div style="position:relative;{{ $compact ? 'flex:0 0 132px;' : '' }}">
         @if($image)
-            <img src="{{ $image }}" alt="{{ $title }}" style="width:100%;height:{{ $compact ? '100%' : '200px' }};object-fit:cover;display:block;">
+            <img decoding="async" src="{{ $image }}" alt="{{ $title }}" style="width:100%;height:{{ $compact ? '100%' : '200px' }};object-fit:cover;display:block;">
         @else
             <div style="width:100%;height:{{ $compact ? '100%' : '200px' }};min-height:100px;background:var(--green-100);display:flex;align-items:center;justify-content:center;">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
