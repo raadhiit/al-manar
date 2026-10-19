@@ -31,6 +31,7 @@
                 alt="Foto {{ $slide['school'] }} Al Manar"
                 style="width:100%;height:100%;object-fit:cover;display:block;"
                 loading="{{ $loop->first ? 'eager' : 'lazy' }}"
+                fetchpriority="{{ $loop->first ? 'high' : 'auto' }}"
             >
             <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.45) 0%, rgba(0,0,0,.72) 100%);"></div>
         </div>
@@ -320,7 +321,7 @@
                 <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
                     <div class="am-principal-photo" style="overflow:hidden;background:var(--green-100);">
                         @if($sditPrincipal->photo_path)
-                            <img decoding="async" src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                            <img decoding="async" src="{{ Storage::url($sditPrincipal->photo_path) }}" alt="{{ $sditPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" loading="lazy">
                         @else
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -370,7 +371,7 @@
                 <div class="am-reveal" style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-wrap:wrap;align-items:stretch;">
                     <div class="am-principal-photo" style="overflow:hidden;background:var(--gold-100);">
                         @if($tkitPrincipal->photo_path)
-                            <img decoding="async" src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+                            <img decoding="async" src="{{ Storage::url($tkitPrincipal->photo_path) }}" alt="{{ $tkitPrincipal->name }}" class="am-principal-img" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" loading="lazy">
                         @else
                             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -519,7 +520,7 @@
                                 <button type="button" @click="modalOpen = false" aria-label="Tutup" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:var(--ink-400);font-size:var(--text-xl);line-height:1;">&times;</button>
                                 <div style="width:60px;height:60px;border-radius:50%;overflow:hidden;background:var(--green-100);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;">
                                     @if($testimonial->photo_path)
-                                        <img decoding="async" src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;">
+                                        <img decoding="async" src="{{ Storage::url($testimonial->photo_path) }}" alt="{{ $testimonial->parent_name }}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
                                     @else
                                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green-400)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                     @endif
