@@ -62,6 +62,17 @@ class ImageOptimizerTest extends TestCase
         unlink($path);
     }
 
+    public function test_oversized_palette_png_does_not_crash(): void
+    {
+        $path = tempnam(sys_get_temp_dir(), 'img') . '.png';
+        $img = imagecreate(2500, 300); // palette (indexed) image
+        imagecolorallocate($img, 10, 20, 30);
+        imagepng($img, $path);
+
+        $this->assertSame($path, ImageOptimizer::optimize($path)); // used to throw TypeError on imagealphablending(false)
+        unlink($path);
+    }
+
     public function test_non_image_is_left_alone(): void
     {
         $path = tempnam(sys_get_temp_dir(), 'txt');

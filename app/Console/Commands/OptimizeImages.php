@@ -41,7 +41,12 @@ class OptimizeImages extends Command
                 $backup->put("image-backup/{$file}", $public->get($file));
             }
 
-            ImageOptimizer::optimize($target);
+            try {
+                ImageOptimizer::optimize($target);
+            } catch (\Throwable $e) {
+                $this->warn("Skipped {$file}: {$e->getMessage()}");
+            }
+
             clearstatcache(true, $target);
             $after = filesize($target);
 

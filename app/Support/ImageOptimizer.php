@@ -24,20 +24,21 @@ class ImageOptimizer
         $before = filesize($path);
         $img = $type === IMAGETYPE_JPEG ? @imagecreatefromjpeg($path) : @imagecreatefrompng($path);
 
-        if (! $img) {
+        // Palette (indexed) PNGs make imagescale() return false, so work in truecolor.
+        if (! $img || ! imagepalettetotruecolor($img)) {
             return $path;
         }
 
         // GD drops EXIF when re-encoding, so bake the orientation into the pixels first.
         if ($type === IMAGETYPE_JPEG && function_exists('exif_read_data')) {
             $angle = [3 => 180, 6 => -90, 8 => 90][@exif_read_data($path)['Orientation'] ?? 1] ?? 0;
-            if ($angle) {
-                $img = imagerotate($img, $angle, 0);
+            if ($angle && ! ($img = imagerotate($img, $angle, 0))) {
+                return $path;
             }
         }
 
-        if (imagesx($img) > $maxWidth) {
-            $img = imagescale($img, $maxWidth, -1, IMG_BICUBIC);
+        if (imagesx($img) > $maxWidth && ! ($img = imagescale($img, $maxWidth, -1, IMG_BICUBIC))) {
+            return $path;
         }
 
         if ($type === IMAGETYPE_PNG && $pngToJpeg && ! self::pngHasAlpha($path)) {
